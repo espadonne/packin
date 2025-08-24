@@ -1,6 +1,6 @@
 # Sultree YUM Repository
 
-This repository contains RPM packages for `sultree` - a SELinux-aware tree command.
+This repository contains RPM packages for `sultree` - a SELinux-aware tree command. And more packages.
 
 ## Installation Instructions
 
