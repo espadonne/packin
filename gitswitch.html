@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gitswitch - Git Identity Management | musicsian</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        .header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 2.5em; font-weight: 300; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; font-size: 1.1em; }
+        .back-link { 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            color: #5a67d8; 
+            text-decoration: none; 
+        }
+        .back-link:hover { text-decoration: underline; }
+        .package-info {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .code-block { 
+            background: #2d3748; 
+            color: #e2e8f0; 
+            padding: 20px; 
+            border-radius: 6px; 
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.4;
+            white-space: pre;
+        }
+        .install-section { 
+            background: #f7fafc; 
+            border-radius: 8px; 
+            padding: 20px; 
+            border-left: 4px solid #38a169;
+            margin: 20px 0;
+        }
+        .install-title { 
+            font-weight: 600; 
+            margin-bottom: 10px; 
+            color: #2d3748;
+        }
+        .comment { color: #a0aec0; }
+        .quick-links { 
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn { 
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px; 
+            background: #5a67d8; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #4c51bf; }
+        .btn-outline { 
+            background: transparent; 
+            color: #5a67d8; 
+            border: 1px solid #5a67d8; 
+        }
+        .btn-outline:hover { 
+            background: #5a67d8; 
+            color: white; 
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Repository</a>
+    
+    <div class="header">
+        <h1>🔀 Gitswitch - Git Identity Management</h1>
+        <p>Safe Git identity switching with SSH/GPG isolation</p>
+    </div>
+
+    <div class="package-info">
+        <p>C port with security hardening for developers working with multiple Git accounts, ensuring credentials never leak between identities. Features comprehensive SSH/GPG isolation, health checking, and secure configuration management.</p>
+        
+        <div class="install-section">
+            <div class="install-title">🚀 Quick Install</div>
+            <div class="code-block"><span class="comment"># Add repository</span><br>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/gitswitch.repo<br>
+<br>
+<span class="comment"># Install package</span><br>
+sudo dnf install gitswitch<br>
+<br>
+<span class="comment"># Add a new Git identity</span><br>
+gitswitch add</div>
+        </div>
+
+        <div class="quick-links">
+            <a href="RPMS/" class="btn">📂 Browse Files</a>
+            <a href="gitswitch.repo" class="btn-outline btn">⬇️ Download .repo</a>
+            <a href="RPMS/gitswitch-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+        </div>
+
+        <h3>Full Usage Documentation</h3>
+        <div class="code-block">Usage: gitswitch [OPTIONS] [COMMAND] [ARGS]
+
+Complete Git Identity Management
+Safe git identity switching with actual git configuration management
+
+Commands:
+  add                  Add new account interactively
+  list, ls             List all configured accounts
+  remove <account>     Remove specified account
+  status               Show current account status
+  doctor, health       Run comprehensive health check
+  config               Show configuration file information
+  <account>            Switch to specified account
+
+Options:
+  --global, -g         Use global git scope
+  --local, -l          Use local git scope (default)
+  --dry-run, -n        Show what would be done without executing
+  --verbose, -V        Enable verbose output
+  --debug, -d          Enable debug logging
+  --color, -c          Force color output
+  --no-color, -C       Disable color output
+  --help, -h           Show this help message
+  --version, -v        Show version information
+
+Examples:
+  gitswitch add                    # Add new account interactively
+  gitswitch list                   # List all accounts
+  gitswitch 1                      # Switch to account ID 1
+  gitswitch work                   # Switch to account matching 'work'
+  gitswitch remove 2               # Remove account ID 2
+  gitswitch doctor                 # Run health check
+
+Key Features:
+- Secure TOML configuration management
+- Interactive account creation with validation
+- Comprehensive account health checking
+- SSH/GPG key validation and security checks
+- Atomic configuration file operations
+- Safe file permission handling
+- Actual git configuration switching
+- Repository detection and scope management
+- Git configuration validation and testing</div>
+    </div>
+</body>
+</html>

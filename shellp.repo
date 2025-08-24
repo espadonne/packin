@@ -1,0 +1,5 @@
+[musicsian]
+name=musicsian RPM Repository  
+baseurl=https://repos.musicsian.com/
+enabled=1
+gpgcheck=0

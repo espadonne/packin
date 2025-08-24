@@ -1,0 +1,6 @@
+[sultree]
+name=Sultree - SELinux-aware tree command (Local)
+baseurl=file:///home/espadon/sultree-repo
+enabled=1
+gpgcheck=0
+repo_gpgcheck=0

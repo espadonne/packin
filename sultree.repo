@@ -1,0 +1,6 @@
+[sultree]
+name=Sultree - SELinux-aware tree command
+baseurl=https://repos.musicsian.com/sultree
+enabled=1
+gpgcheck=0
+repo_gpgcheck=0

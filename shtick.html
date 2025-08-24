@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shtick - Shell Configuration Manager | musicsian</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        .header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 2.5em; font-weight: 300; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; font-size: 1.1em; }
+        .back-link { 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            color: #5a67d8; 
+            text-decoration: none; 
+        }
+        .back-link:hover { text-decoration: underline; }
+        .package-info {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .code-block { 
+            background: #2d3748; 
+            color: #e2e8f0; 
+            padding: 20px; 
+            border-radius: 6px; 
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.4;
+            white-space: pre;
+        }
+        .install-section { 
+            background: #f7fafc; 
+            border-radius: 8px; 
+            padding: 20px; 
+            border-left: 4px solid #38a169;
+            margin: 20px 0;
+        }
+        .install-title { 
+            font-weight: 600; 
+            margin-bottom: 10px; 
+            color: #2d3748;
+        }
+        .comment { color: #a0aec0; }
+        .quick-links { 
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn { 
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px; 
+            background: #5a67d8; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #4c51bf; }
+        .btn-outline { 
+            background: transparent; 
+            color: #5a67d8; 
+            border: 1px solid #5a67d8; 
+        }
+        .btn-outline:hover { 
+            background: #5a67d8; 
+            color: white; 
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Repository</a>
+    
+    <div class="header">
+        <h1>🐚 Shtick - Shell Configuration Manager</h1>
+        <p>Shell configuration manager with support for 16 different shells</p>
+    </div>
+
+    <div class="package-info">
+        <p>Provides persistent aliases, environment variables, and functions across bash, zsh, fish, nu, elvish, and more. Manage different environments with groups and activate/deactivate them as needed.</p>
+        
+        <div class="install-section">
+            <div class="install-title">🚀 Quick Install</div>
+            <div class="code-block"><span class="comment"># Add repository</span><br>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/shtick.repo<br>
+<br>
+<span class="comment"># Install package</span><br>
+sudo dnf install shtick<br>
+<br>
+<span class="comment"># Add a persistent alias across all shells</span><br>
+shtick alias ll='ls -la'</div>
+        </div>
+
+        <div class="quick-links">
+            <a href="RPMS/" class="btn">📂 Browse Files</a>
+            <a href="shtick.repo" class="btn-outline btn">⬇️ Download .repo</a>
+            <a href="RPMS/shtick-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+        </div>
+
+        <h3>Full Usage Documentation</h3>
+        <div class="code-block">shtick - Shell configuration manager (C port)
+
+Usage:
+  shtick alias                          Show all aliases
+  shtick alias <key>                    Show specific alias definition
+  shtick alias <key=value>              Add persistent alias
+
+  shtick env                            Show all environment variables
+  shtick env <key>                      Show specific env var definition
+  shtick env <key=value>                Add persistent env var
+
+  shtick function                       Show all functions
+  shtick function <name>                Show function or create interactively
+  shtick function <name=body>           Add persistent function
+  shtick function -f <file> <name>      Add function from file
+
+  shtick add alias <group> <key=value>  Add alias to group
+  shtick add env <group> <key=value>    Add env var to group
+  shtick add function <group> <name[=body]>  Add function to group
+
+  shtick remove <search>                Remove item from any group
+  shtick remove alias <group> <search>  Remove alias from specific group
+  shtick remove env <group> <search>    Remove env var from specific group
+  shtick remove function <group> <search>  Remove function from specific group
+
+  shtick create <group>                 Create a new group
+  shtick delete <group>                 Delete a group and all its items
+  shtick rename <old> <new>             Rename a group
+  shtick groups                         List all groups
+
+  shtick activate <group>               Activate a group
+  shtick deactivate <group>             Deactivate a group
+  shtick status                         Show status
+  shtick list                           List all items
+  shtick generate [shell|all]           Generate shell files
+  shtick shells                         List all supported shells
+  shtick init [shell]                   Show setup instructions
+  shtick completions [shell|all]        Generate shell completions
+
+Examples:
+  shtick alias ll='ls -la'              # Quick alias
+  shtick function mkcd                  # Interactive function editor
+  shtick function greet='echo "Hello, $1!"'  # One-line function
+  shtick create work                    # Create 'work' group
+  shtick add function work deploy='./scripts/deploy.sh prod'
+  shtick activate work                  # Activate work environment
+  shtick groups                         # List all groups
+  shtick init                           # Show setup instructions
+  shtick generate all                   # Generate for all 16 shells
+  shtick completions bash               # Generate bash completions
+
+Supported shells (16 total):
+  Common: bash, zsh, fish, ksh, tcsh, csh, dash, pwsh
+  Modern: xonsh, elvish, nu, ion
+  Others: ash, mksh, pdksh, yash
+
+Generate for all shells:
+  shtick generate all                   # Generate for all 16 shells
+  shtick completions all                # Generate completions for all shells
+
+Completion Setup:
+  Bash:     source ~/.config/shtick/completion.bash
+  Zsh:      fpath=(~/.config/shtick $fpath)
+  Fish:     Completions load automatically
+  Pwsh:     . ~/.config/shtick/completion.ps1
+  Elvish:   use shtick-completions
+  Nu:       source ~/.config/nu/completions/shtick-completions.nu</div>
+    </div>
+</body>
+</html>

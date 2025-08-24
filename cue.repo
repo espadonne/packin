@@ -1,0 +1,5 @@
+[cue]
+name=Cue - CLI Spotify Controller
+baseurl=https://repos.musicsian.com/
+enabled=1
+gpgcheck=0

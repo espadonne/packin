@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cue - CLI Spotify Controller | musicsian</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        .header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 2.5em; font-weight: 300; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; font-size: 1.1em; }
+        .back-link { 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            color: #5a67d8; 
+            text-decoration: none; 
+        }
+        .back-link:hover { text-decoration: underline; }
+        .package-info {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .code-block { 
+            background: #2d3748; 
+            color: #e2e8f0; 
+            padding: 20px; 
+            border-radius: 6px; 
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.4;
+            white-space: pre;
+        }
+        .install-section { 
+            background: #f7fafc; 
+            border-radius: 8px; 
+            padding: 20px; 
+            border-left: 4px solid #38a169;
+            margin: 20px 0;
+        }
+        .install-title { 
+            font-weight: 600; 
+            margin-bottom: 10px; 
+            color: #2d3748;
+        }
+        .comment { color: #a0aec0; }
+        .quick-links { 
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn { 
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px; 
+            background: #5a67d8; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #4c51bf; }
+        .btn-outline { 
+            background: transparent; 
+            color: #5a67d8; 
+            border: 1px solid #5a67d8; 
+        }
+        .btn-outline:hover { 
+            background: #5a67d8; 
+            color: white; 
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Repository</a>
+    
+    <div class="header">
+        <h1>𝄞 Cue - CLI Spotify Controller</h1>
+        <p>Unified CLI Spotify controller with intelligent session management</p>
+    </div>
+
+    <div class="package-info">
+        <p>Control your Spotify playback from anywhere with timed sessions, contextual modes, auto-server management, and network support. Features include queue management, device switching, volume control, and comprehensive playback history.</p>
+        
+        <div class="install-section">
+            <div class="install-title">🚀 Quick Install</div>
+            <div class="code-block"><span class="comment"># Add repository</span><br>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/cue.repo<br>
+<br>
+<span class="comment"># Install package</span><br>
+sudo dnf install cue<br>
+<br>
+<span class="comment"># Set up Spotify credentials</span><br>
+export SPOTIFY_CLIENT_ID="your_client_id"<br>
+export SPOTIFY_CLIENT_SECRET="your_client_secret"<br>
+<br>
+<span class="comment"># Try it out - focus mode for 2 hours</span><br>
+cue focus 2h<br>
+<br>
+<span class="comment"># Play a song for 3 minutes</span><br>
+cue play "Song Title" 3m</div>
+        </div>
+
+        <div class="quick-links">
+            <a href="RPMS/" class="btn">📂 Browse Files</a>
+            <a href="cue.repo" class="btn-outline btn">⬇️ Download .repo</a>
+            <a href="RPMS/cue-1.0.0-1.el9.noarch.rpm" class="btn-outline btn">📦 Direct RPM</a>
+        </div>
+
+        <h3>Full Usage Documentation</h3>
+        <div class="code-block">Cue - CLI Spotify Controller
+
+Control Spotify playback over the network with timed sessions.
+
+Examples:
+  cue play "song name"           # Play full track
+  cue play "song name" 2h        # Play for 2 hours  
+  cue play album "Abbey Road"    # Play an entire album
+  cue focus 1h                   # Start focus mode
+  cue status                     # Check what's playing
+
+Commands:
+  play           Play music for a specified duration
+  status         Show current playback status
+  stop           Stop current playbook
+  skip           Skip to next track in queue
+  health         Check server health and connection
+  queue          Manage playback queue
+  mode           Manage playback modes
+  volume         Volume control
+  device         Device control
+  focus          Start focus mode for concentration (default: 2h)
+  party          Start party mode (default: 3h)
+  workout        Start workout mode (default: 1h)
+  sleep          Start sleep mode (default: 45m)
+  morning        Start morning mode (default: 30m)
+  chill          Start chill mode (default: 1h)
+  history        Show playback history
+  config         Configure client settings
+
+Play Command:
+  cue play "song name"           # Play full track
+  cue play "song name" 2h        # Play for 2 hours
+
+  Or use subcommands for specific content types:
+  cue play playlist "Chill Vibes"      # Play full playlist
+  cue play album "Dark Side of the Moon" 45m
+  cue play artist "Bon Iver"           # Play all top tracks
+  cue play genre jazz                  # Continuous jazz
+
+Options:
+  -h, --help     show this help message and exit
+  --version      show the version number and exit
+
+Server Management:
+  --server-stop     Stop background server
+  --server-status   Show server status
+  --server-logs     Show server logs
+  --server          Run in server mode</div>
+    </div>
+</body>
+</html>
