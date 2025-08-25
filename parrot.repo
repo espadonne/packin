@@ -2,8 +2,8 @@
 # Please use the unified musicsian repository instead:
 # sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-[shellp]
-name=Shellp - Shell Process Manager (DEPRECATED - Use musicsian.repo)
+[parrot]
+name=Parrot - Intelligent CLI Assistant (DEPRECATED - Use musicsian.repo)
 baseurl=https://repos.musicsian.com
 enabled=1
 gpgcheck=0

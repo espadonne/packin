@@ -1,5 +1,10 @@
+# DEPRECATED: This individual repo file is deprecated
+# Please use the unified musicsian repository instead:
+# sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
 [cue]
-name=Cue - CLI Spotify Controller
-baseurl=https://repos.musicsian.com/
+name=Cue - CLI Spotify Controller (DEPRECATED - Use musicsian.repo)
+baseurl=https://repos.musicsian.com
 enabled=1
 gpgcheck=0
+repo_gpgcheck=0

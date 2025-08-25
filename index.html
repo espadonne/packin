@@ -6,6 +6,7 @@
     <title>Fresh RPMs</title>
     <style>
         * { box-sizing: border-box; }
+        a, a:hover, a:active, a:visited { cursor: pointer !important; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6; 
@@ -40,6 +41,16 @@
             font-size: 1.5em;
             display: flex;
             align-items: center;
+        }
+        .repo-card h2 a, 
+        .repo-card h2 a:link,
+        .repo-card h2 a:visited { 
+            cursor: pointer !important;
+        }
+        .repo-card h2 a:hover { 
+            opacity: 0.8;
+            transition: opacity 0.2s;
+            cursor: pointer !important;
         }
         .repo-icon { 
             width: 32px; 
@@ -131,6 +142,22 @@
             margin: 20px 0;
         }
         .system-info h4 { margin: 0 0 10px 0; color: #856404; }
+        
+        /* Force pointer cursor for package heading links - highest priority */
+        .repo-card h2 > a,
+        .repo-card h2 > a *,
+        .repo-card h2 > a:hover,
+        .repo-card h2 > a:hover * {
+            cursor: pointer !important;
+        }
+        
+        /* Alternative cursor test */
+        .repo-card h2 a {
+            cursor: grab !important;
+        }
+        .repo-card h2 a:hover {
+            cursor: grabbing !important;
+        }
     </style>
 </head>
 <body>
@@ -141,7 +168,7 @@
 
     <div class="repo-grid">
         <div class="repo-card">
-            <h2><a href="cue.html" style="color: inherit; text-decoration: none; cursor: pointer;"><span class="repo-icon">𝄞</span>cue</a></h2>
+            <h2><a href="cue.html" style="color: inherit; text-decoration: none; cursor: pointer !important;" onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='pointer'"><span class="repo-icon" style="cursor: pointer !important;">𝄞</span>cue</a></h2>
             <p class="repo-description">
                 Unified CLI Spotify controller with intelligent session management, queues, and contextual modes. Control your Spotify playback from anywhere with timed sessions, auto-server management, and network support.
             </p>
@@ -169,7 +196,7 @@
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
 <span class="comment"># Add repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/cue.repo<br>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
 <br>
 <span class="comment"># Install package</span><br>
 sudo dnf install cue<br>
@@ -188,13 +215,13 @@ cue play "Song Title" 3m
 
             <div class="quick-links">
                 <a href="RPMS/" class="btn">📂 Browse Files</a>
-                <a href="cue.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
                 <a href="RPMS/cue-1.0.0-1.el9.noarch.rpm" class="btn-outline btn">📦 Direct RPM</a>
             </div>
         </div>
 
         <div class="repo-card">
-            <h2><a href="sultree.html" style="color: inherit; text-decoration: none; cursor: pointer;"><span class="repo-icon">🌲</span>sultree</a></h2>
+            <h2><a href="sultree.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🌲</span>sultree</a></h2>
             <p class="repo-description">
                 SELinux-aware variant of the tree command. Display directory trees filtered by SELinux security contexts with full compatibility to the standard tree command.
             </p>
@@ -222,7 +249,7 @@ cue play "Song Title" 3m
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
 <span class="comment"># Add repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/sultree/sultree.repo<br>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
 <br>
 <span class="comment"># Install package</span><br>
 sudo dnf install sultree<br>
@@ -234,13 +261,13 @@ sultree -S passwd_file_t /etc
 
             <div class="quick-links">
                 <a href="RPMS/" class="btn">📂 Browse Files</a>
-                <a href="sultree.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
                 <a href="RPMS/sultree-0.0.8-1.el9.noarch.rpm" class="btn-outline btn">📦 Direct RPM</a>
             </div>
         </div>
 
         <div class="repo-card">
-            <h2><a href="gitswitch.html" style="color: inherit; text-decoration: none; cursor: pointer;"><span class="repo-icon">🔀</span>gitswitch</a></h2>
+            <h2><a href="gitswitch.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🔀</span>gitswitch</a></h2>
             <p class="repo-description">
                 Safe Git identity switching with SSH/GPG isolation. C port with security hardening for developers working with multiple Git accounts, ensuring credentials never leak between identities.
             </p>
@@ -268,7 +295,7 @@ sultree -S passwd_file_t /etc
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
 <span class="comment"># Add repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/gitswitch.repo<br>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
 <br>
 <span class="comment"># Install package</span><br>
 sudo dnf install gitswitch<br>
@@ -280,13 +307,13 @@ gitswitch add
 
             <div class="quick-links">
                 <a href="RPMS/" class="btn">📂 Browse Files</a>
-                <a href="gitswitch.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
                 <a href="RPMS/gitswitch-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
             </div>
         </div>
 
         <div class="repo-card">
-            <h2><a href="shtick.html" style="color: inherit; text-decoration: none; cursor: pointer;"><span class="repo-icon">🐚</span>shtick</a></h2>
+            <h2><a href="shtick.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🐚</span>shtick</a></h2>
             <p class="repo-description">
                 Shell configuration manager with support for 16 different shells. Provides persistent aliases, environment variables, and functions across bash, zsh, fish, nu, elvish, and more.
             </p>
@@ -314,7 +341,7 @@ gitswitch add
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
 <span class="comment"># Add repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/shtick.repo<br>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
 <br>
 <span class="comment"># Install package</span><br>
 sudo dnf install shtick<br>
@@ -326,13 +353,62 @@ shtick alias ll='ls -la'
 
             <div class="quick-links">
                 <a href="RPMS/" class="btn">📂 Browse Files</a>
-                <a href="shtick.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
                 <a href="RPMS/shtick-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
             </div>
         </div>
 
         <div class="repo-card">
-            <h2><a href="shellp.html" style="color: inherit; text-decoration: none; cursor: pointer;"><span class="repo-icon">📝</span>shellp</a></h2>
+            <h2><a href="parrot.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🦜</span>parrot</a></h2>
+            <p class="repo-description">
+                Intelligent CLI assistant that listens for failed command executions and provides witty, AI-powered responses with helpful suggestions. Features multi-backend architecture with three personality levels.
+            </p>
+            
+            <div class="repo-stats">
+                <div class="stat">
+                    <span class="stat-icon">📦</span>
+                    <span>1 Package</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🏷️</span>
+                    <span>v1.0.0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">📏</span>
+                    <span>8.2 MB</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🛡️</span>
+                    <span>MIT License</span>
+                </div>
+            </div>
+
+            <div class="install-section">
+                <div class="install-title">🚀 Quick Install</div>
+                <div class="code-block">
+<span class="comment"># Add repository</span><br>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
+<br>
+<span class="comment"># Install package</span><br>
+sudo dnf install parrot<br>
+<br>
+<span class="comment"># Complete setup (interactive)</span><br>
+parrot setup<br>
+<br>
+<span class="comment"># Test it out</span><br>
+parrot mock "git push" 1
+                </div>
+            </div>
+
+            <div class="quick-links">
+                <a href="RPMS/" class="btn">📂 Browse Files</a>
+                <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="RPMS/parrot-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <h2><a href="shellp.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">📝</span>shellp</a></h2>
             <p class="repo-description">
                 Friendly CLI tool that encourages better developer note-taking. Integrates with your shell to detect important development activities and prompts you to document decisions and thought processes.
             </p>
@@ -360,7 +436,7 @@ shtick alias ll='ls -la'
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
 <span class="comment"># Add repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/shellp.repo<br>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
 <br>
 <span class="comment"># Install package</span><br>
 sudo dnf install shellp<br>
@@ -379,8 +455,57 @@ shellp notes
 
             <div class="quick-links">
                 <a href="RPMS/" class="btn">📂 Browse Files</a>
-                <a href="shellp.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
                 <a href="RPMS/shellp-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <h2><a href="wmswitch.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">⚙️</span>wmswitch</a></h2>
+            <p class="repo-description">
+                Unified configuration manager for tiling window managers. Single TOML configuration generates native configs for i3, Hyprland, and AeroSpace with interactive wizard and profile management.
+            </p>
+            
+            <div class="repo-stats">
+                <div class="stat">
+                    <span class="stat-icon">📦</span>
+                    <span>1 Package</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🏷️</span>
+                    <span>v0.1.0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">📏</span>
+                    <span>128 KB</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🛡️</span>
+                    <span>MIT License</span>
+                </div>
+            </div>
+
+            <div class="install-section">
+                <div class="install-title">🚀 Quick Install</div>
+                <div class="code-block">
+<span class="comment"># Add repository</span><br>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
+<br>
+<span class="comment"># Install package</span><br>
+sudo dnf install wmswitch<br>
+<br>
+<span class="comment"># Create your first configuration</span><br>
+wmswitch wizard ~/.config/wmswitch/config.toml<br>
+<br>
+<span class="comment"># Generate configs for all supported WMs</span><br>
+wmswitch generate ~/.config/wmswitch/config.toml
+                </div>
+            </div>
+
+            <div class="quick-links">
+                <a href="RPMS/" class="btn">📂 Browse Files</a>
+                <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="RPMS/wmswitch-0.1.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
             </div>
         </div>
     </div>
@@ -388,7 +513,7 @@ shellp notes
     <div class="system-info">
         <h4>🖥️ Supported Systems</h4>
         <p><strong>Compatible with:</strong> RHEL 9+, CentOS Stream 9+, Rocky Linux 9+, AlmaLinux 9+, Fedora 35+</p>
-        <p><strong>Architectures:</strong> x86_64, noarch • <strong>Total Packages:</strong> 5</p>
+        <p><strong>Architectures:</strong> x86_64, noarch • <strong>Total Packages:</strong> 7</p>
     </div>
 
     <div class="footer">

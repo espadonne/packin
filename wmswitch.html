@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wmswitch - Unified WM Configuration Manager | musicsian</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        .header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 2.5em; font-weight: 300; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; font-size: 1.1em; }
+        .back-link { 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            color: #5a67d8; 
+            text-decoration: none; 
+        }
+        .back-link:hover { text-decoration: underline; }
+        .package-info {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .feature {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #38a169;
+        }
+        .feature-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+        .code-block { 
+            background: #2d3748; 
+            color: #e2e8f0; 
+            padding: 20px; 
+            border-radius: 6px; 
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.4;
+            white-space: pre;
+        }
+        .install-section { 
+            background: #f7fafc; 
+            border-radius: 8px; 
+            padding: 20px; 
+            border-left: 4px solid #38a169;
+            margin: 20px 0;
+        }
+        .install-title { 
+            font-weight: 600; 
+            margin-bottom: 10px; 
+            color: #2d3748;
+        }
+        .comment { color: #a0aec0; }
+        .quick-links { 
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn { 
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px; 
+            background: #5a67d8; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #4c51bf; }
+        .btn-outline { 
+            background: transparent; 
+            color: #5a67d8; 
+            border: 1px solid #5a67d8; 
+        }
+        .btn-outline:hover { 
+            background: #5a67d8; 
+            color: white; 
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Repository</a>
+    
+    <div class="header">
+        <h1>⚙️ wmswitch - Unified WM Configuration Manager</h1>
+        <p>Single TOML configuration for i3, Hyprland, and AeroSpace window managers</p>
+    </div>
+
+    <div class="package-info">
+        <p>wmswitch is a powerful configuration management tool that lets you maintain a single TOML configuration file and generate native configs for multiple tiling window managers. Perfect for users who switch between different environments or want to maintain consistent setups across multiple systems.</p>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-title">🎯 Single Source of Truth</div>
+                One TOML config generates native configs for all your window managers
+            </div>
+            <div class="feature">
+                <div class="feature-title">🔧 Interactive Wizard</div>
+                Guided setup process for easy configuration creation
+            </div>
+            <div class="feature">
+                <div class="feature-title">📦 Profile Management</div>
+                Switch between work/personal/gaming configurations instantly
+            </div>
+            <div class="feature">
+                <div class="feature-title">🔄 Migration Tools</div>
+                Import existing i3 and Hyprland configurations automatically
+            </div>
+            <div class="feature">
+                <div class="feature-title">✅ Advanced Validation</div>
+                Conflict detection and comprehensive error reporting
+            </div>
+            <div class="feature">
+                <div class="feature-title">🐚 Shell Completions</div>
+                Full bash, zsh, and fish completion support
+            </div>
+        </div>
+        
+        <div class="install-section">
+            <div class="install-title">🚀 Quick Install</div>
+            <div class="code-block"><span class="comment"># Add repository</span>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+<span class="comment"># Install package</span>
+sudo dnf install wmswitch
+
+<span class="comment"># Create your first configuration</span>
+wmswitch wizard ~/.config/wmswitch/config.toml
+
+<span class="comment"># Generate configs for all supported WMs</span>
+wmswitch generate ~/.config/wmswitch/config.toml</div>
+        </div>
+
+        <div class="quick-links">
+            <a href="RPMS/" class="btn">📂 Browse Files</a>
+            <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+            <a href="RPMS/wmswitch-0.1.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+        </div>
+
+        <h3>Supported Window Managers</h3>
+        <div class="code-block">✅ i3wm          - Full support with workspaces, keybinds, layouts
+✅ Hyprland      - Complete implementation with animations, effects  
+🚧 AeroSpace     - Framework ready (macOS support coming soon)</div>
+
+        <h3>Basic Usage Examples</h3>
+        <div class="code-block"><span class="comment"># Interactive configuration creation</span>
+wmswitch wizard config.toml
+
+<span class="comment"># Generate all WM configs</span>
+wmswitch generate config.toml
+
+<span class="comment"># Generate for current WM only</span>
+wmswitch detect generate config.toml
+
+<span class="comment"># Validate configuration</span>
+wmswitch validate config.toml
+
+<span class="comment"># Profile management</span>
+wmswitch profile create work "Work setup"
+wmswitch profile switch work
+wmswitch profile generate
+
+<span class="comment"># Migration from existing configs</span>
+wmswitch migrate auto config.toml
+wmswitch migrate i3 config.toml
+
+<span class="comment"># Dry-run mode (preview changes)</span>
+wmswitch --dry-run generate config.toml
+
+<span class="comment"># Create backups before generating</span>
+wmswitch --backup generate config.toml</div>
+
+        <h3>Sample Configuration (TOML)</h3>
+        <div class="code-block"><span class="comment"># Workspace definitions</span>
+[workspaces.dev]
+number = 1
+monitor = "main"
+
+[workspaces.web]
+number = 2
+monitor = "main"
+
+<span class="comment"># Universal keybindings</span>
+[keybinds]
+"mod+1" = "workspace 1"
+"mod+2" = "workspace 2"
+"mod+return" = "exec alacritty"
+"mod+d" = "exec rofi -show drun"
+
+<span class="comment"># i3-specific keybindings</span>
+[keybinds.i3.exclusive]
+"mod+shift+q" = "kill"
+"mod+shift+c" = "reload"
+
+<span class="comment"># Hyprland-specific keybindings</span>
+[keybinds.hyprland.exclusive]
+"mod+q" = "killactive"
+"mod+v" = "togglefloating"</div>
+    </div>
+</body>
+</html>

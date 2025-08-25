@@ -1,5 +1,10 @@
-[musicsian]
-name=musicsian RPM Repository  
-baseurl=https://repos.musicsian.com/
+# DEPRECATED: This individual repo file is deprecated
+# Please use the unified musicsian repository instead:
+# sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+[shtick]
+name=Shtick - Shell Tricks and Tools (DEPRECATED - Use musicsian.repo)
+baseurl=https://repos.musicsian.com
 enabled=1
 gpgcheck=0
+repo_gpgcheck=0

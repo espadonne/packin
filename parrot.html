@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parrot - Intelligent CLI Assistant | musicsian</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        .header { 
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 50%, #ff6b9d 100%);
+            color: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 2.5em; font-weight: 300; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; font-size: 1.1em; }
+        .back-link { 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            color: #5a67d8; 
+            text-decoration: none; 
+        }
+        .back-link:hover { text-decoration: underline; }
+        .package-info {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .code-block { 
+            background: #2d3748; 
+            color: #e2e8f0; 
+            padding: 20px; 
+            border-radius: 6px; 
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.4;
+            white-space: pre;
+        }
+        .install-section { 
+            background: #f7fafc; 
+            border-radius: 8px; 
+            padding: 20px; 
+            border-left: 4px solid #48bb78;
+            margin: 20px 0;
+        }
+        .install-title { 
+            font-weight: 600; 
+            margin-bottom: 10px; 
+            color: #2d3748;
+        }
+        .comment { color: #a0aec0; }
+        .quick-links { 
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn { 
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px; 
+            background: #ff6b6b; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #ff5252; }
+        .btn-outline { 
+            background: transparent; 
+            color: #ff6b6b; 
+            border: 1px solid #ff6b6b; 
+        }
+        .btn-outline:hover { 
+            background: #ff6b6b; 
+            color: white; 
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b6b;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .feature-card h4 {
+            margin: 0 0 10px 0;
+            color: #2d3748;
+        }
+        .personality-demo {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+        .mild { border-left: 4px solid #4299e1; }
+        .sarcastic { border-left: 4px solid #ed8936; }
+        .savage { border-left: 4px solid #f56565; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Repository</a>
+    
+    <div class="header">
+        <h1>🦜 Parrot - Intelligent CLI Assistant</h1>
+        <p>AI-powered responses for failed commands with personality</p>
+    </div>
+
+    <div class="package-info">
+        <p>Parrot is an intelligent CLI assistant that listens for failed command executions and provides witty, AI-powered responses with helpful suggestions. Features multi-backend architecture, three personality levels, and seamless shell integration for an enhanced terminal experience.</p>
+        
+        <div class="install-section">
+            <div class="install-title">🚀 Quick Install</div>
+            <div class="code-block"><span class="comment"># Add repository</span><br>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
+<br>
+<span class="comment"># Install package</span><br>
+sudo dnf install parrot<br>
+<br>
+<span class="comment"># Complete setup (interactive)</span><br>
+parrot setup</div>
+        </div>
+
+        <div class="quick-links">
+            <a href="RPMS/" class="btn">📂 Browse Files</a>
+            <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+            <a href="RPMS/parrot-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>🤖 Multi-Backend AI</h4>
+                <p>Choose from API backends (OpenAI-compatible), local LLM models via Ollama, or built-in fallback responses. Automatic failover ensures it always works.</p>
+            </div>
+            <div class="feature-card">
+                <h4>🎭 Three Personalities</h4>
+                <p>From gentle guidance to savage roasts. Pick your parrot's attitude: mild, sarcastic, or savage responses to match your mood.</p>
+            </div>
+            <div class="feature-card">
+                <h4>🔗 Shell Integration</h4>
+                <p>Seamless integration with bash and zsh. Automatically detects command failures and responds with contextual assistance.</p>
+            </div>
+            <div class="feature-card">
+                <h4>🎨 Terminal Theming</h4>
+                <p>Color-coded responses with personality-based themes. Configurable colors that adapt to your terminal setup.</p>
+            </div>
+        </div>
+
+        <h3>Personality Examples</h3>
+        <div class="personality-demo mild">
+<span class="comment"># Mild personality</span>
+$ git push
+fatal: No configured push destination
+🦜 It looks like you haven't set up a remote repository yet. Try 'git remote add origin &lt;url&gt;' first.
+        </div>
+        
+        <div class="personality-demo sarcastic">
+<span class="comment"># Sarcastic personality (default)</span>
+$ rm -rf /
+rm: cannot remove '/': Permission denied
+🦜 Oh wow, trying to nuke the system? How original. Maybe start with 'rm file.txt' and work your way up, hotshot.
+        </div>
+        
+        <div class="personality-demo savage">
+<span class="comment"># Savage personality</span>
+$ docker run hello-world
+docker: command not found
+🦜 Docker isn't installed, genius. What's next, asking why your imaginary friends aren't responding either?
+        </div>
+
+        <h3>Backend Options</h3>
+        <div class="code-block">Backend Priority System:
+1. API Backend      - OpenAI-compatible services (highest quality)
+2. Local Backend    - Ollama with phi3.5:3.8b (privacy-focused)  
+3. Fallback Backend - Built-in responses (always available)
+
+Configuration locations:
+  ~/.config/parrot/parrot.toml    # User-specific
+  /etc/parrot/parrot.toml         # System-wide
+  
+Environment variables:
+  PARROT_API_KEY                  # API authentication
+  PARROT_CONFIG                   # Custom config path
+  PARROT_PERSONALITY              # Override personality
+  PARROT_DEBUG                    # Enable debug mode</div>
+
+        <h3>Usage Examples</h3>
+        <div class="code-block">Basic Commands:
+  parrot setup                    # Interactive setup wizard
+  parrot configure                # Modify configuration  
+  parrot status                   # Show current configuration
+  parrot mock "git push" 1        # Test a specific command failure
+
+Configuration Management:
+  parrot configure backend        # Change AI backend
+  parrot configure personality    # Change response style
+  parrot configure colors         # Toggle color output
+  
+Advanced Usage:
+  PARROT_DEBUG=true parrot mock "npm install" 1
+  PARROT_CONFIG=./test.toml parrot status
+  parrot --personality savage mock "docker run" 125</div>
+
+        <h3>Installation Flows</h3>
+        <div class="code-block">Scenario 1: API Backend (OpenAI/Compatible)
+  1. Install: sudo dnf install parrot
+  2. Set API key: export PARROT_API_KEY="your-key"
+  3. Configure: parrot setup
+  4. Test: parrot mock "git push" 1
+
+Scenario 2: Local AI (Ollama)  
+  1. Install Ollama: curl -fsSL https://ollama.com/install.sh | sh
+  2. Install Parrot: sudo dnf install parrot
+  3. Setup: parrot setup (auto-downloads phi3.5:3.8b model)
+  4. Test: parrot mock "docker run" 125
+
+Scenario 3: Fallback Only
+  1. Install: sudo dnf install parrot
+  2. Setup: parrot setup (choose fallback)
+  3. Test: parrot mock "npm start" 1</div>
+
+        <h3>Key Features</h3>
+        <div class="code-block">Intelligence & AI:
+- Multi-backend architecture with automatic failover
+- OpenAI-compatible API support (GPT, Claude, Gemini, etc.)
+- Local LLM support via Ollama integration
+- Context-aware responses based on command type and error
+- Built-in fallback responses for guaranteed functionality
+
+User Experience:
+- Three distinct personalities (mild, sarcastic, savage)
+- Terminal color theming with personality-based schemes  
+- Interactive setup wizard with guided configuration
+- Shell integration for bash and zsh environments
+- Comprehensive help and status reporting
+
+Configuration & Deployment:
+- TOML-based configuration with environment overrides
+- Zero external dependencies for basic operation
+- Graceful degradation when backends are unavailable
+- RPM packaging with automated post-install setup
+- Comprehensive logging and debug capabilities</div>
+    </div>
+</body>
+</html>
