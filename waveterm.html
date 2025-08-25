@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cue - CLI Spotify Controller | musicsian</title>
+    <title>WaveTerm - Terminal Music Visualizer | musicsian</title>
     <style>
         * { box-sizing: border-box; }
         body { 
@@ -101,18 +101,40 @@
             background: #5a67d8; 
             color: white; 
         }
+        .features {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #5a67d8;
+        }
+        .features h3 { margin-top: 0; color: #2d3748; }
+        .features ul { margin: 0; padding-left: 20px; }
+        .features li { margin: 5px 0; }
     </style>
 </head>
 <body>
     <a href="index.html" class="back-link">← Back to Repository</a>
     
     <div class="header">
-        <h1>𝄞 Cue - CLI Spotify Controller</h1>
-        <p>Unified CLI Spotify controller with intelligent session management</p>
+        <h1>🌊 WaveTerm - Terminal Music Visualizer</h1>
+        <p>Modern terminal-based music visualizer with stunning ASCII art effects</p>
     </div>
 
     <div class="package-info">
-        <p>Control your Spotify playback from anywhere with timed sessions, contextual modes, auto-server management, and network support. Features include queue management, device switching, volume control, and comprehensive playback history.</p>
+        <p>WaveTerm is a modern terminal-based music visualizer inspired by web audio visualizers. Perfect for headless servers, development environments, and live performances with 15+ stunning visualizations across Basic, Advanced, and Extreme modes.</p>
+        
+        <div class="features">
+            <h3>✨ Features</h3>
+            <ul>
+                <li><strong>15+ Stunning Visualizations:</strong> Frequency bars, matrix rain, particle fields, starfield warp, ASCII flames, 4D hypercubes, fractal trees, dimensional portals, and more</li>
+                <li><strong>Headless Server Ready:</strong> Audio simulation with 8 realistic patterns (electronic, rock, ambient, jazz, dubstep, classical, techno, chill)</li>
+                <li><strong>Multiple Input Sources:</strong> Microphone, audio files, or simulated audio patterns</li>
+                <li><strong>Modern CLI Interface:</strong> Rich formatting with Click commands and interactive controls</li>
+                <li><strong>Plugin Architecture:</strong> Extensible system for custom visualizations</li>
+                <li><strong>Cross-Platform:</strong> Linux, macOS, Windows support</li>
+            </ul>
+        </div>
         
         <div class="install-section">
             <div class="install-title">🚀 Quick Install</div>
@@ -120,75 +142,61 @@
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
 # Install package
-sudo dnf install cue
+sudo dnf install waveterm
 
-# Set up Spotify credentials
-export SPOTIFY_CLIENT_ID="your_client_id"
-export SPOTIFY_CLIENT_SECRET="your_client_secret"
+# Try the demo with simulated audio
+waveterm-demo
 
-# Try it out - focus mode for 2 hours
-cue focus 2h
+# Run with specific visualization mode
+waveterm --mode starfield
 
-# Play a song for 3 minutes
-cue play "Song Title" 3m</div>
+# Run with audio simulation pattern
+waveterm --simulation electronic</div>
         </div>
 
         <div class="quick-links">
             <a href="RPMS/" class="btn">📂 Browse Files</a>
             <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
-            <a href="RPMS/cue-1.0.0-1.el9.noarch.rpm" class="btn-outline btn">📦 Direct RPM</a>
+            <a href="RPMS/waveterm-0.2.0-1.el9.noarch.rpm" class="btn-outline btn">📦 Direct RPM</a>
         </div>
 
-        <h3>Full Usage Documentation</h3>
-        <div class="code-block">Cue - CLI Spotify Controller
+        <h3>Available Visualization Modes</h3>
+        <div class="code-block"># Basic Visualizations
+bars          - Classic frequency spectrum bars
+wave          - Oscilloscope-style waveform display  
+matrix        - Matrix-style falling character rain
+particles     - ASCII particle field that reacts to audio
+circle        - Circular frequency display radiating from center
 
-Control Spotify playback over the network with timed sessions.
+# Advanced Visualizations
+starfield     - Stars flying toward screen, faster with audio
+fire          - ASCII fire effect that reacts to audio
+ocean         - Wave interference patterns
+dna           - Rotating DNA double helix
+neural        - Neural network with pulsing connections
 
-Examples:
-  cue play "song name"           # Play full track
-  cue play "song name" 2h        # Play for 2 hours  
-  cue play album "Abbey Road"    # Play an entire album
-  cue focus 1h                   # Start focus mode
-  cue status                     # Check what's playing
+# Extreme Visualizations
+glitch        - Digital glitch effects with corruption
+void          - Lovecraftian tentacles from the void
+hypercube     - 4D tesseract projection
+fractal       - Recursive fractal tree generation
+portal        - Swirling interdimensional portal</div>
 
-Commands:
-  play           Play music for a specified duration
-  status         Show current playback status
-  stop           Stop current playbook
-  skip           Skip to next track in queue
-  health         Check server health and connection
-  queue          Manage playback queue
-  mode           Manage playback modes
-  volume         Volume control
-  device         Device control
-  focus          Start focus mode for concentration (default: 2h)
-  party          Start party mode (default: 3h)
-  workout        Start workout mode (default: 1h)
-  sleep          Start sleep mode (default: 45m)
-  morning        Start morning mode (default: 30m)
-  chill          Start chill mode (default: 1h)
-  history        Show playback history
-  config         Configure client settings
+        <h3>CLI Usage Examples</h3>
+        <div class="code-block"># Start with default visualization
+waveterm
 
-Play Command:
-  cue play "song name"           # Play full track
-  cue play "song name" 2h        # Play for 2 hours
+# Use specific mode and audio pattern
+waveterm --mode glitch --simulation dubstep
 
-  Or use subcommands for specific content types:
-  cue play playlist "Chill Vibes"      # Play full playlist
-  cue play album "Dark Side of the Moon" 45m
-  cue play artist "Bon Iver"           # Play all top tracks
-  cue play genre jazz                  # Continuous jazz
+# List all available modes
+waveterm --list-modes
 
-Options:
-  -h, --help     show this help message and exit
-  --version      show the version number and exit
+# Show help and options
+waveterm --help
 
-Server Management:
-  --server-stop     Stop background server
-  --server-status   Show server status
-  --server-logs     Show server logs
-  --server          Run in server mode</div>
+# Demo mode with cycling visualizations
+waveterm-demo --duration 30</div>
     </div>
 </body>
 </html>

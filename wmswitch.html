@@ -66,6 +66,18 @@
             margin: 20px 0;
             line-height: 1.4;
             white-space: pre;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+        .code-block::selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+        .code-block::-moz-selection {
+            background: #4a5568;
+            color: #e2e8f0;
         }
         .install-section { 
             background: #f7fafc; 
@@ -79,7 +91,6 @@
             margin-bottom: 10px; 
             color: #2d3748;
         }
-        .comment { color: #a0aec0; }
         .quick-links { 
             margin-top: 20px;
             display: flex;
@@ -149,16 +160,16 @@
         
         <div class="install-section">
             <div class="install-title">🚀 Quick Install</div>
-            <div class="code-block"><span class="comment"># Add repository</span>
+            <div class="code-block"># Add repository
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-<span class="comment"># Install package</span>
+# Install package
 sudo dnf install wmswitch
 
-<span class="comment"># Create your first configuration</span>
+# Create your first configuration
 wmswitch wizard ~/.config/wmswitch/config.toml
 
-<span class="comment"># Generate configs for all supported WMs</span>
+# Generate configs for all supported WMs
 wmswitch generate ~/.config/wmswitch/config.toml</div>
         </div>
 
@@ -174,35 +185,35 @@ wmswitch generate ~/.config/wmswitch/config.toml</div>
 🚧 AeroSpace     - Framework ready (macOS support coming soon)</div>
 
         <h3>Basic Usage Examples</h3>
-        <div class="code-block"><span class="comment"># Interactive configuration creation</span>
+        <div class="code-block"># Interactive configuration creation
 wmswitch wizard config.toml
 
-<span class="comment"># Generate all WM configs</span>
+# Generate all WM configs
 wmswitch generate config.toml
 
-<span class="comment"># Generate for current WM only</span>
+# Generate for current WM only
 wmswitch detect generate config.toml
 
-<span class="comment"># Validate configuration</span>
+# Validate configuration
 wmswitch validate config.toml
 
-<span class="comment"># Profile management</span>
+# Profile management
 wmswitch profile create work "Work setup"
 wmswitch profile switch work
 wmswitch profile generate
 
-<span class="comment"># Migration from existing configs</span>
+# Migration from existing configs
 wmswitch migrate auto config.toml
 wmswitch migrate i3 config.toml
 
-<span class="comment"># Dry-run mode (preview changes)</span>
+# Dry-run mode (preview changes)
 wmswitch --dry-run generate config.toml
 
-<span class="comment"># Create backups before generating</span>
+# Create backups before generating
 wmswitch --backup generate config.toml</div>
 
         <h3>Sample Configuration (TOML)</h3>
-        <div class="code-block"><span class="comment"># Workspace definitions</span>
+        <div class="code-block"># Workspace definitions
 [workspaces.dev]
 number = 1
 monitor = "main"
@@ -211,19 +222,19 @@ monitor = "main"
 number = 2
 monitor = "main"
 
-<span class="comment"># Universal keybindings</span>
+# Universal keybindings
 [keybinds]
 "mod+1" = "workspace 1"
 "mod+2" = "workspace 2"
 "mod+return" = "exec alacritty"
 "mod+d" = "exec rofi -show drun"
 
-<span class="comment"># i3-specific keybindings</span>
+# i3-specific keybindings
 [keybinds.i3.exclusive]
 "mod+shift+q" = "kill"
 "mod+shift+c" = "reload"
 
-<span class="comment"># Hyprland-specific keybindings</span>
+# Hyprland-specific keybindings
 [keybinds.hyprland.exclusive]
 "mod+q" = "killactive"
 "mod+v" = "togglefloating"</div>

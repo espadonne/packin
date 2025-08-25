@@ -2,8 +2,8 @@
 # Please use the unified musicsian repository instead:
 # sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-[sultree]
-name=Sultree - SELinux-aware tree command (DEPRECATED - Use musicsian.repo)
+[arco]
+name=ARCO - Virtual Instrument Playground (DEPRECATED - Use musicsian.repo)
 baseurl=https://repos.musicsian.com
 enabled=1
 gpgcheck=1

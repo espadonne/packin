@@ -60,7 +60,14 @@
             margin: 10px 0;
             line-height: 1.4;
         }
-        .code-block .comment { color: #a0aec0; }
+        .code-block::selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+        .code-block::-moz-selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
         
         .features { 
             display: grid; 
@@ -152,13 +159,16 @@
         <div class="install-section">
             <div class="install-title">Method 1: Repository Installation (Recommended)</div>
             <div class="code-block">
-<span class="comment"># Add the musicsian repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
-<br>
-<span class="comment"># Install shellp</span><br>
-sudo dnf install shellp<br>
-<br>
-<span class="comment"># Set up shell integration</span><br>
+# Add the musicsian repository
+
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install shellp
+
+sudo dnf install shellp
+
+# Set up shell integration
+
 sudo /usr/share/shellp/install_hooks.sh
             </div>
         </div>
@@ -166,35 +176,48 @@ sudo /usr/share/shellp/install_hooks.sh
         <div class="install-section">
             <div class="install-title">Method 2: Direct RPM Installation</div>
             <div class="code-block">
-<span class="comment"># Install directly from URL</span><br>
-sudo dnf install https://repos.musicsian.com/RPMS/shellp-1.0.0-1.el9.x86_64.rpm<br>
-<br>
-<span class="comment"># Set up shell integration</span><br>
+# Install directly from URL
+
+sudo dnf install https://repos.musicsian.com/RPMS/shellp-1.0.0-1.el9.x86_64.rpm
+
+# Set up shell integration
+
 sudo /usr/share/shellp/install_hooks.sh
             </div>
         </div>
 
         <h2>💻 Quick Start</h2>
         <div class="code-block">
-<span class="comment"># Navigate to a project and run development commands</span><br>
-cd my-project<br>
-git status        <span class="comment"># Shellp will prompt for a note</span><br>
-npm install       <span class="comment"># Another prompt opportunity</span><br>
-<br>
-<span class="comment"># View your development story</span><br>
-shellp notes<br>
-<br>
-<span class="comment"># Search through your notes</span><br>
-shellp search "database migration"<br>
-shellp search --tag bugfix<br>
-shellp search --category git<br>
-<br>
-<span class="comment"># Manage existing notes</span><br>
-shellp manage list<br>
-shellp manage edit 3<br>
-<br>
-<span class="comment"># Project insights</span><br>
-shellp links show<br>
+# Navigate to a project and run development commands
+
+cd my-project
+
+git status        # Shellp will prompt for a note
+
+npm install       # Another prompt opportunity
+
+# View your development story
+
+shellp notes
+
+# Search through your notes
+
+shellp search "database migration"
+
+shellp search --tag bugfix
+
+shellp search --category git
+
+# Manage existing notes
+
+shellp manage list
+
+shellp manage edit 3
+
+# Project insights
+
+shellp links show
+
 shellp stats --recent 30d
         </div>
 
@@ -221,16 +244,20 @@ shellp stats --recent 30d
         <h2>🔧 Configuration</h2>
         <p>Shellp stores configuration in <code>~/.shellp/config.json</code> and can be customized:</p>
         <div class="code-block">
-<span class="comment"># View current configuration</span><br>
-shellp config show<br>
-<br>
-<span class="comment"># Adjust prompt timeout</span><br>
-shellp config set prompts.timeout 60<br>
-<br>
-<span class="comment"># Configure editor preference</span><br>
-shellp config set editor.preferred "code --wait"<br>
-<br>
-<span class="comment"># Enable auto-categorization</span><br>
+# View current configuration
+
+shellp config show
+
+# Adjust prompt timeout
+
+shellp config set prompts.timeout 60
+
+# Configure editor preference
+
+shellp config set editor.preferred "code --wait"
+
+# Enable auto-categorization
+
 shellp config set rules.auto_categorize true
         </div>
 

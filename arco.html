@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCO - Virtual Instrument Playground | musicsian</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        .header { 
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 2.5em; font-weight: 300; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; font-size: 1.1em; }
+        .back-link { 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            color: #5a67d8; 
+            text-decoration: none; 
+        }
+        .back-link:hover { text-decoration: underline; }
+        .package-info {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .code-block { 
+            background: #2d3748; 
+            color: #e2e8f0; 
+            padding: 20px; 
+            border-radius: 6px; 
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.4;
+            white-space: pre;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+        .code-block::selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+        .code-block::-moz-selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+        .install-section { 
+            background: #f7fafc; 
+            border-radius: 8px; 
+            padding: 20px; 
+            border-left: 4px solid #38a169;
+            margin: 20px 0;
+        }
+        .install-title { 
+            font-weight: 600; 
+            margin-bottom: 10px; 
+            color: #2d3748;
+        }
+        .quick-links { 
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn { 
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px; 
+            background: #5a67d8; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #4c51bf; }
+        .btn-outline { 
+            background: transparent; 
+            color: #5a67d8; 
+            border: 1px solid #5a67d8; 
+        }
+        .btn-outline:hover { 
+            background: #5a67d8; 
+            color: white; 
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .feature-box {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b6b;
+        }
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Repository</a>
+    
+    <div class="header">
+        <h1>🎹 ARCO - Virtual Instrument Playground</h1>
+        <p>Create, configure, and parameterize custom virtual instruments in the terminal</p>
+    </div>
+
+    <div class="package-info">
+        <p>ARCO (ARchitectural COmposer) is a CLI application with a TUI interface for creating virtual/MIDI instruments. It provides a complete virtual instrument playground with real-time parameter control, built-in sequencer, and comprehensive sound shaping capabilities.</p>
+        
+        <div class="install-section">
+            <div class="install-title">🚀 Quick Install</div>
+            <div class="code-block"># Add repository
+sudo wget -O /etc/yum.repos.d/arco.repo https://repos.musicsian.com/arco.repo
+
+# Install package
+sudo dnf install arco
+
+# Launch ARCO with default settings
+arco
+
+# Or set initial frequency and BPM
+arco --frequency 220 --bpm 140</div>
+        </div>
+
+        <div class="quick-links">
+            <a href="RPMS/" class="btn">📂 Browse Files</a>
+            <a href="arco.repo" class="btn-outline btn">⬇️ Download .repo</a>
+            <a href="RPMS/arco-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+        </div>
+
+        <h3>🎵 Key Features</h3>
+        <div class="feature-grid">
+            <div class="feature-box">
+                <div class="feature-title">🎹 Real-time Virtual Instrument</div>
+                <ul>
+                    <li>Multiple oscillator types (Sine, Square, Saw, Triangle)</li>
+                    <li>Piano keyboard layout (QWERTY keys A-K)</li>
+                    <li>Real-time parameter control</li>
+                    <li>Low-latency audio processing</li>
+                </ul>
+            </div>
+            <div class="feature-box">
+                <div class="feature-title">🎵 Built-in Sequencer</div>
+                <ul>
+                    <li>5 pre-built melodies in major and minor keys</li>
+                    <li>Tempo control (60-200 BPM)</li>
+                    <li>Auto-looping and transport controls</li>
+                    <li>Play/Pause/Stop functionality</li>
+                </ul>
+            </div>
+            <div class="feature-box">
+                <div class="feature-title">🔧 Sound Shaping</div>
+                <ul>
+                    <li>Filters: Low-pass, High-pass, Band-pass</li>
+                    <li>ADSR envelopes with full control</li>
+                    <li>Built-in reverb effects</li>
+                    <li>13 real-time parameters</li>
+                </ul>
+            </div>
+            <div class="feature-box">
+                <div class="feature-title">💾 Preset System</div>
+                <ul>
+                    <li>5 built-in presets (Default, Warm Pad, Bright Lead, Bass, Ethereal)</li>
+                    <li>Save/load custom presets (Press 'R')</li>
+                    <li>Automatic storage in ~/.config/arco/</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>🎮 Controls</h3>
+        <div class="code-block">Navigation:
+  TAB/SHIFT-TAB    Navigate between controls
+  ↑/↓ or +/-       Adjust parameter values
+  ENTER            Switch between panels
+
+Piano Keys:
+  | W| |E| |  | T| |Y| |U|
+  |C#|D#|  | F#|G#|A#| |
+  | | | |  | | | | | | |
+  |A|S|D|F|G|H|J|K|
+  |C|D|E|F|G|A|B|C|
+
+Sequencer:
+  SPACE or P       Play/Pause sequencer
+  X                Stop playbook
+
+Presets & Help:
+  R                Save current settings as preset
+  ?                Show/hide help
+  ESC              Close help modal
+  Q                Quit ARCO</div>
+
+        <h3>🎼 Available Melodies</h3>
+        <div class="code-block">1. C Major Scale      - Classic ascending scale (120 BPM)
+2. A Minor Arpeggio   - Smooth chord progression (100 BPM)
+3. G Major Melody     - Upbeat happy tune (140 BPM)
+4. D Minor Mood       - Contemplative piece (90 BPM)
+5. E Major Bright     - Fast energetic melody (150 BPM)</div>
+
+        <h3>⚙️ System Requirements</h3>
+        <div class="code-block">Architecture: x86_64
+OS: Linux (AlmaLinux 9+, RHEL 9+, Rocky Linux 9+, Fedora)
+Audio: ALSA-compatible sound system
+Memory: 50MB RAM minimum
+Storage: 10MB disk space</div>
+
+        <h3>🛠️ Development</h3>
+        <div class="code-block"># Install dependencies
+sudo dnf install rust cargo alsa-lib-devel pkg-config
+
+# Build from source
+git clone https://github.com/musicsian/arco.git
+cd arco
+make build
+
+# Run tests
+make test
+
+# Create RPM package
+make rpm</div>
+    </div>
+</body>
+</html>

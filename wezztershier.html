@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>wezztershier - Beautiful GUI for WezTerm Configuration</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        .header { border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
+        .install-box { background: #f4f4f4; padding: 15px; border-left: 4px solid #333; margin: 20px 0; }
+        .status-box { background: #fff3cd; padding: 15px; border-left: 4px solid #ffc107; margin: 20px 0; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .feature { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎨 wezztershier</h1>
+        <p>Beautiful GUI generator for WezTerm configuration files</p>
+    </div>
+
+    <div class="status-box">
+        <strong>⚠️ Status:</strong> Currently in development. RPM packages will be available soon!<br>
+        <strong>📦 Source:</strong> <a href="releases/wezztershier-0.1.0.tar.gz">wezztershier-0.1.0.tar.gz</a>
+    </div>
+
+    <h2>Installation (Coming Soon)</h2>
+    <div class="install-box">
+        <strong>Add Repository:</strong><br>
+        <code>sudo dnf config-manager --add-repo https://repos.musicsian.com/wezztershier.repo</code><br><br>
+        <strong>Install Package:</strong><br>
+        <code>sudo dnf install wezztershier</code>
+    </div>
+
+    <h2>Build from Source (Available Now)</h2>
+    <div class="install-box">
+        <strong>Prerequisites (RHEL/Rocky/AlmaLinux):</strong><br>
+        <code>sudo dnf install rust cargo gtk3-devel webkit2gtk3-devel libayatana-appindicator3-devel librsvg2-devel nodejs npm</code><br><br>
+        <strong>Prerequisites (Ubuntu/Debian):</strong><br>
+        <code>sudo apt install build-essential libgtk-3-dev libwebkit2gtk-4.0-dev libayatana-appindicator3-dev librsvg2-dev nodejs npm</code><br><br>
+        <strong>Build:</strong><br>
+        <code>wget https://repos.musicsian.com/releases/wezztershier-0.1.0.tar.gz</code><br>
+        <code>tar xzf wezztershier-0.1.0.tar.gz</code><br>
+        <code>cd wezztershier-0.1.0</code><br>
+        <code>make build && make install</code>
+    </div>
+
+    <h2>Features</h2>
+    <div class="feature">✨ <strong>Rich Widget Library</strong> - Interactive sliders, color pickers, theme selectors</div>
+    <div class="feature">🎨 <strong>Advanced Color Support</strong> - Hex, RGB, HSL with alpha channels</div>
+    <div class="feature">🎯 <strong>Built-in Themes</strong> - Dracula, Gruvbox, Solarized, Tokyo Night, Catppuccin</div>
+    <div class="feature">🏗️ <strong>Smart Layouts</strong> - Automatic widget grouping and organization</div>
+    <div class="feature">🛠️ <strong>CLI Tools</strong> - Parse, validate, and debug configurations</div>
+    <div class="feature">⚡ <strong>High Performance</strong> - 10x faster than Python, 50% less memory</div>
+
+    <h2>Quick Start</h2>
+    <p>Add annotations to your WezTerm config:</p>
+    <pre><code>-- <<TUNER-START>>
+-- @ui: slider(min=8, max=72, step=1) type=int
+config.font_size = 14
+-- @ui: theme_selector(themes="builtin") type=string
+config.color_scheme = "dracula"  
+-- <<TUNER-END>></code></pre>
+
+    <p>Then launch wezztershier:</p>
+    <pre><code>wezztershier parse ~/.config/wezterm/wezterm.lua
+wezztershier-gui ~/.config/wezterm/wezterm.lua</code></pre>
+
+    <h2>Development Status</h2>
+    <p>🚧 <strong>Phase 5 Complete:</strong> Core functionality, CLI tools, and GUI framework implemented</p>
+    <p>📦 <strong>Next:</strong> RPM packages being prepared for distribution</p>
+    <p>🏗️ <strong>Architecture:</strong> Rust + Tauri + Svelte for maximum performance</p>
+
+    <h2>Links</h2>
+    <p>📦 <a href="wezztershier.repo">Repository File</a> (for future RPM packages)</p>
+    <p>📄 <a href="releases/wezztershier-0.1.0.tar.gz">Source Package</a></p>
+    <p>🔗 <a href="https://github.com/tenseleyFlow/wezzteRust">Source Code</a></p>
+    <p>🏠 <a href="/">Back to Repository Index</a></p>
+</body>
+</html>

@@ -49,6 +49,18 @@
             margin: 20px 0;
             line-height: 1.4;
             white-space: pre;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+        .code-block::selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+        .code-block::-moz-selection {
+            background: #4a5568;
+            color: #e2e8f0;
         }
         .install-section { 
             background: #f7fafc; 
@@ -62,7 +74,6 @@
             margin-bottom: 10px; 
             color: #2d3748;
         }
-        .comment { color: #a0aec0; }
         .quick-links { 
             margin-top: 20px;
             display: flex;
@@ -89,6 +100,54 @@
         .btn-outline:hover { 
             background: #ff6b6b; 
             color: white; 
+        }
+        .distro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        .distro-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #e2e8f0;
+        }
+        .distro-card.rpm {
+            border-left-color: #48bb78;
+        }
+        .distro-card.aur {
+            border-left-color: #4169e1;
+        }
+        .distro-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .distro-logo {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+        }
+        .aur-section {
+            background: #f0f8ff;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #4169e1;
+            margin: 20px 0;
+        }
+        .aur-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+        }
+        .aur-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
         }
         .feature-grid {
             display: grid;
@@ -131,22 +190,55 @@
     <div class="package-info">
         <p>Parrot is an intelligent CLI assistant that listens for failed command executions and provides witty, AI-powered responses with helpful suggestions. Features multi-backend architecture, three personality levels, and seamless shell integration for an enhanced terminal experience.</p>
         
-        <div class="install-section">
-            <div class="install-title">🚀 Quick Install</div>
-            <div class="code-block"><span class="comment"># Add repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
-<br>
-<span class="comment"># Install package</span><br>
-sudo dnf install parrot<br>
-<br>
-<span class="comment"># Complete setup (interactive)</span><br>
-parrot setup</div>
-        </div>
+        <h3>📦 Installation Options</h3>
+        <div class="distro-grid">
+            <div class="distro-card rpm">
+                <div class="distro-title">
+                    <span class="distro-logo">🎯</span>
+                    RHEL/CentOS/Rocky/Alma/Fedora
+                </div>
+                <div class="install-section">
+                    <div class="install-title">🚀 RPM Install</div>
+                    <div class="code-block"># Add repository
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-        <div class="quick-links">
-            <a href="RPMS/" class="btn">📂 Browse Files</a>
-            <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
-            <a href="RPMS/parrot-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+# Install package
+sudo dnf install parrot
+
+# Complete setup (interactive)
+parrot setup</div>
+                </div>
+                <div class="quick-links">
+                    <a href="RPMS/" class="btn">📂 Browse Files</a>
+                    <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                    <a href="RPMS/parrot-1.0.3-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+                </div>
+            </div>
+
+            <div class="distro-card aur">
+                <div class="distro-title">
+                    <span class="distro-logo">🏛️</span>
+                    Arch Linux
+                </div>
+                <div class="aur-section">
+                    <div class="aur-title">
+                        <span class="aur-icon">🏛️</span>
+                        AUR Package Available
+                    </div>
+                    <div class="code-block"># Install using yay
+yay -S parrot-cli
+
+# Or using paru
+paru -S parrot-cli
+
+# Complete setup (interactive)
+parrot setup</div>
+                </div>
+                <div class="quick-links">
+                    <a href="https://aur.archlinux.org/packages/parrot-cli" class="btn" target="_blank">🏛️ View AUR Page</a>
+                    <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=parrot-cli" class="btn-outline btn" target="_blank">📄 View PKGBUILD</a>
+                </div>
+            </div>
         </div>
 
         <div class="feature-grid">
@@ -170,21 +262,21 @@ parrot setup</div>
 
         <h3>Personality Examples</h3>
         <div class="personality-demo mild">
-<span class="comment"># Mild personality</span>
+# Mild personality
 $ git push
 fatal: No configured push destination
 🦜 It looks like you haven't set up a remote repository yet. Try 'git remote add origin &lt;url&gt;' first.
         </div>
         
         <div class="personality-demo sarcastic">
-<span class="comment"># Sarcastic personality (default)</span>
+# Sarcastic personality (default)
 $ rm -rf /
 rm: cannot remove '/': Permission denied
 🦜 Oh wow, trying to nuke the system? How original. Maybe start with 'rm file.txt' and work your way up, hotshot.
         </div>
         
         <div class="personality-demo savage">
-<span class="comment"># Savage personality</span>
+# Savage personality
 $ docker run hello-world
 docker: command not found
 🦜 Docker isn't installed, genius. What's next, asking why your imaginary friends aren't responding either?

@@ -93,8 +93,19 @@
             overflow-x: auto;
             margin: 10px 0;
             line-height: 1.4;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
         }
-        .code-block .comment { color: #a0aec0; }
+        .code-block::selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+        .code-block::-moz-selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
         
         .quick-links { 
             margin-top: 15px;
@@ -158,6 +169,36 @@
         .repo-card h2 a:hover {
             cursor: grabbing !important;
         }
+        .availability-badges {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .badge-rpm {
+            background: #38a169;
+            color: white;
+        }
+        .badge-aur {
+            background: #4169e1;
+            color: white;
+        }
+        .badge-aur:hover {
+            background: #2c5aa0;
+            color: white;
+        }
+        .badge-icon {
+            margin-right: 4px;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
@@ -168,47 +209,108 @@
 
     <div class="repo-grid">
         <div class="repo-card">
-            <h2><a href="cue.html" style="color: inherit; text-decoration: none; cursor: pointer !important;" onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='pointer'"><span class="repo-icon" style="cursor: pointer !important;">𝄞</span>cue</a></h2>
+            <h2><a href="arco.html" style="color: inherit; text-decoration: none; cursor: pointer !important;" onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='pointer'"><span class="repo-icon" style="cursor: pointer !important;">🎹arco</a></h2>
             <p class="repo-description">
-                Unified CLI Spotify controller with intelligent session management, queues, and contextual modes. Control your Spotify playback from anywhere with timed sessions, auto-server management, and network support.
+                Create, configure, and parameterize custom virtual instruments in the terminal! Complete virtual instrument playground with real-time parameter control, built-in sequencer with 5 melodies, comprehensive sound shaping, and preset system.
             </p>
             
             <div class="repo-stats">
                 <div class="stat">
-                    <span class="stat-icon">📦</span>
-                    <span>1 Package</span>
+                    <span class="stat-icon">📦
+                    <span>1 Package
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🏷️</span>
-                    <span>v1.0.0</span>
+                    <span class="stat-icon">🏷️
+                    <span>v1.0.0
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">📏</span>
-                    <span>85 KB</span>
+                    <span class="stat-icon">📏
+                    <span>4.2 MB
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🛡️</span>
-                    <span>MIT License</span>
+                    <span class="stat-icon">🛡️
+                    <span>MIT License
                 </div>
             </div>
 
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-<span class="comment"># Add repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
-<br>
-<span class="comment"># Install package</span><br>
-sudo dnf install cue<br>
-<br>
-<span class="comment"># Set up Spotify credentials</span><br>
-export SPOTIFY_CLIENT_ID="your_client_id"<br>
-export SPOTIFY_CLIENT_SECRET="your_client_secret"<br>
-<br>
-<span class="comment"># Try it out - focus mode for 2 hours</span><br>
-cue focus 2h<br>
-<br>
-<span class="comment"># Play a song for 3 minutes</span><br>
+# Add repository
+
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install ARCO
+
+sudo dnf install arco
+
+# Launch the virtual instrument
+
+arco
+
+# Or with custom settings
+
+arco --frequency 220 --bpm 140
+
+# Press ? for help, SPACE to play, Q to quit
+                </div>
+            </div>
+
+            <div class="quick-links">
+                <a href="RPMS/" class="btn">📂 Browse Files</a>
+                <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="RPMS/arco-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <h2><a href="cue.html" style="color: inherit; text-decoration: none; cursor: pointer !important;" onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='pointer'"><span class="repo-icon" style="cursor: pointer !important;">𝄞cue</a></h2>
+            <p class="repo-description">
+                Unified CLI Spotify controller with intelligent session management, queues, and contextual modes. Control your Spotify playback from anywhere with timed sessions, auto-server management, and network support.
+            </p>
+            
+            <div class="repo-stats">
+                <div class="stat">
+                    <span class="stat-icon">📦
+                    <span>1 Package
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🏷️
+                    <span>v1.0.0
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">📏
+                    <span>85 KB
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🛡️
+                    <span>MIT License
+                </div>
+            </div>
+
+            <div class="install-section">
+                <div class="install-title">🚀 Quick Install</div>
+                <div class="code-block">
+# Add repository
+
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install package
+
+sudo dnf install cue
+
+# Set up Spotify credentials
+
+export SPOTIFY_CLIENT_ID="your_client_id"
+
+export SPOTIFY_CLIENT_SECRET="your_client_secret"
+
+# Try it out - focus mode for 2 hours
+
+cue focus 2h
+
+# Play a song for 3 minutes
+
 cue play "Song Title" 3m
                 </div>
             </div>
@@ -221,40 +323,149 @@ cue play "Song Title" 3m
         </div>
 
         <div class="repo-card">
-            <h2><a href="sultree.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🌲</span>sultree</a></h2>
+            <h2><a href="fortsh.html" style="color: inherit; text-decoration: none; cursor: pointer !important;" onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='pointer'"><span class="repo-icon" style="cursor: pointer !important;">🐚fortsh</a></h2>
             <p class="repo-description">
-                SELinux-aware variant of the tree command. Display directory trees filtered by SELinux security contexts with full compatibility to the standard tree command.
+                Modern Unix shell implementation in Fortran 2018 with advanced features. Performance monitoring, job control, pattern matching, and comprehensive scripting support that demonstrates Fortran's capability for system programming.
             </p>
             
             <div class="repo-stats">
                 <div class="stat">
-                    <span class="stat-icon">📦</span>
-                    <span>1 Package</span>
+                    <span class="stat-icon">📦
+                    <span>1 Package
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🏷️</span>
-                    <span>v0.0.8</span>
+                    <span class="stat-icon">🏷️
+                    <span>v1.0.0
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">📏</span>
-                    <span>45 KB</span>
+                    <span class="stat-icon">📏
+                    <span>292 KB
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🛡️</span>
-                    <span>MIT License</span>
+                    <span class="stat-icon">🛡️
+                    <span>MIT License
                 </div>
             </div>
 
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-<span class="comment"># Add repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
-<br>
-<span class="comment"># Install package</span><br>
-sudo dnf install sultree<br>
-<br>
-<span class="comment"># Show files with passwd_file_t SELinux context</span><br>
+# Add repository
+
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install fortsh
+
+sudo dnf install fortsh
+
+# Start the shell
+
+fortsh
+
+# Enable performance monitoring
+
+export FORTSH_PERF=1
+
+fortsh
+                </div>
+            </div>
+
+            <div class="quick-links">
+                <a href="RPMS/" class="btn">📂 Browse Files</a>
+                <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="RPMS/fortsh-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <h2><a href="fortbite.html" style="color: inherit; text-decoration: none; cursor: pointer !important;" onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='pointer'"><span class="repo-icon" style="cursor: pointer !important;">🧮FORTBITE</a></h2>
+            <p class="repo-description">
+                High-precision mathematical calculator in Modern Fortran. Comprehensive arithmetic, complex numbers, matrix operations, and mathematical functions with interactive REPL interface.
+            </p>
+            
+            <div class="repo-stats">
+                <div class="stat">
+                    <span class="stat-icon">📦
+                    <span>1 Package
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🏷️
+                    <span>v1.0.0
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">📏
+                    <span>81 KB
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🛡️
+                    <span>MIT License
+                </div>
+            </div>
+            <div class="install-section">
+                <div class="install-title">🚀 Quick Install</div>
+                <div class="code-block">
+# Add repository
+
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install FORTBITE
+
+sudo dnf install fortbite
+
+# Start calculating
+
+fortbite
+
+# fortbite> sqrt(16) + sin(pi/2)
+
+# 5.0000000000000000
+                </div>
+            </div>
+            <div class="quick-links">
+                <a href="RPMS/" class="btn">📂 Browse Files</a>
+                <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="RPMS/fortbite-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <h2><a href="sultree.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🌲sultree</a></h2>
+            <p class="repo-description">
+                SELinux-aware variant of the tree command. Display directory trees filtered by SELinux security contexts with full compatibility to the standard tree command.
+            </p>
+            
+            <div class="repo-stats">
+                <div class="stat">
+                    <span class="stat-icon">📦
+                    <span>1 Package
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🏷️
+                    <span>v0.0.8
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">📏
+                    <span>45 KB
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🛡️
+                    <span>MIT License
+                </div>
+            </div>
+
+            <div class="install-section">
+                <div class="install-title">🚀 Quick Install</div>
+                <div class="code-block">
+# Add repository
+
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install package
+
+sudo dnf install sultree
+
+# Show files with passwd_file_t SELinux context
+
 sultree -S passwd_file_t /etc
                 </div>
             </div>
@@ -267,40 +478,54 @@ sultree -S passwd_file_t /etc
         </div>
 
         <div class="repo-card">
-            <h2><a href="gitswitch.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🔀</span>gitswitch</a></h2>
+            <h2><a href="gitswitch.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🔀gitswitch</a></h2>
             <p class="repo-description">
                 Safe Git identity switching with SSH/GPG isolation. C port with security hardening for developers working with multiple Git accounts, ensuring credentials never leak between identities.
             </p>
             
             <div class="repo-stats">
                 <div class="stat">
-                    <span class="stat-icon">📦</span>
-                    <span>1 Package</span>
+                    <span class="stat-icon">📦
+                    <span>1 Package
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🏷️</span>
-                    <span>v1.0.0</span>
+                    <span class="stat-icon">🏷️
+                    <span>v1.0.0
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">📏</span>
-                    <span>60 KB</span>
+                    <span class="stat-icon">📏
+                    <span>60 KB
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🛡️</span>
-                    <span>GPL-3.0</span>
+                    <span class="stat-icon">🛡️
+                    <span>GPL-3.0
                 </div>
+            </div>
+
+            <div class="availability-badges">
+                <span class="badge badge-rpm">
+                    <span class="badge-icon">🎯</span>
+                    RPM Available
+                </span>
+                <a href="https://aur.archlinux.org/packages/gitswitch-c" target="_blank" class="badge badge-aur">
+                    <span class="badge-icon">🏛️</span>
+                    AUR Available
+                </a>
             </div>
 
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-<span class="comment"># Add repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
-<br>
-<span class="comment"># Install package</span><br>
-sudo dnf install gitswitch<br>
-<br>
-<span class="comment"># Add a new Git identity</span><br>
+# Add repository
+
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install package
+
+sudo dnf install gitswitch
+
+# Add a new Git identity
+
 gitswitch add
                 </div>
             </div>
@@ -313,40 +538,43 @@ gitswitch add
         </div>
 
         <div class="repo-card">
-            <h2><a href="shtick.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🐚</span>shtick</a></h2>
+            <h2><a href="shtick.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🐚shtick</a></h2>
             <p class="repo-description">
                 Shell configuration manager with support for 16 different shells. Provides persistent aliases, environment variables, and functions across bash, zsh, fish, nu, elvish, and more.
             </p>
             
             <div class="repo-stats">
                 <div class="stat">
-                    <span class="stat-icon">📦</span>
-                    <span>1 Package</span>
+                    <span class="stat-icon">📦
+                    <span>1 Package
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🏷️</span>
-                    <span>v1.0.0</span>
+                    <span class="stat-icon">🏷️
+                    <span>v1.0.0
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">📏</span>
-                    <span>47 KB</span>
+                    <span class="stat-icon">📏
+                    <span>47 KB
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🛡️</span>
-                    <span>MIT License</span>
+                    <span class="stat-icon">🛡️
+                    <span>MIT License
                 </div>
             </div>
 
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-<span class="comment"># Add repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
-<br>
-<span class="comment"># Install package</span><br>
-sudo dnf install shtick<br>
-<br>
-<span class="comment"># Add a persistent alias across all shells</span><br>
+# Add repository
+
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install package
+
+sudo dnf install shtick
+
+# Add a persistent alias across all shells
+
 shtick alias ll='ls -la'
                 </div>
             </div>
@@ -359,43 +587,58 @@ shtick alias ll='ls -la'
         </div>
 
         <div class="repo-card">
-            <h2><a href="parrot.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🦜</span>parrot</a></h2>
+            <h2><a href="parrot.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🦜parrot</a></h2>
             <p class="repo-description">
                 Intelligent CLI assistant that listens for failed command executions and provides witty, AI-powered responses with helpful suggestions. Features multi-backend architecture with three personality levels.
             </p>
             
             <div class="repo-stats">
                 <div class="stat">
-                    <span class="stat-icon">📦</span>
-                    <span>1 Package</span>
+                    <span class="stat-icon">📦
+                    <span>1 Package
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🏷️</span>
-                    <span>v1.0.0</span>
+                    <span class="stat-icon">🏷️
+                    <span>v1.0.3
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">📏</span>
-                    <span>8.2 MB</span>
+                    <span class="stat-icon">📏
+                    <span>8.2 MB
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🛡️</span>
-                    <span>MIT License</span>
+                    <span class="stat-icon">🛡️
+                    <span>MIT License
                 </div>
+            </div>
+
+            <div class="availability-badges">
+                <span class="badge badge-rpm">
+                    <span class="badge-icon">🎯</span>
+                    RPM Available
+                </span>
+                <a href="https://aur.archlinux.org/packages/parrot-cli" target="_blank" class="badge badge-aur">
+                    <span class="badge-icon">🏛️</span>
+                    AUR Available
+                </a>
             </div>
 
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-<span class="comment"># Add repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
-<br>
-<span class="comment"># Install package</span><br>
-sudo dnf install parrot<br>
-<br>
-<span class="comment"># Complete setup (interactive)</span><br>
-parrot setup<br>
-<br>
-<span class="comment"># Test it out</span><br>
+# Add repository
+
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install package
+
+sudo dnf install parrot
+
+# Complete setup (interactive)
+
+parrot setup
+
+# Test it out
+
 parrot mock "git push" 1
                 </div>
             </div>
@@ -408,47 +651,53 @@ parrot mock "git push" 1
         </div>
 
         <div class="repo-card">
-            <h2><a href="shellp.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">📝</span>shellp</a></h2>
+            <h2><a href="shellp.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">📝shellp</a></h2>
             <p class="repo-description">
                 Friendly CLI tool that encourages better developer note-taking. Integrates with your shell to detect important development activities and prompts you to document decisions and thought processes.
             </p>
             
             <div class="repo-stats">
                 <div class="stat">
-                    <span class="stat-icon">📦</span>
-                    <span>1 Package</span>
+                    <span class="stat-icon">📦
+                    <span>1 Package
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🏷️</span>
-                    <span>v1.0.0</span>
+                    <span class="stat-icon">🏷️
+                    <span>v1.0.0
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">📏</span>
-                    <span>2.4 MB</span>
+                    <span class="stat-icon">📏
+                    <span>2.4 MB
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🛡️</span>
-                    <span>MIT License</span>
+                    <span class="stat-icon">🛡️
+                    <span>MIT License
                 </div>
             </div>
 
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-<span class="comment"># Add repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
-<br>
-<span class="comment"># Install package</span><br>
-sudo dnf install shellp<br>
-<br>
-<span class="comment"># Set up shell integration</span><br>
-sudo /usr/share/shellp/install_hooks.sh<br>
-<br>
-<span class="comment"># Start taking development notes</span><br>
-git commit -m "initial setup"<br>
-<span class="comment"># Shellp will prompt you for a note!</span><br>
-<br>
-<span class="comment"># View your notes</span><br>
+# Add repository
+
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install package
+
+sudo dnf install shellp
+
+# Set up shell integration
+
+sudo /usr/share/shellp/install_hooks.sh
+
+# Start taking development notes
+
+git commit -m "initial setup"
+
+# Shellp will prompt you for a note!
+
+# View your notes
+
 shellp notes
                 </div>
             </div>
@@ -461,43 +710,47 @@ shellp notes
         </div>
 
         <div class="repo-card">
-            <h2><a href="wmswitch.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">⚙️</span>wmswitch</a></h2>
+            <h2><a href="wmswitch.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">⚙️wmswitch</a></h2>
             <p class="repo-description">
                 Unified configuration manager for tiling window managers. Single TOML configuration generates native configs for i3, Hyprland, and AeroSpace with interactive wizard and profile management.
             </p>
             
             <div class="repo-stats">
                 <div class="stat">
-                    <span class="stat-icon">📦</span>
-                    <span>1 Package</span>
+                    <span class="stat-icon">📦
+                    <span>1 Package
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🏷️</span>
-                    <span>v0.1.0</span>
+                    <span class="stat-icon">🏷️
+                    <span>v0.1.0
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">📏</span>
-                    <span>128 KB</span>
+                    <span class="stat-icon">📏
+                    <span>128 KB
                 </div>
                 <div class="stat">
-                    <span class="stat-icon">🛡️</span>
-                    <span>MIT License</span>
+                    <span class="stat-icon">🛡️
+                    <span>MIT License
                 </div>
             </div>
 
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-<span class="comment"># Add repository</span><br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo<br>
-<br>
-<span class="comment"># Install package</span><br>
-sudo dnf install wmswitch<br>
-<br>
-<span class="comment"># Create your first configuration</span><br>
-wmswitch wizard ~/.config/wmswitch/config.toml<br>
-<br>
-<span class="comment"># Generate configs for all supported WMs</span><br>
+# Add repository
+
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install package
+
+sudo dnf install wmswitch
+
+# Create your first configuration
+
+wmswitch wizard ~/.config/wmswitch/config.toml
+
+# Generate configs for all supported WMs
+
 wmswitch generate ~/.config/wmswitch/config.toml
                 </div>
             </div>
@@ -508,12 +761,108 @@ wmswitch generate ~/.config/wmswitch/config.toml
                 <a href="RPMS/wmswitch-0.1.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
             </div>
         </div>
+
+        <div class="repo-card">
+            <h2><a href="wezztershier.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🎨wezztershier</a></h2>
+            <p class="repo-description">
+                Beautiful GUI generator for WezTerm configuration files using decorator annotations in Lua. High-performance Rust implementation with interactive widgets, theme selectors, and live preview. Includes both CLI tools and web-based visual interface.
+            </p>
+            
+            <div class="repo-stats">
+                <div class="stat">
+                    <span class="stat-icon">📦
+                    <span>1 Package
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🏷️
+                    <span>v0.1.0
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">⚡
+                    <span>Rust Performance
+                </div>
+            </div>
+
+            <div class="install-section">
+                <div class="install-title">📥 Install</div>
+                <div class="code-block">
+# Add repository
+
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install package
+
+sudo dnf install wezztershier wezztershier-gui
+
+# Use CLI tools
+
+wezztershier parse ~/.config/wezterm/wezterm.lua
+
+# Or start web GUI
+
+wezztershier-gui  # Opens at http://localhost:8080
+                </div>
+            </div>
+
+            <div class="quick-links">
+                <a href="RPMS/" class="btn">📂 Browse Files</a>
+                <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="RPMS/wezztershier-0.1.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+            </div>
+        </div>
+        <div class="repo-card">
+            <h2><a href="waveterm.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🌊waveterm</a></h2>
+            <p class="repo-description">
+                Modern terminal-based music visualizer with stunning ASCII art effects. Perfect for headless servers with 15+ visualization modes, audio simulation, and cross-platform support.
+            </p>
+            
+            <div class="repo-stats">
+                <div class="stat">
+                    <span class="stat-icon">📦
+                    <span>1 Package
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🏷️
+                    <span>v0.2.0
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">📏
+                    <span>80 KB
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🛡️
+                    <span>MIT License
+                </div>
+            </div>
+            <div class="install-section">
+                <div class="install-title">🚀 Quick Install</div>
+                <div class="code-block">
+# Add repository
+
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install package
+
+sudo dnf install waveterm
+
+# Try the demo
+
+waveterm-demo
+                </div>
+            </div>
+            <div class="quick-links">
+                <a href="RPMS/" class="btn">📂 Browse Files</a>
+                <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="RPMS/waveterm-0.2.0-1.el9.noarch.rpm" class="btn-outline btn">📦 Direct RPM</a>
+            </div>
+        </div>
     </div>
 
     <div class="system-info">
         <h4>🖥️ Supported Systems</h4>
-        <p><strong>Compatible with:</strong> RHEL 9+, CentOS Stream 9+, Rocky Linux 9+, AlmaLinux 9+, Fedora 35+</p>
-        <p><strong>Architectures:</strong> x86_64, noarch • <strong>Total Packages:</strong> 7</p>
+        <p><strong>RPM Compatible:</strong> RHEL 9+, CentOS Stream 9+, Rocky Linux 9+, AlmaLinux 9+, Fedora 35+</p>
+        <p><strong>Arch Linux:</strong> Available via AUR (Arch User Repository)</p>
+        <p><strong>Architectures:</strong> x86_64, noarch • <strong>Total Packages:</strong> 10</p>
     </div>
 
     <div class="footer">

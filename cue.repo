@@ -6,5 +6,6 @@
 name=Cue - CLI Spotify Controller (DEPRECATED - Use musicsian.repo)
 baseurl=https://repos.musicsian.com
 enabled=1
-gpgcheck=0
+gpgcheck=1
 repo_gpgcheck=0
+gpgkey=https://repos.musicsian.com/RPM-GPG-KEY-musicsian

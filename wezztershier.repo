@@ -1,0 +1,7 @@
+[wezztershier]
+name=Wezztershier - Beautiful GUI for WezTerm Configuration
+baseurl=https://repos.musicsian.com/
+enabled=1
+gpgcheck=1
+metadata_expire=1h
+gpgkey=https://repos.musicsian.com/RPM-GPG-KEY-musicsian

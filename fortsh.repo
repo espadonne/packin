@@ -1,5 +1,5 @@
-[musicsian]
-name=musicsian - Fresh RPM packages for Linux
+[fortsh]
+name=fortsh - Fortran Shell
 baseurl=https://repos.musicsian.com
 enabled=1
 gpgcheck=1
