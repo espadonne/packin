@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shellp - Developer Note-Taking CLI</title>
+    <title>Shellp - Developer Note-Taking CLI | musicsian</title>
     <style>
         * { box-sizing: border-box; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6; 
-            max-width: 1000px; 
+            max-width: 1200px; 
             margin: 0 auto; 
             padding: 20px;
             background: #f8f9fa;
@@ -25,40 +25,34 @@
         }
         .header h1 { margin: 0; font-size: 2.5em; font-weight: 300; }
         .header p { margin: 10px 0 0 0; opacity: 0.9; font-size: 1.1em; }
-        
-        .content { 
-            background: white; 
-            border-radius: 12px; 
-            padding: 30px; 
+        .back-link { 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            color: #5a67d8; 
+            text-decoration: none; 
+        }
+        .back-link:hover { text-decoration: underline; }
+        .package-info {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border: 1px solid #e1e5e9;
             margin-bottom: 30px;
-        }
-        .content h2 { color: #5a67d8; margin-top: 30px; }
-        .content h3 { color: #4a5568; margin-top: 25px; }
-        
-        .install-section { 
-            background: #f7fafc; 
-            border-radius: 8px; 
-            padding: 20px; 
-            border-left: 4px solid #38a169;
-            margin: 20px 0;
-        }
-        .install-title { 
-            font-weight: 600; 
-            margin-bottom: 15px; 
-            color: #2d3748;
-            font-size: 1.1em;
         }
         .code-block { 
             background: #2d3748; 
             color: #e2e8f0; 
-            padding: 15px; 
+            padding: 20px; 
             border-radius: 6px; 
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
             overflow-x: auto;
-            margin: 10px 0;
+            margin: 20px 0;
             line-height: 1.4;
+            white-space: pre;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
         }
         .code-block::selection {
             background: #4a5568;
@@ -68,208 +62,192 @@
             background: #4a5568;
             color: #e2e8f0;
         }
-        
-        .features { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 20px; 
+        .install-section { 
+            background: #f7fafc; 
+            border-radius: 8px; 
+            padding: 20px; 
+            border-left: 4px solid #38a169;
             margin: 20px 0;
         }
-        .feature { 
-            background: #f7fafc; 
-            padding: 20px; 
-            border-radius: 8px; 
-            border-left: 4px solid #5a67d8;
+        .install-title { 
+            font-weight: 600; 
+            margin-bottom: 10px; 
+            color: #2d3748;
         }
-        .feature h4 { margin: 0 0 10px 0; color: #5a67d8; }
-        .feature p { margin: 0; color: #4a5568; }
-        
-        .btn-section {
-            text-align: center;
-            margin: 30px 0;
+        .quick-links { 
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
         .btn { 
             display: inline-flex;
             align-items: center;
-            padding: 12px 24px; 
+            padding: 8px 16px; 
             background: #5a67d8; 
             color: white; 
             text-decoration: none; 
             border-radius: 6px;
-            font-size: 1em;
-            margin: 0 10px 10px 0;
+            font-size: 0.9em;
             transition: background 0.2s;
         }
         .btn:hover { background: #4c51bf; }
         .btn-outline { 
             background: transparent; 
             color: #5a67d8; 
-            border: 2px solid #5a67d8; 
+            border: 1px solid #5a67d8; 
         }
         .btn-outline:hover { 
             background: #5a67d8; 
             color: white; 
         }
-        
-        .back-link {
-            text-align: center;
-            margin: 30px 0;
-        }
-        .back-link a {
-            color: #5a67d8;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
+        .distro-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin: 20px 0; }
+        .distro-card { background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 3px solid #e2e8f0; }
+        .distro-card.rpm { border-left-color: #38a169; }
+        .distro-card.aur { border-left-color: #4169e1; }
+        .distro-title { font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; }
+        .distro-logo { width: 20px; height: 20px; margin-right: 8px; }
+        .aur-section { background: #f0f8ff; border-radius: 8px; padding: 20px; border-left: 4px solid #4169e1; margin: 20px 0; }
+        .aur-title { font-weight: 600; margin-bottom: 10px; color: #2d3748; display: flex; align-items: center; }
+        .aur-icon { width: 20px; height: 20px; margin-right: 8px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0; }
+        .feature-item { background: #f0f8ff; padding: 15px; border-radius: 6px; border-left: 3px solid #5a67d8; }
+        .feature-item strong { color: #2d3748; }
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-link">← Back to Repository</a>
+    
     <div class="header">
-        <h1>📝 Shellp</h1>
-        <p>Your Friendly Development Note-Taking Companion</p>
+        <h1>📝 Shellp - Developer Note-Taking CLI</h1>
+        <p>Intelligently document your development activities</p>
     </div>
 
-    <div class="content">
-        <h2>🎯 What is Shellp?</h2>
-        <p>Shellp is a CLI tool that encourages better developer note-taking by gently prompting you to document important development activities. It integrates seamlessly with your shell to detect significant commands and helps you build a rich history of your development decisions and thought processes.</p>
-
-        <div class="features">
-            <div class="feature">
-                <h4>🎯 Smart Detection</h4>
-                <p>Automatically detects important development commands (git, npm, docker, make) and prompts for context when it matters.</p>
+    <div class="package-info">
+        <p>A CLI tool that encourages better developer note-taking by gently prompting you to document important development activities. It integrates seamlessly with your shell to detect significant commands and helps you build a rich history of your development decisions.</p>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <strong>Smart Command Detection</strong><br>
+                Automatically detects important dev commands
             </div>
-            <div class="feature">
-                <h4>📝 Rich Management</h4>
-                <p>Organized storage with automatic categorization, tagging, and full-text search capabilities.</p>
+            <div class="feature-item">
+                <strong>Rich Note Management</strong><br>
+                Full-text search and organized storage
             </div>
-            <div class="feature">
-                <h4>🔗 Project Intelligence</h4>
-                <p>Tracks repository changes, links notes to commits, and discovers connections across projects.</p>
+            <div class="feature-item">
+                <strong>Cross-Project Linking</strong><br>
+                Connect related notes across projects
             </div>
-            <div class="feature">
-                <h4>🚀 Team Sharing</h4>
-                <p>Export/import note bundles and integrate with Slack, Discord, and custom webhooks.</p>
+            <div class="feature-item">
+                <strong>Team Collaboration</strong><br>
+                Export/import bundles and integrations
             </div>
         </div>
-
-        <h2>🚀 Installation</h2>
         
-        <div class="install-section">
-            <div class="install-title">Method 1: Repository Installation (Recommended)</div>
-            <div class="code-block">
-# Add the musicsian repository
-
+        <h3>📦 Installation Options</h3>
+        <div class="distro-grid">
+            <div class="distro-card rpm">
+                <div class="distro-title">
+                    <span class="distro-logo">🎯</span>
+                    RHEL/CentOS/Rocky/Alma/Fedora
+                </div>
+                <div class="install-section">
+                    <div class="install-title">🚀 RPM Install</div>
+                    <div class="code-block"># Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install shellp
-
+# Install package<br>
 sudo dnf install shellp
 
-# Set up shell integration
-
+# Set up shell integration<br>
 sudo /usr/share/shellp/install_hooks.sh
+
+# Restart shell and test<br>
+shellp notes</div>
+                </div>
+                <div class="quick-links">
+                    <a href="RPMS/" class="btn">📂 Browse Files</a>
+                    <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                    <a href="RPMS/shellp-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+                </div>
+            </div>
+
+            <div class="distro-card aur">
+                <div class="distro-title">
+                    <span class="distro-logo">🏛️</span>
+                    Arch Linux
+                </div>
+                <div class="aur-section">
+                    <div class="aur-title">
+                        <span class="aur-icon">🏛️</span>
+                        AUR Package Available
+                    </div>
+                    <div class="code-block"># Install using yay<br>
+yay -S shellp
+
+# Or using paru<br>
+paru -S shellp
+
+# Set up shell integration<br>
+/usr/share/shellp/install_hooks.sh
+
+# Restart shell and test
+shellp notes</div>
+                </div>
+                <div class="quick-links">
+                    <a href="https://aur.archlinux.org/packages/shellp" class="btn" target="_blank">🏛️ View AUR Page</a>
+                    <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=shellp" class="btn-outline btn" target="_blank">📄 View PKGBUILD</a>
+                </div>
             </div>
         </div>
 
-        <div class="install-section">
-            <div class="install-title">Method 2: Direct RPM Installation</div>
-            <div class="code-block">
-# Install directly from URL
+        <h3>🎯 Smart Command Detection</h3>
+        <div class="code-block"># Shellp automatically detects important commands:
+git commit -m "Add user authentication"
+📝 Note: What approach did you take?
+> Added JWT middleware with Redis session storage
 
-sudo dnf install https://repos.musicsian.com/RPMS/shellp-1.0.0-1.el9.x86_64.rpm
+npm install express
+📝 Note: Why did you add this dependency?
+> Need Express framework for REST API endpoints
 
-# Set up shell integration
+docker-compose up
+📝 Note: What are you testing?
+> Testing the new authentication flow with database</div>
 
-sudo /usr/share/shellp/install_hooks.sh
-            </div>
-        </div>
-
-        <h2>💻 Quick Start</h2>
-        <div class="code-block">
-# Navigate to a project and run development commands
-
-cd my-project
-
-git status        # Shellp will prompt for a note
-
-npm install       # Another prompt opportunity
-
-# View your development story
-
+        <h3>📖 Usage Examples</h3>
+        <div class="code-block"># View recent notes<br>
 shellp notes
 
-# Search through your notes
+# Search through notes<br>
+shellp search "database migration"<br>
+shellp search --tag bugfix --recent 30d
 
-shellp search "database migration"
+# Cross-project insights<br>
+shellp links show           # Current project info<br>
+shellp links related        # Find related notes
 
-shellp search --tag bugfix
+# Team sharing<br>
+shellp share export --project my-app --format bundle<br>
+shellp share import team-notes.json
 
-shellp search --category git
+# External integrations<br>
+shellp integrate slack --webhook-url https://hooks.slack.com/...</div>
 
-# Manage existing notes
-
-shellp manage list
-
-shellp manage edit 3
-
-# Project insights
-
-shellp links show
-
-shellp stats --recent 30d
-        </div>
-
-        <h2>✨ Key Features</h2>
-        <ul>
-            <li><strong>Context-Aware Prompting:</strong> Understands your project structure and git repository state</li>
-            <li><strong>Automatic Organization:</strong> Smart categorization and tagging of development activities</li>
-            <li><strong>Powerful Search:</strong> Full-text search with filtering by categories, tags, and dates</li>
-            <li><strong>Cross-Project Linking:</strong> Connect related work across different repositories</li>
-            <li><strong>Team Collaboration:</strong> Share note bundles and integrate with team tools</li>
-            <li><strong>Performance Optimized:</strong> Intelligent caching for fast operations on large note collections</li>
-            <li><strong>Editor Integration:</strong> Use your preferred $EDITOR for longer notes</li>
-            <li><strong>External Integrations:</strong> Connect with Slack, Discord, and custom webhooks</li>
-        </ul>
-
-        <h2>📋 System Requirements</h2>
-        <ul>
-            <li><strong>Operating Systems:</strong> RHEL 9+, CentOS Stream 9+, Rocky Linux 9+, AlmaLinux 9+, Fedora 35+</li>
-            <li><strong>Architecture:</strong> x86_64</li>
-            <li><strong>Dependencies:</strong> bash, git (automatically handled by package manager)</li>
-            <li><strong>Shell Support:</strong> bash, zsh (with hooks)</li>
-        </ul>
-
-        <h2>🔧 Configuration</h2>
-        <p>Shellp stores configuration in <code>~/.shellp/config.json</code> and can be customized:</p>
-        <div class="code-block">
-# View current configuration
-
+        <h3>⚙️ Configuration</h3>
+        <div class="code-block"># View current settings<br>
 shellp config show
 
-# Adjust prompt timeout
+# Customize prompts<br>
+shellp config set prompts.timeout 60<br>
+shellp config set prompts.enabled true
 
-shellp config set prompts.timeout 60
-
-# Configure editor preference
-
+# Set preferred editor<br>
 shellp config set editor.preferred "code --wait"
 
-# Enable auto-categorization
-
-shellp config set rules.auto_categorize true
-        </div>
-
-        <div class="btn-section">
-            <a href="RPMS/shellp-1.0.0-1.el9.x86_64.rpm" class="btn">📦 Download RPM</a>
-            <a href="musicsian.repo" class="btn-outline">⬇️ Download .repo File</a>
-            <a href="https://github.com/mfwolffe/shellp" class="btn-outline">💻 View Source</a>
-        </div>
-    </div>
-
-    <div class="back-link">
-        <a href="index.html">← Back to Repository</a>
+# Configure auto-categorization<br>
+shellp config set rules.auto_categorize true</div>
     </div>
 </body>
 </html>

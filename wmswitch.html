@@ -158,25 +158,61 @@
             </div>
         </div>
         
-        <div class="install-section">
-            <div class="install-title">🚀 Quick Install</div>
-            <div class="code-block"># Add repository
+        <h3>📦 Installation Options</h3>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 30px; margin: 20px 0;">
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 3px solid #38a169;">
+                <div style="font-weight: 600; margin-bottom: 15px; display: flex; align-items: center;">
+                    <span style="width: 20px; height: 20px; margin-right: 8px;">🎯</span>
+                    RHEL/CentOS/Rocky/Alma/Fedora
+                </div>
+                <div class="install-section">
+                    <div class="install-title">🚀 RPM Install</div>
+                    <div class="code-block"># Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install package
+# Install package<br>
 sudo dnf install wmswitch
 
-# Create your first configuration
+# Create your first configuration<br>
 wmswitch wizard ~/.config/wmswitch/config.toml
 
-# Generate configs for all supported WMs
+# Generate configs for all supported WMs<br>
 wmswitch generate ~/.config/wmswitch/config.toml</div>
-        </div>
+                </div>
+                <div class="quick-links">
+                    <a href="RPMS/" class="btn">📂 Browse Files</a>
+                    <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                    <a href="RPMS/wmswitch-0.1.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+                </div>
+            </div>
 
-        <div class="quick-links">
-            <a href="RPMS/" class="btn">📂 Browse Files</a>
-            <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
-            <a href="RPMS/wmswitch-0.1.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 3px solid #4169e1;">
+                <div style="font-weight: 600; margin-bottom: 15px; display: flex; align-items: center;">
+                    <span style="width: 20px; height: 20px; margin-right: 8px;">🏛️</span>
+                    Arch Linux
+                </div>
+                <div style="background: #f0f8ff; border-radius: 8px; padding: 20px; border-left: 4px solid #4169e1; margin: 20px 0;">
+                    <div style="font-weight: 600; margin-bottom: 10px; color: #2d3748; display: flex; align-items: center;">
+                        <span style="width: 20px; height: 20px; margin-right: 8px;">🏛️</span>
+                        AUR Package Available
+                    </div>
+                    <div class="code-block"># Install using yay<br>
+yay -S wmswitch
+
+# Or using paru<br>
+paru -S wmswitch
+
+# Create your first configuration<br>
+wmswitch wizard ~/.config/wmswitch/config.toml
+
+# Generate configs for all supported WMs<br>
+wmswitch generate ~/.config/wmswitch/config.toml</div>
+                </div>
+                <div class="quick-links">
+                    <a href="https://aur.archlinux.org/packages/wmswitch" class="btn" target="_blank">🏛️ View AUR Page</a>
+                    <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=wmswitch" class="btn-outline btn" target="_blank">📄 View PKGBUILD</a>
+                </div>
+            </div>
         </div>
 
         <h3>Supported Window Managers</h3>
@@ -185,31 +221,31 @@ wmswitch generate ~/.config/wmswitch/config.toml</div>
 🚧 AeroSpace     - Framework ready (macOS support coming soon)</div>
 
         <h3>Basic Usage Examples</h3>
-        <div class="code-block"># Interactive configuration creation
+        <div class="code-block"># Interactive configuration creation<br>
 wmswitch wizard config.toml
 
-# Generate all WM configs
+# Generate all WM configs<br>
 wmswitch generate config.toml
 
-# Generate for current WM only
+# Generate for current WM only<br>
 wmswitch detect generate config.toml
 
-# Validate configuration
+# Validate configuration<br>
 wmswitch validate config.toml
 
-# Profile management
-wmswitch profile create work "Work setup"
-wmswitch profile switch work
+# Profile management<br>
+wmswitch profile create work "Work setup"<br>
+wmswitch profile switch work<br>
 wmswitch profile generate
 
-# Migration from existing configs
-wmswitch migrate auto config.toml
+# Migration from existing configs<br>
+wmswitch migrate auto config.toml<br>
 wmswitch migrate i3 config.toml
 
-# Dry-run mode (preview changes)
+# Dry-run mode (preview changes)<br>
 wmswitch --dry-run generate config.toml
 
-# Create backups before generating
+# Create backups before generating<br>
 wmswitch --backup generate config.toml</div>
 
         <h3>Sample Configuration (TOML)</h3>

@@ -101,6 +101,15 @@
             background: #5a67d8; 
             color: white; 
         }
+        .distro-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin: 20px 0; }
+        .distro-card { background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 3px solid #e2e8f0; }
+        .distro-card.rpm { border-left-color: #38a169; }
+        .distro-card.aur { border-left-color: #4169e1; }
+        .distro-title { font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; }
+        .distro-logo { width: 20px; height: 20px; margin-right: 8px; }
+        .aur-section { background: #f0f8ff; border-radius: 8px; padding: 20px; border-left: 4px solid #4169e1; margin: 20px 0; }
+        .aur-title { font-weight: 600; margin-bottom: 10px; color: #2d3748; display: flex; align-items: center; }
+        .aur-icon { width: 20px; height: 20px; margin-right: 8px; }
     </style>
 </head>
 <body>
@@ -112,31 +121,65 @@
     </div>
 
     <div class="package-info">
-        <p>Control your Spotify playback from anywhere with timed sessions, contextual modes, auto-server management, and network support. Features include queue management, device switching, volume control, and comprehensive playback history.</p>
+        <p>Control your Spotify playbook from anywhere with timed sessions, contextual modes, auto-server management, and network support. Features include queue management, device switching, volume control, and comprehensive playback history.</p>
         
-        <div class="install-section">
-            <div class="install-title">🚀 Quick Install</div>
-            <div class="code-block"># Add repository
+        <h3>📦 Installation Options</h3>
+        <div class="distro-grid">
+            <div class="distro-card rpm">
+                <div class="distro-title">
+                    <span class="distro-logo">🎯</span>
+                    RHEL/CentOS/Rocky/Alma/Fedora
+                </div>
+                <div class="install-section">
+                    <div class="install-title">🚀 RPM Install</div>
+                    <div class="code-block"># Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install package
+# Install package<br>
 sudo dnf install cue
 
-# Set up Spotify credentials
-export SPOTIFY_CLIENT_ID="your_client_id"
+# Set up Spotify credentials<br>
+export SPOTIFY_CLIENT_ID="your_client_id"<br>
 export SPOTIFY_CLIENT_SECRET="your_client_secret"
 
-# Try it out - focus mode for 2 hours
-cue focus 2h
+# Try it out - focus mode for 2 hours<br>
+cue focus 2h</div>
+                </div>
+                <div class="quick-links">
+                    <a href="RPMS/" class="btn">📂 Browse Files</a>
+                    <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                    <a href="RPMS/cue-1.0.0-1.el9.noarch.rpm" class="btn-outline btn">📦 Direct RPM</a>
+                </div>
+            </div>
 
-# Play a song for 3 minutes
-cue play "Song Title" 3m</div>
-        </div>
+            <div class="distro-card aur">
+                <div class="distro-title">
+                    <span class="distro-logo">🏛️</span>
+                    Arch Linux
+                </div>
+                <div class="aur-section">
+                    <div class="aur-title">
+                        <span class="aur-icon">🏛️</span>
+                        AUR Package Available
+                    </div>
+                    <div class="code-block"># Install using yay<br>
+yay -S spotify-cue
 
-        <div class="quick-links">
-            <a href="RPMS/" class="btn">📂 Browse Files</a>
-            <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
-            <a href="RPMS/cue-1.0.0-1.el9.noarch.rpm" class="btn-outline btn">📦 Direct RPM</a>
+# Or using paru<br>
+paru -S spotify-cue
+
+# Set up Spotify credentials<br>
+export SPOTIFY_CLIENT_ID="your_client_id"<br>
+export SPOTIFY_CLIENT_SECRET="your_client_secret"
+
+# Try it out - focus mode for 2 hours<br>
+cue focus 2h</div>
+                </div>
+                <div class="quick-links">
+                    <a href="https://aur.archlinux.org/packages/spotify-cue" class="btn" target="_blank">🏛️ View AUR Page</a>
+                    <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=spotify-cue" class="btn-outline btn" target="_blank">📄 View PKGBUILD</a>
+                </div>
+            </div>
         </div>
 
         <h3>Full Usage Documentation</h3>

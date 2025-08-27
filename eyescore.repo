@@ -1,0 +1,6 @@
+[musicsian-eyescore]
+name=Musicsian Repository - EyeScore
+baseurl=https://repos.musicsian.com
+enabled=1
+gpgcheck=1
+gpgkey=https://repos.musicsian.com/RPM-GPG-KEY-musicsian

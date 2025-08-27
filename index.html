@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fresh RPMs</title>
+    <title>musicsian Software Repository - RPM & AUR Packages</title>
     <style>
         * { box-sizing: border-box; }
         a, a:hover, a:active, a:visited { cursor: pointer !important; }
@@ -203,8 +203,9 @@
 </head>
 <body>
     <div class="header">
-        <h1>📦 musicsian RPM Repository</h1>
-        <p>Fresh RPM packages for RHEL, CentOS, Rocky Linux, AlmaLinux & Fedora</p>
+        <h1>📦 musicsian Software Repository</h1>
+        <p>Fresh packages for RHEL, CentOS, Rocky Linux, AlmaLinux, Fedora & Arch Linux</p>
+        <p style="margin-top: 10px; opacity: 0.8; font-size: 0.95em;">RPM packages + AUR support for cross-platform compatibility</p>
     </div>
 
     <div class="repo-grid">
@@ -233,23 +234,30 @@
                 </div>
             </div>
 
+            <div class="availability-badges">
+                <span class="badge badge-rpm">
+                    <span class="badge-icon">🎯</span>
+                    RPM Available
+                </span>
+                <a href="https://aur.archlinux.org/packages/arco" target="_blank" class="badge badge-aur">
+                    <span class="badge-icon">🏛️</span>
+                    AUR Available
+                </a>
+            </div>
+
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository
-
+# Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install ARCO
-
+# Install ARCO<br>
 sudo dnf install arco
 
-# Launch the virtual instrument
-
+# Launch the virtual instrument<br>
 arco
 
-# Or with custom settings
-
+# Or with custom settings<br>
 arco --frequency 220 --bpm 140
 
 # Press ? for help, SPACE to play, Q to quit
@@ -288,29 +296,34 @@ arco --frequency 220 --bpm 140
                 </div>
             </div>
 
+            <div class="availability-badges">
+                <span class="badge badge-rpm">
+                    <span class="badge-icon">🎯</span>
+                    RPM Available
+                </span>
+                <a href="https://aur.archlinux.org/packages/spotify-cue" target="_blank" class="badge badge-aur">
+                    <span class="badge-icon">🏛️</span>
+                    AUR Available
+                </a>
+            </div>
+
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository
-
+# Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install package
-
+# Install package<br>
 sudo dnf install cue
 
-# Set up Spotify credentials
-
-export SPOTIFY_CLIENT_ID="your_client_id"
-
+# Set up Spotify credentials<br>
+export SPOTIFY_CLIENT_ID="your_client_id"<br>
 export SPOTIFY_CLIENT_SECRET="your_client_secret"
 
-# Try it out - focus mode for 2 hours
-
+# Try it out - focus mode for 2 hours<br>
 cue focus 2h
 
-# Play a song for 3 minutes
-
+# Play a song for 3 minutes<br>
 cue play "Song Title" 3m
                 </div>
             </div>
@@ -347,23 +360,30 @@ cue play "Song Title" 3m
                 </div>
             </div>
 
+            <div class="availability-badges">
+                <span class="badge badge-rpm">
+                    <span class="badge-icon">🎯</span>
+                    RPM Available
+                </span>
+                <a href="https://aur.archlinux.org/packages/fortsh" target="_blank" class="badge badge-aur">
+                    <span class="badge-icon">🏛️</span>
+                    AUR Available
+                </a>
+            </div>
+
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository
-
+# Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install fortsh
-
+# Install fortsh<br>
 sudo dnf install fortsh
 
-# Start the shell
-
+# Start the shell<br>
 fortsh
 
-# Enable performance monitoring
-
+# Enable performance monitoring<br>
 export FORTSH_PERF=1
 
 fortsh
@@ -401,19 +421,28 @@ fortsh
                     <span>MIT License
                 </div>
             </div>
+
+            <div class="availability-badges">
+                <span class="badge badge-rpm">
+                    <span class="badge-icon">🎯</span>
+                    RPM Available
+                </span>
+                <a href="https://aur.archlinux.org/packages/fortbite" target="_blank" class="badge badge-aur">
+                    <span class="badge-icon">🏛️</span>
+                    AUR Available
+                </a>
+            </div>
+
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository
-
+# Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install FORTBITE
-
+# Install FORTBITE<br>
 sudo dnf install fortbite
 
-# Start calculating
-
+# Start calculating<br>
 fortbite
 
 # fortbite> sqrt(16) + sin(pi/2)
@@ -453,19 +482,23 @@ fortbite
                 </div>
             </div>
 
+            <div class="availability-badges">
+                <span class="badge badge-rpm">
+                    <span class="badge-icon">🎯</span>
+                    RPM Only
+                </span>
+            </div>
+
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository
-
+# Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install package
-
+# Install package<br>
 sudo dnf install sultree
 
-# Show files with passwd_file_t SELinux context
-
+# Show files with passwd_file_t SELinux context<br>
 sultree -S passwd_file_t /etc
                 </div>
             </div>
@@ -516,16 +549,13 @@ sultree -S passwd_file_t /etc
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository
-
+# Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install package
-
+# Install package<br>
 sudo dnf install gitswitch
 
-# Add a new Git identity
-
+# Add a new Git identity<br>
 gitswitch add
                 </div>
             </div>
@@ -562,19 +592,27 @@ gitswitch add
                 </div>
             </div>
 
+            <div class="availability-badges">
+                <span class="badge badge-rpm">
+                    <span class="badge-icon">🎯</span>
+                    RPM Available
+                </span>
+                <a href="https://aur.archlinux.org/packages/shtick" target="_blank" class="badge badge-aur">
+                    <span class="badge-icon">🏛️</span>
+                    AUR Available
+                </a>
+            </div>
+
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository
-
+# Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install package
-
+# Install package<br>
 sudo dnf install shtick
 
-# Add a persistent alias across all shells
-
+# Add a persistent alias across all shells<br>
 shtick alias ll='ls -la'
                 </div>
             </div>
@@ -625,20 +663,16 @@ shtick alias ll='ls -la'
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository
-
+# Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install package
-
+# Install package<br>
 sudo dnf install parrot
 
-# Complete setup (interactive)
-
+# Complete setup (interactive)<br>
 parrot setup
 
-# Test it out
-
+# Test it out<br>
 parrot mock "git push" 1
                 </div>
             </div>
@@ -675,23 +709,30 @@ parrot mock "git push" 1
                 </div>
             </div>
 
+            <div class="availability-badges">
+                <span class="badge badge-rpm">
+                    <span class="badge-icon">🎯</span>
+                    RPM Available
+                </span>
+                <a href="https://aur.archlinux.org/packages/shellp" target="_blank" class="badge badge-aur">
+                    <span class="badge-icon">🏛️</span>
+                    AUR Available
+                </a>
+            </div>
+
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository
-
+# Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install package
-
+# Install package<br>
 sudo dnf install shellp
 
-# Set up shell integration
-
+# Set up shell integration<br>
 sudo /usr/share/shellp/install_hooks.sh
 
-# Start taking development notes
-
+# Start taking development notes<br>
 git commit -m "initial setup"
 
 # Shellp will prompt you for a note!
@@ -734,23 +775,26 @@ shellp notes
                 </div>
             </div>
 
+            <div class="availability-badges">
+                <span class="badge badge-rpm">
+                    <span class="badge-icon">🎯</span>
+                    RPM Only
+                </span>
+            </div>
+
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository
-
+# Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install package
-
+# Install package<br>
 sudo dnf install wmswitch
 
-# Create your first configuration
-
+# Create your first configuration<br>
 wmswitch wizard ~/.config/wmswitch/config.toml
 
-# Generate configs for all supported WMs
-
+# Generate configs for all supported WMs<br>
 wmswitch generate ~/.config/wmswitch/config.toml
                 </div>
             </div>
@@ -783,23 +827,30 @@ wmswitch generate ~/.config/wmswitch/config.toml
                 </div>
             </div>
 
+            <div class="availability-badges">
+                <span class="badge badge-rpm">
+                    <span class="badge-icon">🎯</span>
+                    RPM Available
+                </span>
+                <a href="https://aur.archlinux.org/packages/wezztershier" target="_blank" class="badge badge-aur">
+                    <span class="badge-icon">🏛️</span>
+                    AUR Available
+                </a>
+            </div>
+
             <div class="install-section">
                 <div class="install-title">📥 Install</div>
                 <div class="code-block">
-# Add repository
-
+# Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install package
-
+# Install package<br>
 sudo dnf install wezztershier wezztershier-gui
 
-# Use CLI tools
-
+# Use CLI tools<br>
 wezztershier parse ~/.config/wezterm/wezterm.lua
 
-# Or start web GUI
-
+# Or start web GUI<br>
 wezztershier-gui  # Opens at http://localhost:8080
                 </div>
             </div>
@@ -810,6 +861,66 @@ wezztershier-gui  # Opens at http://localhost:8080
                 <a href="RPMS/wezztershier-0.1.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
             </div>
         </div>
+        <div class="repo-card">
+            <h2><a href="eyescore.html" style="color: inherit; text-decoration: none; cursor: pointer !important;" onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='pointer'"><span class="repo-icon" style="cursor: pointer !important;">🎼eyescore</a></h2>
+            <p class="repo-description">
+                Professional CLI music notation system with beautiful colorized TUI interface. Complete composition workflow with unlimited staff scrolling, multi-staff support, MIDI playback, and MusicXML export.
+            </p>
+            
+            <div class="repo-stats">
+                <div class="stat">
+                    <span class="stat-icon">📦
+                    <span>1 Package
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🏷️
+                    <span>v1.0.0
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">📏
+                    <span>507 KB
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🛡️
+                    <span>MIT License
+                </div>
+            </div>
+
+            <div class="availability-badges">
+                <span class="badge badge-rpm">
+                    <span class="badge-icon">🎯</span>
+                    RPM Available
+                </span>
+                <a href="https://aur.archlinux.org/packages/eyescore" target="_blank" class="badge badge-aur">
+                    <span class="badge-icon">🏛️</span>
+                    AUR Available
+                </a>
+            </div>
+
+            <div class="install-section">
+                <div class="install-title">🚀 Quick Install</div>
+                <div class="code-block">
+# Add repository<br>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install EyeScore<br>
+sudo dnf install eyescore
+
+# Start composing with colorized interface!<br>
+eyescore
+
+# F1 for help, c/d/e/f/g/a/b for notes<br>
+# SPACE for durations, p for MIDI playback
+                </div>
+            </div>
+
+            <div class="quick-links">
+                <a href="RPMS/" class="btn">📂 Browse Files</a>
+                <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="RPMS/eyescore-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+            </div>
+        </div>
+
         <div class="repo-card">
             <h2><a href="waveterm.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🌊waveterm</a></h2>
             <p class="repo-description">
@@ -834,19 +945,28 @@ wezztershier-gui  # Opens at http://localhost:8080
                     <span>MIT License
                 </div>
             </div>
+
+            <div class="availability-badges">
+                <span class="badge badge-rpm">
+                    <span class="badge-icon">🎯</span>
+                    RPM Available
+                </span>
+                <a href="https://aur.archlinux.org/packages/waveterm-vis" target="_blank" class="badge badge-aur">
+                    <span class="badge-icon">🏛️</span>
+                    AUR Available
+                </a>
+            </div>
+
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository
-
+# Add repository<br>
 sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
 
-# Install package
-
+# Install package<br>
 sudo dnf install waveterm
 
-# Try the demo
-
+# Try the demo<br>
 waveterm-demo
                 </div>
             </div>
@@ -861,8 +981,64 @@ waveterm-demo
     <div class="system-info">
         <h4>🖥️ Supported Systems</h4>
         <p><strong>RPM Compatible:</strong> RHEL 9+, CentOS Stream 9+, Rocky Linux 9+, AlmaLinux 9+, Fedora 35+</p>
-        <p><strong>Arch Linux:</strong> Available via AUR (Arch User Repository)</p>
-        <p><strong>Architectures:</strong> x86_64, noarch • <strong>Total Packages:</strong> 10</p>
+        <p><strong>Arch Linux:</strong> 13 packages available via AUR (gitswitch-c, parrot-cli, fortsh, fortbite, shtick, spotify-cue, waveterm-vis, shellp, wezztershier, wezztershier-rust, arco, wmswitch, eyescore)</p>
+        <p><strong>Architectures:</strong> x86_64, noarch • <strong>Total RPM Packages:</strong> 13 • <strong>AUR Packages:</strong> 13</p>
+        
+        <h4 style="margin-top: 20px;">🏛️ AUR Package Overview</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 10px;">
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>gitswitch-c</strong><br>
+                <small>Safe Git identity switching with SSH/GPG isolation</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>parrot-cli</strong><br>
+                <small>AI-powered CLI command failure assistant</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>fortsh</strong><br>
+                <small>Modern Unix shell in Fortran 2018</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>fortbite</strong><br>
+                <small>High-precision mathematical calculator in Modern Fortran</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>shtick</strong><br>
+                <small>Shell configuration manager for 16 different shells</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>spotify-cue</strong><br>
+                <small>Unified CLI Spotify controller with session management</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>waveterm-vis</strong><br>
+                <small>Terminal music visualizer with 15+ ASCII art effects</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>shellp</strong><br>
+                <small>Development note-taking companion with smart command detection</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>wezztershier</strong><br>
+                <small>GUI tuner for WezTerm configuration using static decorators</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>wezztershier-rust</strong><br>
+                <small>High-performance Rust WezTerm GUI tuner with embedded web interface</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>arco</strong><br>
+                <small>Terminal virtual instrument playground with real-time synthesis</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>wmswitch</strong><br>
+                <small>Unified configuration manager for tiling window managers</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>eyescore</strong><br>
+                <small>Professional CLI music notation system with colorized interface</small>
+            </div>
+        </div>
     </div>
 
     <div class="footer">

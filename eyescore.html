@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fortsh - Fortran Shell</title>
+    <title>EyeScore - Professional CLI Music Notation System</title>
     <style>
         body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
         .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; }
@@ -31,36 +31,36 @@
 </head>
 <body>
     <div class="header">
-        <h1>🐚 Fortsh - Fortran Shell</h1>
-        <p>A modern Unix shell implementation in Fortran 2018 with advanced features</p>
+        <h1>🎼 EyeScore - Professional CLI Music Notation System</h1>
+        <p>A revolutionary terminal-based music notation system with beautiful colorized interface</p>
         <span class="version-badge">v1.0.0</span>
     </div>
 
     <h2>🚀 Features</h2>
     <div class="feature-grid">
         <div class="feature-card">
-            <h3>🔧 Advanced I/O</h3>
-            <p>Pipes, here-strings, process substitution, and comprehensive redirection support</p>
+            <h3>🌈 Colorized Interface</h3>
+            <p>Beautiful rainbow note colors, professional appearance with visual hierarchy and cursor highlighting</p>
         </div>
         <div class="feature-card">
-            <h3>📜 Full Scripting</h3>
-            <p>Loops, functions, local variables, and control flow constructs</p>
+            <h3>🎵 Complete Notation</h3>
+            <p>All durations, accidentals, ties, tuplets, beaming with unlimited staff length and smooth scrolling</p>
         </div>
         <div class="feature-card">
-            <h3>⚙️ Job Control</h3>
-            <p>Background jobs, suspend/resume, and process group management</p>
+            <h3>📊 Multi-Staff Support</h3>
+            <p>Up to 4 staves with mid-composition signature changes and professional layout</p>
         </div>
         <div class="feature-card">
-            <h3>🔍 Pattern Matching</h3>
-            <p>Glob patterns (*,?,[]), recursive matching, and sorting</p>
+            <h3>🔊 MIDI Playback</h3>
+            <p>Real-time audio feedback and professional MusicXML export for integration</p>
         </div>
         <div class="feature-card">
-            <h3>📊 Performance</h3>
-            <p>Built-in monitoring, memory pools, and optimization</p>
+            <h3>⌨️ Full Control</h3>
+            <p>Comprehensive keyboard shortcuts and mouse support with undo/redo system</p>
         </div>
         <div class="feature-card">
-            <h3>🛡️ Error Handling</h3>
-            <p>Comprehensive test suite and robust error management</p>
+            <h3>💾 Save & Load</h3>
+            <p>JSON persistence, project management, and seamless workflow integration</p>
         </div>
     </div>
 
@@ -77,24 +77,24 @@
                 <div class="install-title">🚀 YUM/DNF Repository (Recommended)</div>
                 <div class="install-box">
 # Add repository<br>
-sudo wget -O /etc/yum.repos.d/fortsh.repo https://repos.musicsian.com/fortsh.repo
+sudo wget -O /etc/yum.repos.d/musicsian.repo https://repos.musicsian.com/musicsian.repo
 
-# Install fortsh<br>
-sudo dnf install fortsh
+# Install EyeScore<br>
+sudo dnf install eyescore
                 </div>
             </div>
 
             <div class="install-section">
                 <div class="install-title">📦 Direct RPM Installation</div>
                 <div class="install-box">
-sudo dnf install https://repos.musicsian.com/RPMS/fortsh-1.0.0-1.el9.x86_64.rpm
+sudo dnf install https://repos.musicsian.com/RPMS/eyescore-1.0.0-1.el9.x86_64.rpm
                 </div>
             </div>
 
             <div class="quick-links">
                 <a href="RPMS/" class="btn">📂 Browse Files</a>
-                <a href="fortsh.repo" class="btn-outline btn">⬇️ Download .repo</a>
-                <a href="RPMS/fortsh-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+                <a href="eyescore.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                <a href="RPMS/eyescore-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
             </div>
         </div>
 
@@ -108,83 +108,94 @@ sudo dnf install https://repos.musicsian.com/RPMS/fortsh-1.0.0-1.el9.x86_64.rpm
                 <div class="install-title">🏛️ AUR Package Available</div>
                 <div class="install-box">
 # Install using yay<br>
-yay -S fortsh
+yay -S eyescore
 
 # Or using paru<br>
-paru -S fortsh
+paru -S eyescore
 
-# Start the shell<br>
-fortsh
+# Start composing!<br>
+eyescore
                 </div>
             </div>
 
             <div class="install-section">
                 <div class="install-title">🔧 Build Requirements</div>
-                <p style="font-size: 0.9em; margin: 0;">Automatically installs: gfortran≥11.0, gcc, make</p>
+                <p style="font-size: 0.9em; margin: 0;">Automatically installs: rust≥1.70, cargo, gcc, alsa-lib-devel</p>
             </div>
 
             <div class="quick-links">
-                <a href="https://aur.archlinux.org/packages/fortsh" class="btn" target="_blank">🏛️ View AUR Page</a>
-                <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=fortsh" class="btn-outline btn" target="_blank">📄 View PKGBUILD</a>
+                <a href="https://aur.archlinux.org/packages/eyescore" class="btn" target="_blank">🏛️ View AUR Page</a>
+                <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=eyescore" class="btn-outline btn" target="_blank">📄 View PKGBUILD</a>
             </div>
         </div>
     </div>
 
     <h3>🔧 Build from Source</h3>
     <div class="install-box">
-        git clone https://github.com/FortranGoingOnForty/fortsh.git
-        cd fortsh
+        git clone https://github.com/tree3stan-chord/score.git
+        cd score
         make all
         make dev-install
     </div>
 
     <h2>🎯 Usage Examples</h2>
-    <pre><code># Basic shell usage<br>
-fortsh
+    <pre><code># Start EyeScore<br>
+eyescore
 
-# Performance monitoring<br>
-export FORTSH_PERF=1<br>
-fortsh
+# Basic composition<br>
+F1                 # Configure signatures<br>
+c d e f g a b      # Enter colorized notes<br>
+SPACE              # Change note durations<br>
+#                  # Add accidentals<br>
+Shift+T            # Insert time signature changes<br>
+Shift+K            # Insert key signature changes
 
-# Advanced scripting<br>
-for file in *.txt; do<br>
-  echo "Processing: $file"<br>
-done
+# Playback and export<br>
+p                  # MIDI playback<br>
+x                  # Export to MusicXML<br>
+Ctrl+S             # Save composition<br>
+Ctrl+O             # Open composition
 
-# Job control<br>
-command &          # Run in background<br>
-jobs              # List jobs<br>
-fg %1             # Bring to foreground
-
-# Pattern matching<br>
-echo *.{txt,log}  # Glob expansion
-echo test-[0-9]*  # Character classes</code></pre>
+# Multi-staff workflow<br>
++/-                # Add/remove staves<br>
+Tab/Shift+Tab      # Navigate between staves<br>
+PgUp/PgDn          # Scroll through unlimited staff length</code></pre>
 
     <h2>⚡ Performance Features</h2>
-    <pre><code># Enable performance monitoring<br>
-perf on
+    <pre><code># Colorized interface provides:<br>
+# - Rainbow note colors for visual appeal<br>
+# - Color-coded time and key signatures<br>
+# - Highlight cursor and selection feedback<br>
+# - Professional appearance in any terminal
 
-# View memory usage<br>
-memory
-
-# Built-in commands provide runtime stats
-# - Parse time: ~0.009ms average
-# - Execution time: ~0.115ms average  
-# - Memory pools for optimization
-# - Automatic memory optimization</code></pre>
+# Advanced functionality:<br>
+# - Unlimited horizontal scrolling<br>
+# - Up to 4 staves simultaneously<br>
+# - Mid-composition signature changes<br>
+# - Complete undo/redo system<br>
+# - JSON-based save/load format</code></pre>
 
     <h2>📋 Requirements</h2>
     <ul>
         <li><strong>OS</strong>: RHEL 9+, CentOS Stream 9+, Rocky Linux 9+, AlmaLinux 9+, Fedora, Arch Linux</li>
         <li><strong>Architecture</strong>: x86_64</li>
-        <li><strong>Build Dependencies</strong>: gfortran >= 11.0, gcc, make</li>
-        <li><strong>Runtime Dependencies</strong>: glibc</li>
+        <li><strong>Build Dependencies</strong>: rust >= 1.70, cargo, gcc, alsa-lib-devel</li>
+        <li><strong>Runtime Dependencies</strong>: alsa-lib (for MIDI playback)</li>
+        <li><strong>Terminal</strong>: Full color support recommended for optimal experience</li>
+    </ul>
+
+    <h2>🎨 Perfect For</h2>
+    <ul>
+        <li>🎼 <strong>Composers</strong> - Sketch musical ideas and write complete compositions</li>
+        <li>🏫 <strong>Music Educators</strong> - Teach notation with visual, colorized feedback</li>
+        <li>🎸 <strong>Musicians</strong> - Notate chord progressions and lead sheets</li>
+        <li>💻 <strong>Developers</strong> - Terminal-native music workflows and scripting</li>
     </ul>
 
     <h2>🔗 Links</h2>
     <ul>
-        <li><a href="https://github.com/FortranGoingOnForty/fortsh">Source Code</a></li>
-        <li><a href="https://repos.musicsian.com/fortsh.repo">YUM Repository File</a></li>
+        <li><a href="https://github.com/tree3stan-chord/score">Source Code</a></li>
+        <li><a href="https://repos.musicsian.com/eyescore.repo">YUM Repository File</a></li>
         <li><a href="https://repos.musicsian.com/RPM-GPG-KEY-musicsian">GPG Public Key</a></li>
     </ul>
 
@@ -192,7 +203,7 @@ memory
     <p>MIT License - Free and open source</p>
 
     <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: center; color: #718096;">
-        <p>Fortsh demonstrates Fortran's capability for modern system programming</p>
+        <p>EyeScore demonstrates professional CLI music notation with beautiful colorized interface</p>
     </footer>
 </body>
 </html>
