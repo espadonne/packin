@@ -13,27 +13,13 @@
         .version-badge { background: #38a169; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; }
         code { background: #f1f3f4; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
         pre { background: #2d3748; color: #e2e8f0; padding: 15px; border-radius: 8px; overflow-x: auto; }
-        pre code { background: transparent; padding: 0; border-radius: 0; color: inherit; }
-        .distro-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin: 20px 0; }
-        .distro-card { background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 3px solid #e2e8f0; }
-        .distro-card.rpm { border-left-color: #38a169; }
-        .distro-card.aur { border-left-color: #4169e1; }
-        .distro-title { font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; }
-        .distro-logo { width: 20px; height: 20px; margin-right: 8px; }
-        .install-section { margin: 15px 0; }
-        .install-title { font-weight: 600; margin-bottom: 10px; color: #2d3748; }
-        .quick-links { margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap; }
-        .btn { display: inline-flex; align-items: center; padding: 6px 12px; background: #667eea; color: white; text-decoration: none; border-radius: 6px; font-size: 0.85em; transition: background 0.2s; }
-        .btn:hover { background: #5a67d8; }
-        .btn-outline { background: transparent; color: #667eea; border: 1px solid #667eea; }
-        .btn-outline:hover { background: #667eea; color: white; }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>🐚 Fortsh - Fortran Shell</h1>
         <p>A modern Unix shell implementation in Fortran 2018 with advanced features</p>
-        <span class="version-badge">v1.0.0</span>
+        <span class="version-badge">v1.3.0</span>
     </div>
 
     <h2>🚀 Features</h2>
@@ -44,7 +30,7 @@
         </div>
         <div class="feature-card">
             <h3>📜 Full Scripting</h3>
-            <p>Loops, functions, local variables, and control flow constructs</p>
+            <p>Loops, functions, local variables, advanced testing [[ ]], and built-in commands</p>
         </div>
         <div class="feature-card">
             <h3>⚙️ Job Control</h3>
@@ -65,106 +51,55 @@
     </div>
 
     <h2>📦 Installation</h2>
-    
-    <div class="distro-grid">
-        <div class="distro-card rpm">
-            <div class="distro-title">
-                <span class="distro-logo">🎯</span>
-                RHEL/CentOS/Rocky/Alma/Fedora
-            </div>
-            
-            <div class="install-section">
-                <div class="install-title">🚀 YUM/DNF Repository (Recommended)</div>
-                <div class="install-box">
-# Add repository<br>
-sudo wget -O /etc/yum.repos.d/fortsh.repo https://repos.musicsian.com/fortsh.repo
 
-# Install fortsh<br>
-sudo dnf install fortsh
-                </div>
-            </div>
-
-            <div class="install-section">
-                <div class="install-title">📦 Direct RPM Installation</div>
-                <div class="install-box">
-sudo dnf install https://repos.musicsian.com/RPMS/fortsh-1.0.0-1.el9.x86_64.rpm
-                </div>
-            </div>
-
-            <div class="quick-links">
-                <a href="RPMS/" class="btn">📂 Browse Files</a>
-                <a href="fortsh.repo" class="btn-outline btn">⬇️ Download .repo</a>
-                <a href="RPMS/fortsh-1.0.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
-            </div>
-        </div>
-
-        <div class="distro-card aur">
-            <div class="distro-title">
-                <span class="distro-logo">🏛️</span>
-                Arch Linux
-            </div>
-            
-            <div class="install-section">
-                <div class="install-title">🏛️ AUR Package Available</div>
-                <div class="install-box">
-# Install using yay<br>
-yay -S fortsh
-
-# Or using paru<br>
-paru -S fortsh
-
-# Start the shell<br>
-fortsh
-                </div>
-            </div>
-
-            <div class="install-section">
-                <div class="install-title">🔧 Build Requirements</div>
-                <p style="font-size: 0.9em; margin: 0;">Automatically installs: gfortran≥11.0, gcc, make</p>
-            </div>
-
-            <div class="quick-links">
-                <a href="https://aur.archlinux.org/packages/fortsh" class="btn" target="_blank">🏛️ View AUR Page</a>
-                <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=fortsh" class="btn-outline btn" target="_blank">📄 View PKGBUILD</a>
-            </div>
-        </div>
+    <h3>Method 1: YUM/DNF Repository (Recommended)</h3>
+    <div class="install-box">
+        <div># Add repository</div>
+        <div>sudo wget -O /etc/yum.repos.d/fortsh.repo https://repos.musicsian.com/fortsh.repo</div>
+        <div><br># Install fortsh</div>
+        <div>sudo dnf install fortsh</div>
     </div>
 
-    <h3>🔧 Build from Source</h3>
+    <h3>Method 2: Direct RPM Installation</h3>
     <div class="install-box">
-        git clone https://github.com/FortranGoingOnForty/fortsh.git
-        cd fortsh
-        make all
-        make dev-install
+        <div>sudo dnf install https://repos.musicsian.com/RPMS/fortsh-1.3.0-1.el9.x86_64.rpm</div>
+    </div>
+
+    <h3>Method 3: Build from Source</h3>
+    <div class="install-box">
+        <div>git clone https://github.com/FortranGoingOnForty/fortsh.git</div>
+        <div>cd fortsh</div>
+        <div>make all</div>
+        <div>make dev-install</div>
     </div>
 
     <h2>🎯 Usage Examples</h2>
-    <pre><code># Basic shell usage<br>
+    <pre><code># Basic shell usage
 fortsh
 
-# Performance monitoring<br>
-export FORTSH_PERF=1<br>
+# Performance monitoring
+export FORTSH_PERF=1
 fortsh
 
-# Advanced scripting<br>
-for file in *.txt; do<br>
-  echo "Processing: $file"<br>
+# Advanced scripting
+for file in *.txt; do
+  echo "Processing: $file"
 done
 
-# Job control<br>
-command &          # Run in background<br>
-jobs              # List jobs<br>
+# Job control
+command &          # Run in background
+jobs              # List jobs
 fg %1             # Bring to foreground
 
-# Pattern matching<br>
+# Pattern matching
 echo *.{txt,log}  # Glob expansion
 echo test-[0-9]*  # Character classes</code></pre>
 
     <h2>⚡ Performance Features</h2>
-    <pre><code># Enable performance monitoring<br>
+    <pre><code># Enable performance monitoring
 perf on
 
-# View memory usage<br>
+# View memory usage
 memory
 
 # Built-in commands provide runtime stats
@@ -175,9 +110,9 @@ memory
 
     <h2>📋 Requirements</h2>
     <ul>
-        <li><strong>OS</strong>: RHEL 9+, CentOS Stream 9+, Rocky Linux 9+, AlmaLinux 9+, Fedora, Arch Linux</li>
+        <li><strong>OS</strong>: RHEL 9, CentOS Stream 9, Rocky Linux 9, AlmaLinux 9, Fedora</li>
         <li><strong>Architecture</strong>: x86_64</li>
-        <li><strong>Build Dependencies</strong>: gfortran >= 11.0, gcc, make</li>
+        <li><strong>Build Dependencies</strong>: gfortran >= 11.0, make</li>
         <li><strong>Runtime Dependencies</strong>: glibc</li>
     </ul>
 
