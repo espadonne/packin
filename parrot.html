@@ -188,7 +188,7 @@
     </div>
 
     <div class="package-info">
-        <p>Parrot is an intelligent CLI assistant that listens for failed command executions and provides witty, AI-powered responses with helpful suggestions. Features multi-backend architecture, three personality levels, and seamless shell integration for an enhanced terminal experience.</p>
+        <p>Parrot is an intelligent CLI assistant that listens for failed command executions and provides witty, AI-powered responses with helpful suggestions. Features multi-backend architecture, three personality levels, transparent AI model management, and seamless shell integration for an enhanced terminal experience.</p>
         
         <h3>📦 Installation Options</h3>
         <div class="distro-grid">
@@ -211,7 +211,7 @@ parrot setup</div>
                 <div class="quick-links">
                     <a href="RPMS/" class="btn">📂 Browse Files</a>
                     <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
-                    <a href="RPMS/parrot-1.0.3-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+                    <a href="RPMS/parrot-1.3.0-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
                 </div>
             </div>
 
@@ -243,8 +243,8 @@ parrot setup</div>
 
         <div class="feature-grid">
             <div class="feature-card">
-                <h4>🤖 Multi-Backend AI</h4>
-                <p>Choose from API backends (OpenAI-compatible), local LLM models via Ollama, or built-in fallback responses. Automatic failover ensures it always works.</p>
+                <h4>🤖 Transparent AI Management</h4>
+                <p>Install and forget! Automatic AI model downloads, smart keepalive configuration (OLLAMA_KEEP_ALIVE=1h), and faster llama3.2:3b model for instant responses without manual setup.</p>
             </div>
             <div class="feature-card">
                 <h4>🎭 Three Personalities</h4>
@@ -285,7 +285,7 @@ docker: command not found
         <h3>Backend Options</h3>
         <div class="code-block">Backend Priority System:
 1. API Backend      - OpenAI-compatible services (highest quality)
-2. Local Backend    - Ollama with phi3.5:3.8b (privacy-focused)  
+2. Local Backend    - Ollama with llama3.2:3b (privacy-focused)  
 3. Fallback Backend - Built-in responses (always available)
 
 Configuration locations:
@@ -325,7 +325,7 @@ Advanced Usage:
 Scenario 2: Local AI (Ollama)  
   1. Install Ollama: curl -fsSL https://ollama.com/install.sh | sh
   2. Install Parrot: sudo dnf install parrot
-  3. Setup: parrot setup (auto-downloads phi3.5:3.8b model)
+  3. Setup: parrot setup (auto-downloads llama3.2:3b model)
   4. Test: parrot mock "docker run" 125
 
 Scenario 3: Fallback Only
