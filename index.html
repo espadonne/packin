@@ -1034,69 +1034,6 @@ waveterm-demo
         </div>
     </div>
 
-    <div class="system-info">
-        <h4>🖥️ Supported Systems</h4>
-        <p><strong>RPM Compatible:</strong> RHEL 9+, CentOS Stream 9+, Rocky Linux 9+, AlmaLinux 9+, Fedora 35+</p>
-        <p><strong>Arch Linux:</strong> 13 packages available via AUR (gitswitch-c, parrot-cli, fortsh, fortbite, shtick, spotify-cue, waveterm-vis, shellp, wezztershier, wezztershier-rust, arco, wmswitch, eyescore)</p>
-        <p><strong>Architectures:</strong> x86_64, noarch • <strong>Total RPM Packages:</strong> 13 • <strong>AUR Packages:</strong> 13</p>
-        
-        <h4 style="margin-top: 20px;">🏛️ AUR Package Overview</h4>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 10px;">
-            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
-                <strong>gitswitch-c</strong><br>
-                <small>Safe Git identity switching with SSH/GPG isolation</small>
-            </div>
-            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
-                <strong>parrot-cli</strong><br>
-                <small>AI-powered CLI command failure assistant</small>
-            </div>
-            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
-                <strong>fortsh</strong><br>
-                <small>Modern Unix shell in Fortran 2018</small>
-            </div>
-            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
-                <strong>fortbite</strong><br>
-                <small>High-precision mathematical calculator in Modern Fortran</small>
-            </div>
-            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
-                <strong>shtick</strong><br>
-                <small>Shell configuration manager for 16 different shells</small>
-            </div>
-            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
-                <strong>spotify-cue</strong><br>
-                <small>Unified CLI Spotify controller with session management</small>
-            </div>
-            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
-                <strong>waveterm-vis</strong><br>
-                <small>Terminal music visualizer with 15+ ASCII art effects</small>
-            </div>
-            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
-                <strong>shellp</strong><br>
-                <small>Development note-taking companion with smart command detection</small>
-            </div>
-            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
-                <strong>wezztershier</strong><br>
-                <small>GUI tuner for WezTerm configuration using static decorators</small>
-            </div>
-            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
-                <strong>wezztershier-rust</strong><br>
-                <small>High-performance Rust WezTerm GUI tuner with embedded web interface</small>
-            </div>
-            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
-                <strong>arco</strong><br>
-                <small>Terminal virtual instrument playground with real-time synthesis</small>
-            </div>
-            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
-                <strong>wmswitch</strong><br>
-                <small>Unified configuration manager for tiling window managers</small>
-            </div>
-            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
-                <strong>eyescore</strong><br>
-                <small>Professional CLI music notation system with colorized interface</small>
-            </div>
-        </div>
-    </div>
-
     <!-- NPM Packages Grid (Initially Hidden) -->
     <div class="repo-grid" id="npm-grid" style="display: none;">
         <div class="repo-card">
@@ -1183,6 +1120,70 @@ import { ParallaxVisualizerReact } from 'parallax-visualizer/react';<br>
                         <small>ESM, CommonJS, UMD, and IIFE formats for all environments</small>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supported Systems Section (Moved from above) -->
+    <div class="system-info" id="system-info-section">
+        <h4>🖥️ Supported Systems</h4>
+        <p><strong>RPM Compatible:</strong> RHEL 9+, CentOS Stream 9+, Rocky Linux 9+, AlmaLinux 9+, Fedora 35+</p>
+        <p><strong>Arch Linux:</strong> 13 packages available via AUR (gitswitch-c, parrot-cli, fortsh, fortbite, shtick, spotify-cue, waveterm-vis, shellp, wezztershier, wezztershier-rust, arco, wmswitch, eyescore)</p>
+        <p><strong>Architectures:</strong> x86_64, noarch • <strong>Total RPM Packages:</strong> 13 • <strong>AUR Packages:</strong> 13</p>
+        
+        <h4 style="margin-top: 20px;">🏛️ AUR Package Overview</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 10px;">
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>gitswitch-c</strong><br>
+                <small>Safe Git identity switching with SSH/GPG isolation</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>parrot-cli</strong><br>
+                <small>AI-powered CLI command failure assistant</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>fortsh</strong><br>
+                <small>Modern Unix shell in Fortran 2018</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>fortbite</strong><br>
+                <small>High-precision mathematical calculator in Modern Fortran</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>shtick</strong><br>
+                <small>Cross-platform text manipulation with smart delimiters</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>spotify-cue</strong><br>
+                <small>Cross-platform CUE sheet manager with Spotify integration</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>waveterm-vis</strong><br>
+                <small>Modern terminal with advanced visualization capabilities</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>shellp</strong><br>
+                <small>Enhanced shell prompt with Git integration and themes</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>wezztershier</strong><br>
+                <small>Modern replacement for ps with enhanced filtering</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>wezztershier-rust</strong><br>
+                <small>Rust implementation of wezztershier for maximum performance</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>arco</strong><br>
+                <small>Terminal virtual instrument playground with real-time synthesis</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>wmswitch</strong><br>
+                <small>Unified configuration manager for tiling window managers</small>
+            </div>
+            <div style="background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid #4169e1;">
+                <strong>eyescore</strong><br>
+                <small>Professional CLI music notation system with colorized interface</small>
             </div>
         </div>
     </div>
