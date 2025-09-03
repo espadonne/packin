@@ -23,7 +23,12 @@ if command -v rpm >/dev/null 2>&1 && command -v gpg >/dev/null 2>&1; then
             # Check if already signed
             if rpm -qp --qf '%{SIGPGP:pgpsig}' "$rpm_file" 2>/dev/null | grep -q "(none)"; then
                 echo "🔐 Signing $(basename "$rpm_file")..."
-                rpm --addsign "$rpm_file" 2>/dev/null || echo "⚠️  Failed to sign $(basename "$rpm_file")"
+                # Use the original user's GPG keys if running via sudo
+                if [ -n "$SUDO_USER" ] && [ -d "/home/$SUDO_USER/.gnupg" ]; then
+                    sudo -u "$SUDO_USER" rpm --addsign "$rpm_file" 2>/dev/null || echo "⚠️  Failed to sign $(basename "$rpm_file")"
+                else
+                    rpm --addsign "$rpm_file" 2>/dev/null || echo "⚠️  Failed to sign $(basename "$rpm_file")"
+                fi
             else
                 echo "✓ $(basename "$rpm_file") already signed"
             fi
@@ -39,8 +44,14 @@ createrepo_c --update "$OUT"
 
 echo "▶ Signing repository metadata..."
 if command -v gpg >/dev/null 2>&1; then
-    gpg --detach-sign --armor "$OUT"/repodata/repomd.xml
-    echo "✓ Repository metadata signed"
+    # Use the original user's GPG keys if running via sudo
+    if [ -n "$SUDO_USER" ] && [ -d "/home/$SUDO_USER/.gnupg" ]; then
+        sudo -u "$SUDO_USER" gpg --detach-sign --armor "$OUT"/repodata/repomd.xml
+        echo "✓ Repository metadata signed with user GPG key"
+    else
+        gpg --detach-sign --armor "$OUT"/repodata/repomd.xml
+        echo "✓ Repository metadata signed"
+    fi
 else
     echo "⚠️  GPG not available, skipping signature"
 fi
