@@ -1,0 +1,11 @@
+# DEPRECATED: This individual repo file is deprecated
+# Please use the unified musicsian repository instead:
+# sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+[gitswitcher]
+name=Git Identity Switcher (DEPRECATED - Use musicsian.repo)
+baseurl=https://repos.musicsian.com
+enabled=1
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=https://repos.musicsian.com/RPM-GPG-KEY-musicsian

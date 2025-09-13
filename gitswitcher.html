@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gitswitcher - Git Identity Management | musicsian</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        .header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 2.5em; font-weight: 300; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; font-size: 1.1em; }
+        .back-link { 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            color: #5a67d8; 
+            text-decoration: none; 
+        }
+        .back-link:hover { text-decoration: underline; }
+        .package-info {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .code-block { 
+            background: #2d3748; 
+            color: #e2e8f0; 
+            padding: 20px; 
+            border-radius: 6px; 
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.4;
+            white-space: pre;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+        .code-block::selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+        .code-block::-moz-selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+        .install-section { 
+            background: #f7fafc; 
+            border-radius: 8px; 
+            padding: 20px; 
+            border-left: 4px solid #38a169;
+            margin: 20px 0;
+        }
+        .install-title { 
+            font-weight: 600; 
+            margin-bottom: 10px; 
+            color: #2d3748;
+        }
+        .quick-links { 
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn { 
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px; 
+            background: #5a67d8; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #4c51bf; }
+        .btn-outline { 
+            background: transparent; 
+            color: #5a67d8; 
+            border: 1px solid #5a67d8; 
+        }
+        .btn-outline:hover { 
+            background: #5a67d8; 
+            color: white; 
+        }
+        .aur-section {
+            background: #f0f8ff;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #4169e1;
+            margin: 20px 0;
+        }
+        .aur-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+        }
+        .aur-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+        .distro-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        .distro-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #e2e8f0;
+        }
+        .distro-card.rpm {
+            border-left-color: #38a169;
+        }
+        .distro-card.aur {
+            border-left-color: #4169e1;
+        }
+        .distro-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .distro-logo {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+        }
+        .notice {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+        .notice-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Repository</a>
+    
+    <div class="header">
+        <h1>🔄 Gitswitcher - Git Identity Management</h1>
+        <p>Secure Git identity and SSH/GPG key management for seamless account switching</p>
+    </div>
+
+    <div class="package-info">
+        <div class="notice">
+            <div class="notice-title">📦 Package Renamed</div>
+            This package was previously named "gitswitch-c" but has been renamed to "gitswitcher" to avoid confusion with an existing unrelated package called "gitswitch". This is a standalone tool with its own unique functionality.
+        </div>
+
+        <p>Gitswitcher is a secure Git identity and SSH/GPG key management tool built in C with security hardening for developers working with multiple Git accounts. It ensures credentials never leak between identities through complete environment isolation, comprehensive health checking, and secure configuration management.</p>
+        
+        <h3>📦 Installation Options</h3>
+        <div class="distro-grid">
+            <div class="distro-card rpm">
+                <div class="distro-title">
+                    <span class="distro-logo">🎯</span>
+                    RHEL/CentOS/Rocky/Alma/Fedora
+                </div>
+                <div class="install-section">
+                    <div class="install-title">🚀 RPM Install</div>
+                    <div class="code-block"># Add repository<br>
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install package<br>
+sudo dnf install gitswitcher
+
+# Add a new Git identity<br>
+gitswitch add</div>
+                </div>
+                <div class="quick-links">
+                    <a href="RPMS/" class="btn">📂 Browse Files</a>
+                    <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                    <a href="RPMS/gitswitcher-1.0.2-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+                </div>
+            </div>
+
+            <div class="distro-card aur">
+                <div class="distro-title">
+                    <span class="distro-logo">🏛️</span>
+                    Arch Linux
+                </div>
+                <div class="aur-section">
+                    <div class="aur-title">
+                        <span class="aur-icon">🏛️</span>
+                        AUR Package Available
+                    </div>
+                    <div class="code-block"># Install using yay<br>
+yay -S gitswitcher
+
+# Or using paru<br>
+paru -S gitswitcher
+
+# Add a new Git identity<br>
+gitswitch add</div>
+                </div>
+                <div class="quick-links">
+                    <a href="https://aur.archlinux.org/packages/gitswitcher" class="btn" target="_blank">🏛️ View AUR Page</a>
+                    <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=gitswitcher" class="btn-outline btn" target="_blank">📄 View PKGBUILD</a>
+                </div>
+            </div>
+        </div>
+
+        <h3>Full Usage Documentation</h3>
+        <div class="code-block">Usage: gitswitch [OPTIONS] [COMMAND] [ARGS]
+
+Complete Git Identity Management
+Secure git identity switching with comprehensive environment isolation
+
+Commands:
+  add                  Add new account interactively
+  list, ls             List all configured accounts
+  remove &lt;account&gt;     Remove specified account
+  status               Show current account status
+  doctor, health       Run comprehensive health check
+  config               Show configuration file information
+  &lt;account&gt;            Switch to specified account
+
+Options:
+  --global, -g         Use global git scope
+  --local, -l          Use local git scope (default)
+  --dry-run, -n        Show what would be done without executing
+  --verbose, -V        Enable verbose output
+  --debug, -d          Enable debug logging
+  --color, -c          Force color output
+  --no-color, -C       Disable color output
+  --help, -h           Show this help message
+  --version, -v        Show version information
+
+Examples:
+  gitswitch add                    # Add new account interactively
+  gitswitch list                   # List all accounts
+  gitswitch 1                      # Switch to account ID 1
+  gitswitch work                   # Switch to account matching 'work'
+  gitswitch remove 2               # Remove account ID 2
+  gitswitch doctor                 # Run health check
+
+Key Features:
+- Secure TOML configuration management
+- Interactive account creation with validation
+- Comprehensive account health checking
+- Complete SSH key isolation per account
+- GPG environment separation and management
+- Configuration validation and security checks
+- Atomic configuration file operations
+- Safe file permission handling
+- Actual git configuration switching
+- Repository detection and scope management
+- Security-focused design with hardening</div>
+    </div>
+</body>
+</html>
