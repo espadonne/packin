@@ -10,6 +10,10 @@
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
         .feature-card { background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea; }
         .install-box { background: #2d3748; color: #e2e8f0; padding: 20px; border-radius: 8px; font-family: 'Monaco', 'Menlo', monospace; }
+        .tabs { display: flex; gap: 10px; margin-bottom: 10px; border-bottom: 2px solid #4a5568; }
+        .tab { padding: 10px 20px; cursor: pointer; background: #4a5568; color: white; border-radius: 8px 8px 0 0; transition: background 0.3s; }
+        .tab:hover { background: #667eea; }
+        .tab.active { background: #667eea; }
         .version-badge { background: #38a169; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; }
         code { background: #f1f3f4; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
         pre { background: #2d3748; color: #e2e8f0; padding: 15px; border-radius: 8px; overflow-x: auto; }
@@ -19,59 +23,119 @@
     <div class="header">
         <h1>🐚 Fortsh - Fortran Shell</h1>
         <p>A modern Unix shell implementation in Fortran 2018 with advanced features</p>
-        <span class="version-badge">v1.3.0</span>
+        <span class="version-badge">v3.3.0</span>
     </div>
 
     <h2>🚀 Features</h2>
     <div class="feature-grid">
         <div class="feature-card">
-            <h3>🔧 Advanced I/O</h3>
-            <p>Pipes, here-strings, process substitution, and comprehensive redirection support</p>
+            <h3>🌳 AST-Based Parsing</h3>
+            <p>Modern compiler design with lexer, parser, and AST evaluator for improved accuracy</p>
         </div>
         <div class="feature-card">
-            <h3>📜 Full Scripting</h3>
-            <p>Loops, functions, local variables, advanced testing [[ ]], and built-in commands</p>
+            <h3>✅ Full Builtin Compliance</h3>
+            <p>Complete implementation of shell builtins including which, type, and directory commands</p>
         </div>
         <div class="feature-card">
-            <h3>⚙️ Job Control</h3>
-            <p>Background jobs, suspend/resume, and process group management</p>
+            <h3>📜 Advanced Scripting</h3>
+            <p>Loops, functions, local variables, advanced testing [[ ]], and complete POSIX compliance</p>
+        </div>
+        <div class="feature-card">
+            <h3>⚙️ Signal Handling</h3>
+            <p>Proper signal handling for external commands with execvp model for path execution</p>
         </div>
         <div class="feature-card">
             <h3>🔍 Pattern Matching</h3>
-            <p>Glob patterns (*,?,[]), recursive matching, and sorting</p>
+            <p>Glob patterns, brace expansion, and comprehensive pathname expansion</p>
         </div>
         <div class="feature-card">
             <h3>📊 Performance</h3>
-            <p>Built-in monitoring, memory pools, and optimization</p>
-        </div>
-        <div class="feature-card">
-            <h3>🛡️ Error Handling</h3>
-            <p>Comprehensive test suite and robust error management</p>
+            <p>Optimized release builds, memory management, and efficient execution</p>
         </div>
     </div>
 
     <h2>📦 Installation</h2>
 
-    <h3>Method 1: YUM/DNF Repository (Recommended)</h3>
-    <div class="install-box">
-        <div># Add repository</div>
-        <div>sudo wget -O /etc/yum.repos.d/fortsh.repo https://repos.musicsian.com/fortsh.repo</div>
-        <div><br># Install fortsh</div>
-        <div>sudo dnf install fortsh</div>
+    <div class="tabs">
+        <div class="tab active" onclick="showTab('linux')">🐧 Linux (DNF/YUM)</div>
+        <div class="tab" onclick="showTab('rpm')">📦 Direct RPM</div>
+        <div class="tab" onclick="showTab('homebrew')">🍺 Homebrew (macOS)</div>
+        <div class="tab" onclick="showTab('aur')">📦 AUR (Arch)</div>
+        <div class="tab" onclick="showTab('source')">⚙️ Build from Source</div>
     </div>
 
-    <h3>Method 2: Direct RPM Installation</h3>
-    <div class="install-box">
-        <div>sudo dnf install https://repos.musicsian.com/RPMS/fortsh-1.3.0-1.el9.x86_64.rpm</div>
+    <div id="linux-tab" class="tab-content">
+        <h3>YUM/DNF Repository (Recommended for RHEL/Fedora)</h3>
+        <div class="install-box">
+            <div># Add repository</div>
+            <div>sudo wget -O /etc/yum.repos.d/fortsh.repo https://repos.musicsian.com/fortsh.repo</div>
+            <div><br># Install fortsh</div>
+            <div>sudo dnf install fortsh</div>
+        </div>
     </div>
 
-    <h3>Method 3: Build from Source</h3>
-    <div class="install-box">
-        <div>git clone https://github.com/FortranGoingOnForty/fortsh.git</div>
-        <div>cd fortsh</div>
-        <div>make all</div>
-        <div>make dev-install</div>
+    <div id="rpm-tab" class="tab-content" style="display:none;">
+        <h3>Direct RPM Installation</h3>
+        <div class="install-box">
+            <div>sudo dnf install https://repos.musicsian.com/RPMS/fortsh-3.3.0-1.el9.x86_64.rpm</div>
+        </div>
     </div>
+
+    <div id="homebrew-tab" class="tab-content" style="display:none;">
+        <h3>Homebrew (macOS)</h3>
+        <div class="install-box">
+            <div># Add the tap</div>
+            <div>brew tap FortranGoingOnForty/fortsh</div>
+            <div><br># Install fortsh</div>
+            <div>brew install fortsh</div>
+            <div><br># Run it!</div>
+            <div>fortsh</div>
+        </div>
+        <p style="margin-top: 15px; color: #718096;">
+            <strong>Note:</strong> Requires Xcode Command Line Tools and Homebrew.
+            Formula available at <a href="https://github.com/FortranGoingOnForty/homebrew-fortsh" style="color: #667eea;">github.com/FortranGoingOnForty/homebrew-fortsh</a>
+        </p>
+    </div>
+
+    <div id="aur-tab" class="tab-content" style="display:none;">
+        <h3>Arch User Repository (AUR)</h3>
+        <div class="install-box">
+            <div># Using yay</div>
+            <div>yay -S fortsh</div>
+            <div><br># Or using paru</div>
+            <div>paru -S fortsh</div>
+        </div>
+        <p style="margin-top: 15px; color: #718096;">
+            <strong>Note:</strong> AUR package builds from source tag v3.3.0.
+            Package available at <a href="https://aur.archlinux.org/packages/fortsh" style="color: #667eea;">aur.archlinux.org/packages/fortsh</a>
+        </p>
+    </div>
+
+    <div id="source-tab" class="tab-content" style="display:none;">
+        <h3>Build from Source</h3>
+        <div class="install-box">
+            <div>git clone https://github.com/FortranGoingOnForty/fortsh.git</div>
+            <div>cd fortsh</div>
+            <div>make release</div>
+            <div>sudo make install</div>
+        </div>
+        <p style="margin-top: 15px; color: #718096;">
+            <strong>Requirements:</strong> gfortran >= 11.0, make
+        </p>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            // Show selected tab content
+            document.getElementById(tabName + '-tab').style.display = 'block';
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
 
     <h2>🎯 Usage Examples</h2>
     <pre><code># Basic shell usage
@@ -118,7 +182,9 @@ memory
 
     <h2>🔗 Links</h2>
     <ul>
-        <li><a href="https://github.com/FortranGoingOnForty/fortsh">Source Code</a></li>
+        <li><a href="https://github.com/FortranGoingOnForty/fortsh">Source Code (GitHub)</a></li>
+        <li><a href="https://github.com/FortranGoingOnForty/homebrew-fortsh">Homebrew Tap</a></li>
+        <li><a href="https://aur.archlinux.org/packages/fortsh">AUR Package</a></li>
         <li><a href="https://repos.musicsian.com/fortsh.repo">YUM Repository File</a></li>
         <li><a href="https://repos.musicsian.com/RPM-GPG-KEY-musicsian">GPG Public Key</a></li>
     </ul>
