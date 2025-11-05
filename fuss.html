@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fuss - Interactive Git Tree | musicsian</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 50%, #2f855a 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 2.5em; font-weight: 300; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; font-size: 1.1em; }
+        .version-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #5a67d8;
+            text-decoration: none;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .package-info {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.4;
+            white-space: pre;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+        .code-block::selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+        .code-block::-moz-selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+        .install-section {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #48bb78;
+            margin: 20px 0;
+        }
+        .install-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+        .quick-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: #48bb78;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #38a169; }
+        .btn-outline {
+            background: transparent;
+            color: #48bb78;
+            border: 1px solid #48bb78;
+        }
+        .btn-outline:hover {
+            background: #48bb78;
+            color: white;
+        }
+        .distro-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        .distro-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #e2e8f0;
+        }
+        .distro-card.rpm {
+            border-left-color: #48bb78;
+        }
+        .distro-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .distro-logo {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #48bb78;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .feature-card h4 {
+            margin: 0 0 10px 0;
+            color: #2d3748;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Repository</a>
+
+    <div class="header">
+        <h1>🌳 fuss - Interactive Git Tree</h1>
+        <p>Interactive tree utility for quick staging of dirty git files</p>
+        <span class="version-badge">v0.9.9</span>
+    </div>
+
+    <div class="package-info">
+        <p>fuss is an interactive tree utility designed for developers who need to quickly visualize and stage uncommitted changes in git repositories. When <code>git status</code> isn't enough and you want a more intuitive way to manage your dirty working tree, fuss provides an efficient, visual interface for staging files with ease.</p>
+
+        <h3>📦 Installation Options</h3>
+        <div class="distro-grid">
+            <div class="distro-card rpm">
+                <div class="distro-title">
+                    <span class="distro-logo">🎯</span>
+                    RHEL/CentOS/Rocky/Alma/Fedora
+                </div>
+                <div class="install-section">
+                    <div class="install-title">🚀 RPM Install</div>
+                    <div class="code-block"># Add repository
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install package
+sudo dnf install fuss
+
+# Use in any git repository
+cd /path/to/git/repo
+fuss</div>
+                </div>
+                <div class="quick-links">
+                    <a href="RPMS/" class="btn">📂 Browse Files</a>
+                    <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                    <a href="RPMS/fuss-0.9.9-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+                </div>
+            </div>
+        </div>
+
+        <h3>✨ Key Features</h3>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>🌲 Visual Tree Display</h4>
+                <p>See your git repository's dirty files in an intuitive tree structure that makes it easy to understand what's changed at a glance.</p>
+            </div>
+            <div class="feature-card">
+                <h4>⚡ Quick Staging</h4>
+                <p>Interactively select and stage files without typing long paths. Perfect for complex repository structures with nested directories.</p>
+            </div>
+            <div class="feature-card">
+                <h4>🎯 Focused Workflow</h4>
+                <p>Shows only dirty (modified, untracked, or deleted) files, filtering out the noise and letting you focus on what matters.</p>
+            </div>
+            <div class="feature-card">
+                <h4>🚀 Lightweight & Fast</h4>
+                <p>Minimal dependencies and efficient performance. Just 30KB installed, fuss won't slow down your workflow.</p>
+            </div>
+        </div>
+
+        <h3>🎬 Usage Examples</h3>
+        <div class="code-block">Basic Usage:
+  # Navigate to your git repository
+  cd /path/to/your/repo
+
+  # Run fuss to see dirty files
+  fuss
+
+  # Interactive mode (if supported)
+  fuss --interactive
+
+Common Workflows:
+  # Quick overview of changes
+  fuss
+
+  # Stage specific files after viewing
+  fuss && git add file1.txt file2.txt
+
+  # Combined with other git commands
+  fuss && git status && git commit</div>
+
+        <h3>💡 Why fuss?</h3>
+        <div class="code-block">Problem: git status is great, but...
+- Long file paths get truncated or wrapped
+- No visual hierarchy of directory structure
+- Harder to see patterns in changes across directories
+- Selecting multiple related files requires typing full paths
+
+Solution: fuss provides...
+✓ Clear visual tree showing all dirty files
+✓ Hierarchical view of your repository structure
+✓ Quick identification of changed areas in your codebase
+✓ Streamlined workflow for staging related files
+✓ Better context for understanding the scope of changes</div>
+
+        <h3>🔧 Requirements</h3>
+        <div class="code-block">System Requirements:
+- Git installed and in PATH
+- Linux x86_64 (RHEL/CentOS/Rocky/Alma/Fedora 9+)
+- Terminal with ANSI color support (recommended)
+
+Dependencies:
+- No external dependencies beyond standard system libraries
+- Works in any git repository</div>
+
+        <h3>🔗 Links</h3>
+        <div class="quick-links">
+            <a href="https://github.com/FortranGoingOnForty/fuss" class="btn" target="_blank">📚 GitHub Repository</a>
+            <a href="https://repos.musicsian.com/fuss.repo" class="btn-outline btn">⚙️ .repo File</a>
+            <a href="https://repos.musicsian.com/RPM-GPG-KEY-musicsian" class="btn-outline btn">🔑 GPG Key</a>
+        </div>
+
+        <h3>📜 License</h3>
+        <p>fuss is released under the MIT License. See the <a href="https://github.com/FortranGoingOnForty/fuss" target="_blank">GitHub repository</a> for full license details.</p>
+    </div>
+</body>
+</html>
