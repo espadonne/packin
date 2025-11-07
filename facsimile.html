@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>facsimile - Terminal Text Editor | musicsian</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 2.5em; font-weight: 300; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; font-size: 1.1em; }
+        .version-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #5a67d8;
+            text-decoration: none;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .package-info {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.4;
+            white-space: pre;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+        .code-block::selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+        .code-block::-moz-selection {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+        .install-section {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+        }
+        .install-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+        .quick-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #5a67d8; }
+        .btn-outline {
+            background: transparent;
+            color: #667eea;
+            border: 1px solid #667eea;
+        }
+        .btn-outline:hover {
+            background: #667eea;
+            color: white;
+        }
+        .distro-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        .distro-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #e2e8f0;
+        }
+        .distro-card.rpm {
+            border-left-color: #667eea;
+        }
+        .distro-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .distro-logo {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .feature-card h4 {
+            margin: 0 0 10px 0;
+            color: #2d3748;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Repository</a>
+
+    <div class="header">
+        <h1>📝 facsimile - Terminal Text Editor</h1>
+        <p>Terminal text editor written in Fortran with VSCode-style keybindings</p>
+        <span class="version-badge">v0.7.7</span>
+    </div>
+
+    <div class="package-info">
+        <p>facsimile is a terminal text editor written in modern Fortran featuring VSCode-style keybindings. It provides a familiar editing experience for developers who appreciate the power of keyboard shortcuts combined with the efficiency of terminal-based workflows. Built with a gap buffer architecture and implemented in pure Fortran with ANSI escape sequences.</p>
+
+        <h3>📦 Installation Options</h3>
+        <div class="distro-grid">
+            <div class="distro-card rpm">
+                <div class="distro-title">
+                    <span class="distro-logo">🎯</span>
+                    RHEL/CentOS/Rocky/Alma/Fedora
+                </div>
+                <div class="install-section">
+                    <div class="install-title">🚀 RPM Install</div>
+                    <div class="code-block"># Add repository
+sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
+
+# Install package
+sudo dnf install facsimile
+
+# Start editing
+fac myfile.txt</div>
+                </div>
+                <div class="quick-links">
+                    <a href="RPMS/" class="btn">📂 Browse Files</a>
+                    <a href="musicsian.repo" class="btn-outline btn">⬇️ Download .repo</a>
+                    <a href="facsimile-0.7.7-1.el9.x86_64.rpm" class="btn-outline btn">📦 Direct RPM</a>
+                </div>
+            </div>
+        </div>
+
+        <h3>✨ Key Features</h3>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>⌨️ VSCode-Style Keybindings</h4>
+                <p>Familiar keyboard shortcuts including Ctrl+C/V/X for clipboard, Ctrl+D for multi-cursor, Ctrl+S to save, and many more.</p>
+            </div>
+            <div class="feature-card">
+                <h4>🎯 Multiple Cursors</h4>
+                <p>Select next match with Ctrl+D or add cursors with Alt+Click for powerful multi-location editing.</p>
+            </div>
+            <div class="feature-card">
+                <h4>📋 System Clipboard</h4>
+                <p>Full clipboard integration with copy, cut, and paste operations that work seamlessly with your system.</p>
+            </div>
+            <div class="feature-card">
+                <h4>🚀 Pure Fortran</h4>
+                <p>Written in modern Fortran with gap buffer text storage for efficient editing performance.</p>
+            </div>
+        </div>
+
+        <h3>🎬 Usage Examples</h3>
+        <div class="code-block">Basic Usage:
+  # Edit a file
+  fac filename.txt
+
+  # Create a new file
+  fac newfile.md
+
+  # Alternatively use the full name
+  facsimile mycode.f90
+
+Essential Keybindings:
+  Navigation:
+    - Arrow keys: Move cursor
+    - Ctrl+A / Home: Start of line
+    - Ctrl+E / End: End of line
+    - Alt+Left/Right: Word jump
+    - PageUp/PageDown: Page scroll
+
+  Editing:
+    - Ctrl+C: Copy
+    - Ctrl+X: Cut
+    - Ctrl+V: Paste
+    - Ctrl+D: Select next match
+    - Alt+Up/Down: Move line
+    - Alt+Shift+Up/Down: Duplicate line
+
+  File Operations:
+    - Ctrl+S: Save
+    - Ctrl+Q: Quit
+    - Ctrl+?: Show help</div>
+
+        <h3>💡 Why facsimile?</h3>
+        <div class="code-block">A terminal editor that doesn't force you to learn new shortcuts:
+✓ VSCode keybindings you already know
+✓ Runs in the terminal for SSH sessions
+✓ Multiple cursor support for batch editing
+✓ System clipboard integration
+✓ Written in Fortran for fun and learning
+✓ Gap buffer implementation for efficiency</div>
+
+        <h3>🔧 Requirements</h3>
+        <div class="code-block">System Requirements:
+- Linux x86_64 (RHEL/CentOS/Rocky/Alma/Fedora 9+)
+- Terminal with ANSI escape sequence support
+- Mouse support recommended (for Alt+Click cursors)
+
+Dependencies:
+- libgfortran5
+- Standard C library (glibc)</div>
+
+        <h3>🔗 Links</h3>
+        <div class="quick-links">
+            <a href="https://github.com/FortranGoingOnForty/facsimile" class="btn" target="_blank">📚 GitHub Repository</a>
+            <a href="https://repos.musicsian.com/facsimile.repo" class="btn-outline btn">⚙️ .repo File</a>
+            <a href="https://repos.musicsian.com/RPM-GPG-KEY-musicsian" class="btn-outline btn">🔑 GPG Key</a>
+        </div>
+
+        <h3>📜 License</h3>
+        <p>facsimile is released under the MIT License. See the <a href="https://github.com/FortranGoingOnForty/facsimile" target="_blank">GitHub repository</a> for full license details.</p>
+    </div>
+</body>
+</html>

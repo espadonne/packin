@@ -1,0 +1,7 @@
+[facsimile]
+name=facsimile - Terminal text editor in Fortran
+baseurl=https://repos.musicsian.com
+enabled=1
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=https://repos.musicsian.com/RPM-GPG-KEY-musicsian
