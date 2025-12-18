@@ -1,0 +1,6 @@
+[fackr]
+name=fackr - Terminal text editor in Rust
+baseurl=https://repos.musicsian.com/RPMS
+enabled=1
+gpgcheck=1
+gpgkey=https://repos.musicsian.com/RPM-GPG-KEY-musicsian
