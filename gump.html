@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gump - Smarter cd | musicsian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0a0b10;
+            --bg-primary: #10121a;
+            --bg-secondary: #161922;
+            --bg-tertiary: #1e222d;
+            --bg-card: #181b24;
+            --accent-purple: #a78bfa;
+            --accent-blue: #60a5fa;
+            --accent-emerald: #34d399;
+            --accent-indigo: #818cf8;
+            --accent-green: #4ade80;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-muted: #475569;
+            --border-subtle: rgba(255,255,255,0.06);
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--bg-tertiary); border-radius: 4px; }
+        ::selection { background: var(--accent-emerald); color: var(--bg-deep); }
+
+        .page-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--accent-emerald); }
+
+        .package-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .package-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .package-header .tagline {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge-row {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .badge-version {
+            background: var(--bg-tertiary);
+            color: var(--accent-emerald);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem 0;
+            color: var(--text-secondary);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .card code {
+            background: var(--bg-tertiary);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-emerald);
+        }
+
+        .card ol {
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .card ol li {
+            margin: 0.5rem 0;
+        }
+
+        .install-block {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .install-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .code-block {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.6;
+        }
+
+        .code-block .comment { color: var(--text-muted); }
+        .code-block .command { color: var(--accent-green); }
+
+        .btn-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 1.25rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-sans);
+        }
+
+        .btn-primary {
+            background: var(--accent-emerald);
+            color: var(--bg-deep);
+        }
+        .btn-primary:hover {
+            background: var(--accent-green);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-subtle);
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent-emerald);
+            color: var(--text-primary);
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            bottom: calc(100% - 4px);
+            left: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            min-width: 180px;
+            padding: 0.5rem;
+            padding-bottom: 0.75rem;
+            z-index: 100;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .feature-item {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .feature-item h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .feature-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .info-item {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .info-item .label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-item .value {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-subtle);
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--accent-emerald);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Packages
+        </a>
+
+        <header class="package-header">
+            <h1>gump</h1>
+            <p class="tagline">A smarter cd command - directory jumper using frecency</p>
+            <div class="badge-row">
+                <span class="badge badge-version">v0.2.2</span>
+            </div>
+        </header>
+
+        <div class="card">
+            <h2>About</h2>
+            <p>Gump is a directory navigation tool that learns your habits. Type directory fragments and jump where you meant. Uses frecency (frequency + recency) to rank results. No command prefix required - just type where you want to go.</p>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>Frecency Ranking</h4>
+                    <p>Directories scored by how often and recently you visit them</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Fuzzy Matching</h4>
+                    <p>Partial matches work - type "proj" to jump to "projects"</p>
+                </div>
+                <div class="feature-item">
+                    <h4>No Prefix Needed</h4>
+                    <p>Just type the directory name directly at your prompt</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Multi-Shell Support</h4>
+                    <p>Works with bash, zsh, and fish shells</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Installation</h2>
+            <div class="install-block">
+                <div class="install-label">RPM (Fedora, RHEL, Rocky, Alma)</div>
+                <div class="code-block"><span class="comment"># Add the repository</span>
+<span class="command">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+
+<span class="comment"># Install gump</span>
+<span class="command">sudo dnf install gump</span></div>
+            </div>
+            <div class="btn-row">
+                <a href="musicsian.repo" class="btn btn-secondary">Download .repo</a>
+                <div class="dropdown">
+                    <button class="btn btn-secondary">Direct RPM</button>
+                    <div class="dropdown-content">
+                        <a href="fedora-42-x86_64/gump-0.2.2-1.el9.x86_64.rpm">x86_64 (Intel/AMD)</a>
+                        <a href="fedora-42-aarch64/gump-0.2.2-1.fc42.aarch64.rpm">aarch64 (ARM)</a>
+                    </div>
+                </div>
+                <a href="https://github.com/tenseleyFlow/gump" class="btn btn-primary" target="_blank">GitHub</a>
+            </div>
+
+            <h3>Arch Linux (AUR)</h3>
+            <div class="code-block"><span class="comment"># Using yay</span>
+<span class="command">yay -S gump</span>
+
+<span class="comment"># Using paru</span>
+<span class="command">paru -S gump</span></div>
+        </div>
+
+        <div class="card">
+            <h2>Shell Setup</h2>
+            <p>After installing, add one of these lines to your shell config:</p>
+            <div class="code-block"><span class="comment"># Bash (~/.bashrc)</span>
+eval "$(gump init bash)"
+
+<span class="comment"># Zsh (~/.zshrc)</span>
+eval "$(gump init zsh)"
+
+<span class="comment"># Fish (~/.config/fish/config.fish)</span>
+gump init fish | source</div>
+            <p>Then restart your shell or source the config file.</p>
+        </div>
+
+        <div class="card">
+            <h2>Usage</h2>
+            <p>Just type where you want to go:</p>
+            <div class="code-block">projects           <span class="comment"># jumps to ~/code/projects</span>
+doc                <span class="comment"># jumps to ./Documents (fuzzy CWD match)</span>
+gmp                <span class="comment"># jumps to ~/code/gump (fuzzy database match)</span>
+conf fish          <span class="comment"># jumps to ~/.config/fish (multi-term)</span></div>
+
+            <p>Or use the <code>g</code> command:</p>
+            <div class="code-block">g foo              <span class="comment"># jump to best match for "foo"</span>
+g                  <span class="comment"># go home</span>
+g -                <span class="comment"># go back</span>
+gi foo             <span class="comment"># interactive selection with fzf</span></div>
+
+            <p>Resolution order:</p>
+            <ol>
+                <li>Existing commands/aliases/builtins</li>
+                <li>Exact directory in current working directory</li>
+                <li>Fuzzy match against CWD contents</li>
+                <li>Fuzzy match against database</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h2>Commands</h2>
+            <div class="code-block">gump add &lt;path&gt;       <span class="comment"># manually add directory</span>
+gump remove &lt;path&gt;    <span class="comment"># remove from database</span>
+gump list             <span class="comment"># show all entries</span>
+gump list --score     <span class="comment"># show entries with scores</span>
+gump query &lt;terms&gt;    <span class="comment"># print best match (for scripts)</span>
+gump clean            <span class="comment"># remove non-existent directories</span>
+gump import           <span class="comment"># import from zoxide/autojump/z/fasd</span>
+gump edit             <span class="comment"># edit database as JSON</span></div>
+        </div>
+
+        <div class="card">
+            <h2>Init Options</h2>
+            <div class="code-block">gump init bash --cmd j      <span class="comment"># use 'j' instead of 'g'</span>
+gump init bash --hook pwd   <span class="comment"># only track on directory change</span>
+gump init bash --no-cmd     <span class="comment"># skip g/gi aliases, keep no-prefix jumping</span></div>
+        </div>
+
+        <div class="card">
+            <h2>Environment Variables</h2>
+            <table>
+                <tr><th>Variable</th><th>Default</th><th>Description</th></tr>
+                <tr><td><code>GUMP_DATA_DIR</code></td><td><code>~/.local/share/gump</code></td><td>Database location</td></tr>
+                <tr><td><code>GUMP_MAXAGE</code></td><td><code>10000</code></td><td>Max total score before aging</td></tr>
+                <tr><td><code>GUMP_EXCLUDE</code></td><td>-</td><td>Colon-separated paths to ignore</td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Requirements</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="label">Architecture</div>
+                    <div class="value">x86_64, aarch64</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">OS</div>
+                    <div class="value">Linux</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Shell</div>
+                    <div class="value">bash, zsh, fish</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">License</div>
+                    <div class="value">MIT</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="index.html">repos.musicsian.com</a>
+    </footer>
+</body>
+</html>
