@@ -13,6 +13,7 @@ echo "▶ Staging files..."
 rsync -az --delete \
       --exclude deploy.sh --exclude .git --exclude PROJECT_README.md \
       --exclude current --exclude releases --exclude "*.sh" \
+      --exclude .mock-cache --exclude builds --exclude .claude \
       "$PROJECT_DIR"/ "$OUT"/
 
 echo "▶ Signing RPM packages..."
