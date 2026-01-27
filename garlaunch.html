@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>garlaunch - Application Launcher | musicsian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0a0b10;
+            --bg-primary: #10121a;
+            --bg-secondary: #161922;
+            --bg-tertiary: #1e222d;
+            --bg-card: #181b24;
+            --accent-purple: #a78bfa;
+            --accent-blue: #60a5fa;
+            --accent-emerald: #34d399;
+            --accent-indigo: #818cf8;
+            --accent-green: #4ade80;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-muted: #475569;
+            --border-subtle: rgba(255,255,255,0.06);
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--bg-tertiary); border-radius: 4px; }
+        ::selection { background: var(--accent-purple); color: var(--bg-deep); }
+
+        .page-container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--accent-purple); }
+
+        .package-header { text-align: center; margin-bottom: 3rem; }
+        .package-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .package-header .tagline { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 1rem; }
+
+        .badge-row { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+        .badge { display: inline-block; padding: 0.35rem 0.9rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
+        .badge-version { background: var(--bg-tertiary); color: var(--accent-purple); border: 1px solid var(--border-subtle); }
+        .badge-suite { background: var(--bg-tertiary); color: var(--accent-indigo); border: 1px solid var(--border-subtle); }
+
+        .card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.75rem; margin-bottom: 1.5rem; }
+        .card h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); }
+        .card h3 { font-size: 0.95rem; font-weight: 600; margin: 1.5rem 0 0.75rem 0; color: var(--text-secondary); }
+        .card p { color: var(--text-secondary); font-size: 0.95rem; }
+        .card code { background: var(--bg-tertiary); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-purple); }
+
+        .install-block { background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+        .install-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .code-block { background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-green); overflow-x: auto; white-space: pre; line-height: 1.6; }
+        .code-block .comment { color: var(--text-muted); }
+        .code-block .command { color: var(--accent-green); }
+
+        .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; font-family: var(--font-sans); }
+        .btn-primary { background: var(--accent-purple); color: var(--bg-deep); }
+        .btn-primary:hover { background: var(--accent-indigo); }
+        .btn-secondary { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border-subtle); }
+        .btn-secondary:hover { border-color: var(--accent-purple); color: var(--text-primary); }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; bottom: calc(100% - 4px); left: 0; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: 8px; min-width: 180px; padding: 0.5rem; padding-bottom: 0.75rem; z-index: 100; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a { display: block; padding: 0.5rem 0.75rem; color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; border-radius: 4px; }
+        .dropdown-content a:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .feature-item { background: var(--bg-secondary); border-radius: 8px; padding: 1rem; }
+        .feature-item h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .feature-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .info-item { background: var(--bg-secondary); border-radius: 8px; padding: 1rem; text-align: center; }
+        .info-item .label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+        .info-item .value { font-size: 0.95rem; color: var(--text-primary); font-weight: 500; }
+
+        .suite-note { background: var(--bg-secondary); border-left: 3px solid var(--accent-indigo); padding: 1rem; border-radius: 0 8px 8px 0; margin: 1rem 0; }
+        .suite-note p { margin: 0; font-size: 0.9rem; }
+
+        footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border-subtle); margin-top: 2rem; }
+        footer a { color: var(--accent-purple); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Packages
+        </a>
+
+        <header class="package-header">
+            <h1>garlaunch</h1>
+            <p class="tagline">Application launcher for the gardesk desktop</p>
+            <div class="badge-row">
+                <span class="badge badge-version">v0.3.0</span>
+                <span class="badge badge-suite">gardesk suite</span>
+            </div>
+        </header>
+
+        <div class="card">
+            <h2>About</h2>
+            <p>Garlaunch is a fast application launcher for X11 built in Rust. Features fuzzy search, desktop entry support, command execution, and a clean, minimal interface that stays out of your way.</p>
+
+            <div class="suite-note">
+                <p>This package is part of the <strong>gardesk</strong> desktop environment suite. Typically bound to <code>Mod4+d</code> for quick access.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>Fuzzy Search</h4>
+                    <p>Quick fuzzy matching of application names and commands</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Desktop Entries</h4>
+                    <p>Indexes .desktop files for all installed applications</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Command Mode</h4>
+                    <p>Prefix with ! to run arbitrary shell commands</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Calculator</h4>
+                    <p>Prefix with = for quick calculations</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Installation</h2>
+            <div class="install-block">
+                <div class="install-label">RPM (Fedora, RHEL, Rocky, Alma)</div>
+                <div class="code-block"><span class="comment"># Add the repository</span>
+<span class="command">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+
+<span class="comment"># Install garlaunch</span>
+<span class="command">sudo dnf install garlaunch</span></div>
+            </div>
+            <div class="btn-row">
+                <a href="musicsian.repo" class="btn btn-secondary">Download .repo</a>
+                <div class="dropdown">
+                    <button class="btn btn-secondary">Direct RPM</button>
+                    <div class="dropdown-content">
+                        <a href="fedora-42-x86_64/garlaunch-0.3.0-1.el9.x86_64.rpm">x86_64 (Intel/AMD)</a>
+                        <a href="fedora-42-aarch64/garlaunch-0.3.0-1.fc42.aarch64.rpm">aarch64 (ARM)</a>
+                    </div>
+                </div>
+                <a href="https://github.com/gardesk/garlaunch" class="btn btn-primary" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Usage</h2>
+            <div class="code-block"><span class="comment"># Launch garlaunch</span>
+<span class="command">garlaunch</span>
+
+<span class="comment"># Typical keybinding in gar config</span>
+gar.bind("Mod4-d", "spawn", "garlaunch")</div>
+
+            <h3>Search Modes</h3>
+            <div class="code-block">firefox        <span class="comment"># Search applications</span>
+!htop          <span class="comment"># Run shell command</span>
+=2+2           <span class="comment"># Calculator mode</span>
+:emoji         <span class="comment"># Emoji picker (if enabled)</span></div>
+
+            <h3>Keyboard Shortcuts</h3>
+            <div class="code-block">Enter          <span class="comment"># Launch selected</span>
+Escape         <span class="comment"># Close launcher</span>
+Up/Down        <span class="comment"># Navigate results</span>
+Tab            <span class="comment"># Autocomplete</span>
+Ctrl+j/k       <span class="comment"># Navigate (vim-style)</span></div>
+        </div>
+
+        <div class="card">
+            <h2>Configuration</h2>
+            <p>Configuration in <code>~/.config/garlaunch/config.toml</code>:</p>
+            <div class="code-block"><span class="comment"># Appearance</span>
+[appearance]
+width = 600
+max_results = 8
+font = "Inter 14"
+show_icons = true
+
+<span class="comment"># Behavior</span>
+[behavior]
+terminal = "garterm -e"
+enable_calculator = true
+enable_emoji = false
+
+<span class="comment"># Colors</span>
+[colors]
+background = "#181b24"
+foreground = "#e2e8f0"
+selection = "#a78bfa"</div>
+        </div>
+
+        <div class="card">
+            <h2>Requirements</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="label">Architecture</div>
+                    <div class="value">x86_64, aarch64</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Display Server</div>
+                    <div class="value">X11</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Language</div>
+                    <div class="value">Rust</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">License</div>
+                    <div class="value">MIT</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="index.html">repos.musicsian.com</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>garbg - Background Setter | musicsian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0a0b10;
+            --bg-primary: #10121a;
+            --bg-secondary: #161922;
+            --bg-tertiary: #1e222d;
+            --bg-card: #181b24;
+            --accent-purple: #a78bfa;
+            --accent-blue: #60a5fa;
+            --accent-emerald: #34d399;
+            --accent-indigo: #818cf8;
+            --accent-green: #4ade80;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-muted: #475569;
+            --border-subtle: rgba(255,255,255,0.06);
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--bg-tertiary); border-radius: 4px; }
+        ::selection { background: var(--accent-purple); color: var(--bg-deep); }
+
+        .page-container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--accent-purple); }
+
+        .package-header { text-align: center; margin-bottom: 3rem; }
+        .package-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .package-header .tagline { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 1rem; }
+
+        .badge-row { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+        .badge { display: inline-block; padding: 0.35rem 0.9rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
+        .badge-version { background: var(--bg-tertiary); color: var(--accent-purple); border: 1px solid var(--border-subtle); }
+        .badge-suite { background: var(--bg-tertiary); color: var(--accent-indigo); border: 1px solid var(--border-subtle); }
+
+        .card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.75rem; margin-bottom: 1.5rem; }
+        .card h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); }
+        .card h3 { font-size: 0.95rem; font-weight: 600; margin: 1.5rem 0 0.75rem 0; color: var(--text-secondary); }
+        .card p { color: var(--text-secondary); font-size: 0.95rem; }
+        .card code { background: var(--bg-tertiary); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-purple); }
+
+        .install-block { background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+        .install-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .code-block { background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-green); overflow-x: auto; white-space: pre; line-height: 1.6; }
+        .code-block .comment { color: var(--text-muted); }
+        .code-block .command { color: var(--accent-green); }
+
+        .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; font-family: var(--font-sans); }
+        .btn-primary { background: var(--accent-purple); color: var(--bg-deep); }
+        .btn-primary:hover { background: var(--accent-indigo); }
+        .btn-secondary { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border-subtle); }
+        .btn-secondary:hover { border-color: var(--accent-purple); color: var(--text-primary); }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; bottom: calc(100% - 4px); left: 0; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: 8px; min-width: 180px; padding: 0.5rem; padding-bottom: 0.75rem; z-index: 100; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a { display: block; padding: 0.5rem 0.75rem; color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; border-radius: 4px; }
+        .dropdown-content a:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .feature-item { background: var(--bg-secondary); border-radius: 8px; padding: 1rem; }
+        .feature-item h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .feature-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .info-item { background: var(--bg-secondary); border-radius: 8px; padding: 1rem; text-align: center; }
+        .info-item .label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+        .info-item .value { font-size: 0.95rem; color: var(--text-primary); font-weight: 500; }
+
+        .suite-note { background: var(--bg-secondary); border-left: 3px solid var(--accent-indigo); padding: 1rem; border-radius: 0 8px 8px 0; margin: 1rem 0; }
+        .suite-note p { margin: 0; font-size: 0.9rem; }
+
+        footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border-subtle); margin-top: 2rem; }
+        footer a { color: var(--accent-purple); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Packages
+        </a>
+
+        <header class="package-header">
+            <h1>garbg</h1>
+            <p class="tagline">Background setter for X11</p>
+            <div class="badge-row">
+                <span class="badge badge-version">v0.3.0</span>
+                <span class="badge badge-suite">gardesk suite</span>
+            </div>
+        </header>
+
+        <div class="card">
+            <h2>About</h2>
+            <p>Garbg is a lightweight background/wallpaper setter for X11 built in Rust. It supports various scaling modes, multi-monitor setups, and can set solid colors or images as your desktop background.</p>
+
+            <div class="suite-note">
+                <p>This package is part of the <strong>gardesk</strong> desktop environment suite.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>Multiple Scaling Modes</h4>
+                    <p>Fill, fit, stretch, center, tile options for image display</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Multi-Monitor</h4>
+                    <p>Set different wallpapers per monitor or span across all</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Solid Colors</h4>
+                    <p>Use hex colors or named colors for simple backgrounds</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Fast & Light</h4>
+                    <p>Minimal resource usage, sets background and exits</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Installation</h2>
+            <div class="install-block">
+                <div class="install-label">RPM (Fedora, RHEL, Rocky, Alma)</div>
+                <div class="code-block"><span class="comment"># Add the repository</span>
+<span class="command">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+
+<span class="comment"># Install garbg</span>
+<span class="command">sudo dnf install garbg</span></div>
+            </div>
+            <div class="btn-row">
+                <a href="musicsian.repo" class="btn btn-secondary">Download .repo</a>
+                <div class="dropdown">
+                    <button class="btn btn-secondary">Direct RPM</button>
+                    <div class="dropdown-content">
+                        <a href="fedora-42-x86_64/garbg-0.3.0-1.el9.x86_64.rpm">x86_64 (Intel/AMD)</a>
+                        <a href="fedora-42-aarch64/garbg-0.3.0-1.fc42.aarch64.rpm">aarch64 (ARM)</a>
+                    </div>
+                </div>
+                <a href="https://github.com/gardesk/garbg" class="btn btn-primary" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Usage</h2>
+            <div class="code-block"><span class="comment"># Set an image as background (fill mode)</span>
+<span class="command">garbg --image ~/Pictures/wallpaper.png</span>
+
+<span class="comment"># Set with specific scaling mode</span>
+<span class="command">garbg --image ~/Pictures/wallpaper.png --mode fit</span>
+
+<span class="comment"># Set a solid color</span>
+<span class="command">garbg --color "#1e222d"</span>
+
+<span class="comment"># Set different wallpapers per monitor</span>
+<span class="command">garbg --image ~/pic1.png --output HDMI-1</span>
+<span class="command">garbg --image ~/pic2.png --output eDP-1</span></div>
+
+            <h3>Scaling Modes</h3>
+            <div class="code-block">fill      <span class="comment"># Scale to fill, may crop (default)</span>
+fit       <span class="comment"># Scale to fit, may have bars</span>
+stretch   <span class="comment"># Stretch to fill exactly</span>
+center    <span class="comment"># Center at original size</span>
+tile      <span class="comment"># Tile the image</span></div>
+
+            <h3>Autostart with gar</h3>
+            <p>Add to your gar config:</p>
+            <div class="code-block">gar.autostart("garbg --image ~/Pictures/wallpaper.png")</div>
+        </div>
+
+        <div class="card">
+            <h2>Requirements</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="label">Architecture</div>
+                    <div class="value">x86_64, aarch64</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Display Server</div>
+                    <div class="value">X11</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Language</div>
+                    <div class="value">Rust</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">License</div>
+                    <div class="value">MIT</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="index.html">repos.musicsian.com</a>
+    </footer>
+</body>
+</html>
