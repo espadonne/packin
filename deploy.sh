@@ -48,7 +48,19 @@ fi
 
 echo "▶ Publishing release..."
 sudo mkdir -p /var/www/$SITE_NAME/releases/$STAMP
-sudo rsync -az --delete "$OUT"/ /var/www/$SITE_NAME/releases/$STAMP/
+# Exclude arch-specific RPM directories - these are managed separately via copy/sign/createrepo workflow
+sudo rsync -az --delete \
+      --exclude fedora-42-x86_64 \
+      --exclude fedora-42-aarch64 \
+      "$OUT"/ /var/www/$SITE_NAME/releases/$STAMP/
+
+# Copy arch directories from current release if they exist (preserves RPMs across deploys)
+if [ -d "/var/www/$SITE_NAME/current/fedora-42-x86_64" ]; then
+    sudo cp -a /var/www/$SITE_NAME/current/fedora-42-x86_64 /var/www/$SITE_NAME/releases/$STAMP/
+fi
+if [ -d "/var/www/$SITE_NAME/current/fedora-42-aarch64" ]; then
+    sudo cp -a /var/www/$SITE_NAME/current/fedora-42-aarch64 /var/www/$SITE_NAME/releases/$STAMP/
+fi
 
 echo "▶ Setting permissions..."
 sudo chown -R nginx:nginx /var/www/$SITE_NAME/releases/$STAMP
