@@ -106,7 +106,17 @@
             background: #4a5568;
             color: #e2e8f0;
         }
-        
+        .code-block .comment {
+            color: #718096;
+            display: block;
+            line-height: 1.2;
+            margin-bottom: 2px;
+        }
+        .code-block .cmd {
+            display: block;
+            margin-bottom: 8px;
+        }
+
         .quick-links { 
             margin-top: 15px;
             display: flex;
@@ -304,19 +314,15 @@
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install ARCO<br>
-sudo dnf install arco
-
-# Launch the virtual instrument<br>
-arco
-
-# Or with custom settings<br>
-arco --frequency 220 --bpm 140
-
-# Press ? for help, SPACE to play, Q to quit
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install ARCO</span>
+<span class="cmd">sudo dnf install arco</span>
+<span class="comment"># Launch the virtual instrument</span>
+<span class="cmd">arco</span>
+<span class="comment"># Or with custom settings</span>
+<span class="cmd">arco --frequency 220 --bpm 140</span>
+<span class="comment"># Press ? for help, SPACE to play, Q to quit</span>
                 </div>
             </div>
 
@@ -366,21 +372,17 @@ arco --frequency 220 --bpm 140
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install package<br>
-sudo dnf install cue
-
-# Set up Spotify credentials<br>
-export SPOTIFY_CLIENT_ID="your_client_id"<br>
-export SPOTIFY_CLIENT_SECRET="your_client_secret"
-
-# Try it out - focus mode for 2 hours<br>
-cue focus 2h
-
-# Play a song for 3 minutes<br>
-cue play "Song Title" 3m
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install package</span>
+<span class="cmd">sudo dnf install cue</span>
+<span class="comment"># Set up Spotify credentials</span>
+<span class="cmd">export SPOTIFY_CLIENT_ID="your_client_id"</span>
+<span class="cmd">export SPOTIFY_CLIENT_SECRET="your_client_secret"</span>
+<span class="comment"># Try it out - focus mode for 2 hours</span>
+<span class="cmd">cue focus 2h</span>
+<span class="comment"># Play a song for 3 minutes</span>
+<span class="cmd">cue play "Song Title" 3m</span>
                 </div>
             </div>
 
@@ -430,19 +432,15 @@ cue play "Song Title" 3m
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install fortsh<br>
-sudo dnf install fortsh
-
-# Start the shell<br>
-fortsh
-
-# Enable performance monitoring<br>
-export FORTSH_PERF=1
-
-fortsh
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install fortsh</span>
+<span class="cmd">sudo dnf install fortsh</span>
+<span class="comment"># Start the shell</span>
+<span class="cmd">fortsh</span>
+<span class="comment"># Enable performance monitoring</span>
+<span class="cmd">export FORTSH_PERF=1</span>
+<span class="cmd">fortsh</span>
                 </div>
             </div>
 
@@ -488,15 +486,13 @@ fortsh
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install fuss<br>
-sudo dnf install fuss
-
-# Use in any git repository<br>
-cd /path/to/git/repo<br>
-fuss
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install fuss</span>
+<span class="cmd">sudo dnf install fuss</span>
+<span class="comment"># Use in any git repository</span>
+<span class="cmd">cd /path/to/git/repo</span>
+<span class="cmd">fuss</span>
                 </div>
             </div>
 
@@ -546,18 +542,14 @@ fuss
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install FORTBITE<br>
-sudo dnf install fortbite
-
-# Start calculating<br>
-fortbite
-
-# fortbite> sqrt(16) + sin(pi/2)
-
-# 5.0000000000000000
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install FORTBITE</span>
+<span class="cmd">sudo dnf install fortbite</span>
+<span class="comment"># Start calculating</span>
+<span class="cmd">fortbite</span>
+<span class="comment"># fortbite> sqrt(16) + sin(pi/2)</span>
+<span class="comment"># 5.0000000000000000</span>
                 </div>
             </div>
             <div class="quick-links">
@@ -602,14 +594,12 @@ fortbite
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install package<br>
-sudo dnf install sultree
-
-# Show files with passwd_file_t SELinux context<br>
-sultree -S passwd_file_t /etc
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install package</span>
+<span class="cmd">sudo dnf install sultree</span>
+<span class="comment"># Show files with passwd_file_t SELinux context</span>
+<span class="cmd">sultree -S passwd_file_t /etc</span>
                 </div>
             </div>
 
@@ -659,14 +649,12 @@ sultree -S passwd_file_t /etc
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install package<br>
-sudo dnf install gitswitch
-
-# Add a new Git identity<br>
-gitswitch add
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install package</span>
+<span class="cmd">sudo dnf install gitswitch</span>
+<span class="comment"># Add a new Git identity</span>
+<span class="cmd">gitswitch add</span>
                 </div>
             </div>
 
@@ -716,14 +704,12 @@ gitswitch add
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install package<br>
-sudo dnf install shtick
-
-# Add a persistent alias across all shells<br>
-shtick alias ll='ls -la'
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install package</span>
+<span class="cmd">sudo dnf install shtick</span>
+<span class="comment"># Add a persistent alias across all shells</span>
+<span class="cmd">shtick alias ll='ls -la'</span>
                 </div>
             </div>
 
@@ -773,17 +759,14 @@ shtick alias ll='ls -la'
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install package<br>
-sudo dnf install parrot
-
-# Complete setup (interactive)<br>
-parrot setup
-
-# Test it out<br>
-parrot mock "git push" 1
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install package</span>
+<span class="cmd">sudo dnf install parrot</span>
+<span class="comment"># Complete setup (interactive)</span>
+<span class="cmd">parrot setup</span>
+<span class="comment"># Test it out</span>
+<span class="cmd">parrot mock "git push" 1</span>
                 </div>
             </div>
 
@@ -833,23 +816,17 @@ parrot mock "git push" 1
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install package<br>
-sudo dnf install shellp
-
-# Set up shell integration<br>
-sudo /usr/share/shellp/install_hooks.sh
-
-# Start taking development notes<br>
-git commit -m "initial setup"
-
-# Shellp will prompt you for a note!
-
-# View your notes
-
-shellp notes
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install package</span>
+<span class="cmd">sudo dnf install shellp</span>
+<span class="comment"># Set up shell integration</span>
+<span class="cmd">sudo /usr/share/shellp/install_hooks.sh</span>
+<span class="comment"># Start taking development notes</span>
+<span class="cmd">git commit -m "initial setup"</span>
+<span class="comment"># Shellp will prompt you for a note!</span>
+<span class="comment"># View your notes</span>
+<span class="cmd">shellp notes</span>
                 </div>
             </div>
 
@@ -895,17 +872,14 @@ shellp notes
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install package<br>
-sudo dnf install wmswitch
-
-# Create your first configuration<br>
-wmswitch wizard ~/.config/wmswitch/config.toml
-
-# Generate configs for all supported WMs<br>
-wmswitch generate ~/.config/wmswitch/config.toml
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install package</span>
+<span class="cmd">sudo dnf install wmswitch</span>
+<span class="comment"># Create your first configuration</span>
+<span class="cmd">wmswitch wizard ~/.config/wmswitch/config.toml</span>
+<span class="comment"># Generate configs for all supported WMs</span>
+<span class="cmd">wmswitch generate ~/.config/wmswitch/config.toml</span>
                 </div>
             </div>
 
@@ -951,17 +925,15 @@ wmswitch generate ~/.config/wmswitch/config.toml
             <div class="install-section">
                 <div class="install-title">📥 Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install package<br>
-sudo dnf install wezztershier wezztershier-gui
-
-# Use CLI tools<br>
-wezztershier parse ~/.config/wezterm/wezterm.lua
-
-# Or start web GUI<br>
-wezztershier-gui  # Opens at http://localhost:8080
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install package</span>
+<span class="cmd">sudo dnf install wezztershier wezztershier-gui</span>
+<span class="comment"># Use CLI tools</span>
+<span class="cmd">wezztershier parse ~/.config/wezterm/wezterm.lua</span>
+<span class="comment"># Or start web GUI</span>
+<span class="cmd">wezztershier-gui</span>
+<span class="comment"># Opens at http://localhost:8080</span>
                 </div>
             </div>
 
@@ -1010,17 +982,14 @@ wezztershier-gui  # Opens at http://localhost:8080
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install EyeScore<br>
-sudo dnf install eyescore
-
-# Start composing with colorized interface!<br>
-eyescore
-
-# F1 for help, c/d/e/f/g/a/b for notes<br>
-# SPACE for durations, p for MIDI playback
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install EyeScore</span>
+<span class="cmd">sudo dnf install eyescore</span>
+<span class="comment"># Start composing with colorized interface!</span>
+<span class="cmd">eyescore</span>
+<span class="comment"># F1 for help, c/d/e/f/g/a/b for notes</span>
+<span class="comment"># SPACE for durations, p for MIDI playback</span>
                 </div>
             </div>
 
@@ -1070,14 +1039,12 @@ eyescore
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install package<br>
-sudo dnf install waveterm
-
-# Try the demo<br>
-waveterm-demo
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install package</span>
+<span class="cmd">sudo dnf install waveterm</span>
+<span class="comment"># Try the demo</span>
+<span class="cmd">waveterm-demo</span>
                 </div>
             </div>
             <div class="quick-links">
@@ -1122,17 +1089,14 @@ waveterm-demo
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install facsimile<br>
-sudo dnf install facsimile
-
-# Start editing<br>
-fac myfile.txt
-
-# VSCode-style shortcuts included!<br>
-# Ctrl+S to save, Ctrl+C/V/X for clipboard
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install facsimile</span>
+<span class="cmd">sudo dnf install facsimile</span>
+<span class="comment"># Start editing</span>
+<span class="cmd">fac myfile.txt</span>
+<span class="comment"># VSCode-style shortcuts included!</span>
+<span class="comment"># Ctrl+S to save, Ctrl+C/V/X for clipboard</span>
                 </div>
             </div>
 
@@ -1178,16 +1142,13 @@ fac myfile.txt
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install fit<br>
-sudo dnf install fit
-
-# Use on any file with merge conflicts<br>
-fit myfile.txt
-
-# i=incoming, l=local, b=both, s=save
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install fit</span>
+<span class="cmd">sudo dnf install fit</span>
+<span class="comment"># Use on any file with merge conflicts</span>
+<span class="cmd">fit myfile.txt</span>
+<span class="comment"># i=incoming, l=local, b=both, s=save</span>
                 </div>
             </div>
 
@@ -1233,16 +1194,13 @@ fit myfile.txt
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install fortress<br>
-sudo dnf install fortress
-
-# Launch the file explorer<br>
-fortress
-
-# Arrow keys to navigate, Enter to open
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install fortress</span>
+<span class="cmd">sudo dnf install fortress</span>
+<span class="comment"># Launch the file explorer</span>
+<span class="cmd">fortress</span>
+<span class="comment"># Arrow keys to navigate, Enter to open</span>
                 </div>
             </div>
 
@@ -1288,17 +1246,14 @@ fortress
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install sniffert<br>
-sudo dnf install sniffert
-
-# Analyze current directory<br>
-sniffert
-
-# Or analyze a specific path<br>
-sniffert /home
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install sniffert</span>
+<span class="cmd">sudo dnf install sniffert</span>
+<span class="comment"># Analyze current directory</span>
+<span class="cmd">sniffert</span>
+<span class="comment"># Or analyze a specific path</span>
+<span class="cmd">sniffert /home</span>
                 </div>
             </div>
 
@@ -1310,9 +1265,9 @@ sniffert /home
         </div>
 
         <div class="repo-card">
-            <h2><a href="gump.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🌳</span>gump</a></h2>
+            <h2><a href="gump.html" style="color: inherit; text-decoration: none;"><span class="repo-icon">🦘</span>gump</a></h2>
             <p class="repo-description">
-                Git worktree manager with TUI interface. Easily create, switch, and manage git worktrees with an intuitive terminal interface that makes working with multiple branches simultaneously simple.
+                A smarter cd command - directory jumper using frecency. Type directory fragments, land where you meant. No command prefix required - just type the directory name and press Enter.
             </p>
 
             <div class="repo-stats">
@@ -1339,19 +1294,27 @@ sniffert /home
                     <span class="badge-icon">🎯</span>
                     RPM Available
                 </span>
+                <a href="https://aur.archlinux.org/packages/gump" target="_blank" class="badge badge-aur">
+                    <span class="badge-icon">🏛️</span>
+                    AUR Available
+                </a>
             </div>
 
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install gump<br>
-sudo dnf install gump
-
-# Launch the worktree manager<br>
-gump
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install gump</span>
+<span class="cmd">sudo dnf install gump</span>
+<span class="comment"># Add to shell (bash example)</span>
+<span class="cmd">echo 'eval "$(gump init bash)"' >> ~/.bashrc</span>
+<span class="cmd">source ~/.bashrc</span>
+<span class="comment"># Jump to directories by name</span>
+<span class="cmd">projects</span>
+<span class="comment"># jumps to ~/code/projects</span>
+<span class="cmd">conf fish</span>
+<span class="comment"># jumps to ~/.config/fish</span>
                 </div>
             </div>
 
@@ -1397,14 +1360,12 @@ gump
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install gar window manager<br>
-sudo dnf install gar
-
-# Start gar (add to .xinitrc)<br>
-exec gar
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install gar window manager</span>
+<span class="cmd">sudo dnf install gar</span>
+<span class="comment"># Start gar (add to .xinitrc)</span>
+<span class="cmd">exec gar</span>
                 </div>
             </div>
 
@@ -1450,14 +1411,12 @@ exec gar
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install garbar<br>
-sudo dnf install garbar
-
-# Launch the status bar<br>
-garbar
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install garbar</span>
+<span class="cmd">sudo dnf install garbar</span>
+<span class="comment"># Launch the status bar</span>
+<span class="cmd">garbar</span>
                 </div>
             </div>
 
@@ -1503,14 +1462,12 @@ garbar
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install garbg<br>
-sudo dnf install garbg
-
-# Set a wallpaper<br>
-garbg --image ~/wallpaper.png
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install garbg</span>
+<span class="cmd">sudo dnf install garbg</span>
+<span class="comment"># Set a wallpaper</span>
+<span class="cmd">garbg --image ~/wallpaper.png</span>
                 </div>
             </div>
 
@@ -1556,14 +1513,12 @@ garbg --image ~/wallpaper.png
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install garclip<br>
-sudo dnf install garclip
-
-# Start the clipboard daemon<br>
-garclip
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install garclip</span>
+<span class="cmd">sudo dnf install garclip</span>
+<span class="comment"># Start the clipboard daemon</span>
+<span class="cmd">garclip</span>
                 </div>
             </div>
 
@@ -1609,14 +1564,12 @@ garclip
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install gardm<br>
-sudo dnf install gardm
-
-# Enable the display manager<br>
-sudo systemctl enable gardm
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install gardm</span>
+<span class="cmd">sudo dnf install gardm</span>
+<span class="comment"># Enable the display manager</span>
+<span class="cmd">sudo systemctl enable gardm</span>
                 </div>
             </div>
 
@@ -1662,14 +1615,12 @@ sudo systemctl enable gardm
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install garfield<br>
-sudo dnf install garfield
-
-# Launch the file manager<br>
-garfield
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install garfield</span>
+<span class="cmd">sudo dnf install garfield</span>
+<span class="comment"># Launch the file manager</span>
+<span class="cmd">garfield</span>
                 </div>
             </div>
 
@@ -1715,14 +1666,12 @@ garfield
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install garlaunch<br>
-sudo dnf install garlaunch
-
-# Launch (bind to a hotkey)<br>
-garlaunch
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install garlaunch</span>
+<span class="cmd">sudo dnf install garlaunch</span>
+<span class="comment"># Launch (bind to a hotkey)</span>
+<span class="cmd">garlaunch</span>
                 </div>
             </div>
 
@@ -1768,14 +1717,12 @@ garlaunch
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install garlock<br>
-sudo dnf install garlock
-
-# Lock the screen<br>
-garlock
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install garlock</span>
+<span class="cmd">sudo dnf install garlock</span>
+<span class="comment"># Lock the screen</span>
+<span class="cmd">garlock</span>
                 </div>
             </div>
 
@@ -1821,14 +1768,12 @@ garlock
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install garnotify<br>
-sudo dnf install garnotify
-
-# Start the notification daemon<br>
-garnotify
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install garnotify</span>
+<span class="cmd">sudo dnf install garnotify</span>
+<span class="comment"># Start the notification daemon</span>
+<span class="cmd">garnotify</span>
                 </div>
             </div>
 
@@ -1874,14 +1819,12 @@ garnotify
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install garshot<br>
-sudo dnf install garshot
-
-# Take a screenshot<br>
-garshot
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install garshot</span>
+<span class="cmd">sudo dnf install garshot</span>
+<span class="comment"># Take a screenshot</span>
+<span class="cmd">garshot</span>
                 </div>
             </div>
 
@@ -1927,14 +1870,12 @@ garshot
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install garterm<br>
-sudo dnf install garterm
-
-# Launch terminal<br>
-garterm
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install garterm</span>
+<span class="cmd">sudo dnf install garterm</span>
+<span class="comment"># Launch terminal</span>
+<span class="cmd">garterm</span>
                 </div>
             </div>
 
@@ -1980,14 +1921,12 @@ garterm
             <div class="install-section">
                 <div class="install-title">🚀 Quick Install</div>
                 <div class="code-block">
-# Add repository<br>
-sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo
-
-# Install gartray<br>
-sudo dnf install gartray
-
-# Start the system tray<br>
-gartray
+<span class="comment"># Add repository</span>
+<span class="cmd">sudo dnf config-manager --add-repo https://repos.musicsian.com/musicsian.repo</span>
+<span class="comment"># Install gartray</span>
+<span class="cmd">sudo dnf install gartray</span>
+<span class="comment"># Start the system tray</span>
+<span class="cmd">gartray</span>
                 </div>
             </div>
 
